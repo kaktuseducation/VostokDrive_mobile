@@ -60,6 +60,25 @@ body{
     transform: translateX(50%);
 }
 
+#shadow_top{
+    position: fixed;
+    width: 100vw;
+    height: 25vh;
+    background: linear-gradient(180deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0));
+    z-index: 9;
+    pointer-events: none;
+}
+
+#shadow_bottom{
+    position: fixed;
+    bottom: 10vh;
+    width: 100vw;
+    height: 13vh;
+    background: linear-gradient(0deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0));
+    z-index: 9;
+    pointer-events: none;
+}
+
 @font-face {
   font-family: 'Vostok';
   src: url('fonts/VostokDrive.woff2') format('woff2'),
