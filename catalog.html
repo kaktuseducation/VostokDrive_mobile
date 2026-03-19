@@ -36,6 +36,9 @@
             <p>фильтры</p>
         </div>
 
+        <div id="shadow_top"></div>
+        <div id="shadow_bottom"></div>
+
 
         <div class = "desktop_header" style="z-index: 10;display: none;">
             <div class="extra half">
@@ -307,11 +310,8 @@
                 </div>
             </div>
         </div>
-        <div id="content"></div>
-        
-        <div class = "shadow"></div>
-        <div id = "shadow2"></div>
 
+        <div id="content"></div>
         <div id="navigation">
             <svg id="home" class="side" viewBox="0 0 125 132" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" overflow="hidden"
                 onclick="document.location.href = 'index.html'">
@@ -650,7 +650,7 @@
 
                         const photo_bg = document.createElement("div");
                         photo_bg.classList.add("content_photo_bg");
-                        photo_bg.style.backgroundImage = 'url(../media/' + FILTERED[j].image + '.png)';
+                        photo_bg.style.backgroundImage = 'url(media/' + FILTERED[j].image + '.png)';
                         photo.appendChild(photo_bg);
 
                         const like = document.createElement("button");
@@ -666,22 +666,19 @@
                             `;
 
                         const id = FILTERED[j].id;
-                        if (favorites.includes(id)) {
-                            like.classList.add("active");
-                        }
-                        like.addEventListener("click", (e) => {
-                            e.stopPropagation();
-                            if (like.classList.contains("active")) {
-                                like.classList.remove("active");
-                                favorites = favorites.filter(carId => carId !== id);
+                        
+                        const car_price = document.createElement("div");
+                        car_price.classList.add("content_price");
+                            const price = document.createElement("p");
+                            price.classList.add("price");
+                            price.textContent = FILTERED[j].price.toLocaleString('ru-RU');
+                            car_price.appendChild(price);
 
-                            } else {
-                                like.classList.add("active");
-                                favorites.push(id);
-                            }
-                            localStorage.setItem("favorites", JSON.stringify(favorites));
-                        });
-                        photo.appendChild(like);
+                            const rub = document.createElement("span");
+                            rub.classList.add("rub");
+                            rub.textContent = '₽';
+                            car_price.appendChild(rub);
+                        photo.appendChild(car_price);
                     item.appendChild(photo);
 
                     const name = document.createElement("div");
@@ -689,22 +686,11 @@
                     name.innerHTML = "<b>" + FILTERED[j].brand.toUpperCase() + "</b><br>" + FILTERED[j].name;
                     item.appendChild(name);
 
-                    const car_price = document.createElement("div");
-                    car_price.classList.add("content_price");
-                        const price = document.createElement("p");
-                        price.classList.add("price");
-                        price.textContent = FILTERED[j].price.toLocaleString('ru-RU');
-                        car_price.appendChild(price);
-
-                        const rub = document.createElement("span");
-                        rub.classList.add("rub");
-                        rub.textContent = '₽';
-                        car_price.appendChild(rub);
-                    item.appendChild(car_price);
+                    
 
                     const other = document.createElement("div");
                     other.classList.add("content_other");
-                    other.textContent = FILTERED[j].year + ' г    ' + FILTERED[j].distance.toLocaleString('ru-RU')+ ' км';
+                    other.textContent = FILTERED[j].year + ' г   ' + FILTERED[j].distance.toLocaleString('ru-RU')+ ' км';
                     item.appendChild(other);
 
                     item.addEventListener("click", () => {
