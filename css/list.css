@@ -1,22 +1,35 @@
 #content{
-    width: calc(100% - 100px);
     position: absolute;
-    min-height: 50vh;
+    width: 80vw;
+    min-height: 100vh;
     transition: opacity 0.6s ease;
-    padding-bottom: 60px;
+    padding-bottom: 13vh;
+}
+
+.content_row{
+    width: 80vw;
+    height: 54vw;
+    display: flex;
+    flex-direction: row;
+    gap: 4vw;
+    margin-bottom: 3vh;
 }
 
 .content_item{
-    width: 200px;
-    height: 100%;
+    width: 38vw;
+    height: 54vw;
     background-color: #152430;
-    border-radius: 25px;
+    border-radius: 3.5vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: all 0.6s ease;
 }
+
+
+
+
+
 
 .content_photo{
     position: relative;
