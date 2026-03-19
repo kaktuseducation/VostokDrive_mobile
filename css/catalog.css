@@ -1,3 +1,51 @@
+#header{
+    height: 16vh;
+    width: 108vw;
+    position: fixed;
+    z-index: 20;
+    background-color: #152430;
+    top: -8vh;
+    left: -8vw;
+    border-radius: 8vh;
+}
+
+#header p{
+    font-family: 'Vostok';
+    font-size: 2vh;
+    letter-spacing: 0.2vh;
+    position: absolute;
+    bottom: 0;
+    left: 32vw;
+    color: #9FA3A7;
+}
+
+#white_box{
+    position: absolute;
+    width: 28vw;
+    height: 8vh;
+    top: 8vh;
+    background-color: #9FA3A7;
+    border-radius: 8vh;
+}
+
+
+#white_box svg{
+    position: absolute;
+    left: 18vw;
+    top: 4vh;
+    transform: translateY(-50%);
+    height: 3vh;
+    width: auto;
+}
+
+
+#content{
+    margin-top: 14vh;
+}
+
+
+
+
 #focus{
     position: fixed;
     left: -50px;
@@ -326,15 +374,7 @@
     transition: color 0.8s ease; 
 }
 
-.content_row{
-    width: 100%;
-    height: 300px;
-    display: flex;
-    flex-direction: row;
-    
-    margin-top: 50px;
-    gap: 20px;
-}
+
 
 
 #year_buttons{
