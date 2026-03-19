@@ -19,7 +19,7 @@
     width: 38vw;
     height: 54vw;
     background-color: #152430;
-    border-radius: 3.5vh;
+    border-radius: 4vw;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -27,67 +27,71 @@
 }
 
 
-
-
-
-
 .content_photo{
     position: relative;
-    height: 160px;
+    height: 30vw;
     width: 100%;
-    border-radius: 25px;
-    transition: all 0.6s ease;
+    border-radius: 4vw;
+    overflow: hidden;
     opacity: 0.7;
 }
 
 .content_name{
-    height: 65px;
-    width: 180px;
+    width: calc(100% - 6vw);
     border-bottom: solid 1px #5E6266;
-    font-family: Calibri, sans-serif;
-    font-size: 20px;
+    font-family: Carlito;
+    font-size: 4vw;
     line-height: 1.1;
     letter-spacing: 1pt;
-    padding-top: 12px;
     box-sizing: border-box;
     color: #9FA3A7;
-    transition: all 0.6s ease;
+    padding-bottom: 2vw;
+    margin-top: 3vw;
+}
+
+
+.content_other{
+    font-family: Carlito;
+    font-size: 3.7vw;
+    line-height: 1.1;
+    letter-spacing: 0.2pt;
+    box-sizing: border-box;
+    color: #9FA3A7;
+    width: calc(100% - 6vw);
+    margin-top: 2vw;
+    white-space: pre;
 }
 
 .content_price{
-    width: 180px;
-    height: 35px;
+    position: absolute;
+    bottom: -5vw;
+    left: -5vw;
+    border-radius: 4vw;
+    width: 40vw;
+    height: 11vw;
     display: flex;
     flex-direction: row;
+    background-color: #152430;
+    z-index: 2;
 }
 
 .price{
     font-family: 'Vostok';
-    font-size: 14px;
-    letter-spacing: 1px;
+    font-size: 2.5vw;
     color: #EC526C;
-    margin-top: 12px;
+    margin-left: 8vw;
+    margin-top: 3vw;
 }
 
 .rub{
     color: #EC526C;
-    font-family: Calibri, sans-serif;
-    font-size: 21px;
+    font-family: Carlito;
+    font-size: 3.9vw;
     font-weight: bold;
-    margin-top: 6px;
-    margin-left: 6px;
+    margin-left: 2vw;
+    margin-top: 2vw;
 }
 
-.content_other{
-    width: 180px;
-    height: 22px;
-    color: #9FA3A7;
-    font-family: Calibri, sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    margin-top: 1px;
-    transition: all 0.6s ease;
-}
 
 .content_photo_bg{
     position: absolute;
@@ -95,84 +99,4 @@
     background-size: cover;
     background-position: center;
     transition: transform 0.6s ease;
-}
-
-.like{
-    position: absolute;
-    width: 33px;
-    height: 33px;
-    background-color: #152430;
-    border: none;
-    border-radius: 50%;
-    bottom: 10px;
-    right: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.6s ease;
-}
-
-.like path{
-    transition: all 0.3s ease;
-}
-
-.like:hover path{
-    fill: #EC526C;
-}
-
-.like.active path{
-    fill: #EC526C;
-    stroke: #EC526C;
-}
-
-.content_item:hover .like{
-    background-color: white;
-}
-
-.content_item:hover path{
-    stroke: #EC526C;
-}
-
-#content:has(.content_item:hover) .content_item{
-    opacity: 0.4;
-}
-
-#content:has(.content_item:hover) .content_item:hover{
-    opacity: 1;
-}
-
-.content_item:hover{
-    background-color: white;
-    opacity: 1;
-}
-
-.content_item:hover .content_name{
-    color: #5E6266;
-    border-bottom: solid 1px #9FA3A7;
-}
-
-
-.content_item:hover .content_other{
-    color: #9FA3A7;
-}
-
-.content_item:hover .content_photo{
-    opacity: 1;
-}
-
-.content_item:hover .content_photo_bg{
-    transform: scale(1.08);
-}
-
-#shadow2{
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 70px;
-    width: 100%;
-    background: linear-gradient(0deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0));
-    position: fixed;
-    z-index: 5;
-    pointer-events: none;
 }
