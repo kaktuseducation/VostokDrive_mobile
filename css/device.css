@@ -53,7 +53,7 @@ body{
     align-items: center;
 }
 
-#back svg{
+#back_svg{
     height: 3vh;
     width: auto;
     margin-left: 20vw;
