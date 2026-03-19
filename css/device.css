@@ -1,0 +1,63 @@
+body{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0F1A23;
+}
+
+#navigation{
+    width: 100vw;
+    height: 10vh;
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    background-color: #152430;
+    display: flex;
+    flex-direction: row;
+    gap: 17vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.side{
+    width: 9vw;
+    max-height: 6vh;
+}
+
+.active path{
+    stroke: #EC526C;
+    fill: #EC526C;
+}
+
+#catalog{
+    width: 14vw;
+    max-height: 8vh;
+}
+
+#back{
+    position: fixed;
+    width: 30vw;
+    left: -15vw;
+    height: 8vh;
+    background-color: #152430;
+    border: none;
+    border-radius: 15vh;
+}
+
+@font-face {
+  font-family: 'Vostok';
+  src: url('fonts/VostokDrive.woff2') format('woff2'),
+       url('fonts/VostokDrive.woff') format('woff'),
+       url('fonts/VostokDrive.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Carlito';
+  src: url('fonts/Carlito.woff2') format('woff2'),
+       url('fonts/Carlito.woff') format('woff'),
+       url('fonts/Carlito.otf') format('opentype');
+}

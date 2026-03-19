@@ -1,0 +1,165 @@
+#content{
+    width: calc(100% - 100px);
+    position: absolute;
+    min-height: 50vh;
+    transition: opacity 0.6s ease;
+    padding-bottom: 60px;
+}
+
+.content_item{
+    width: 200px;
+    height: 100%;
+    background-color: #152430;
+    border-radius: 25px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.6s ease;
+}
+
+.content_photo{
+    position: relative;
+    height: 160px;
+    width: 100%;
+    border-radius: 25px;
+    transition: all 0.6s ease;
+    opacity: 0.7;
+}
+
+.content_name{
+    height: 65px;
+    width: 180px;
+    border-bottom: solid 1px #5E6266;
+    font-family: Calibri, sans-serif;
+    font-size: 20px;
+    line-height: 1.1;
+    letter-spacing: 1pt;
+    padding-top: 12px;
+    box-sizing: border-box;
+    color: #9FA3A7;
+    transition: all 0.6s ease;
+}
+
+.content_price{
+    width: 180px;
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+}
+
+.price{
+    font-family: 'Vostok';
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #EC526C;
+    margin-top: 12px;
+}
+
+.rub{
+    color: #EC526C;
+    font-family: Calibri, sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    margin-top: 6px;
+    margin-left: 6px;
+}
+
+.content_other{
+    width: 180px;
+    height: 22px;
+    color: #9FA3A7;
+    font-family: Calibri, sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    margin-top: 1px;
+    transition: all 0.6s ease;
+}
+
+.content_photo_bg{
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease;
+}
+
+.like{
+    position: absolute;
+    width: 33px;
+    height: 33px;
+    background-color: #152430;
+    border: none;
+    border-radius: 50%;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.6s ease;
+}
+
+.like path{
+    transition: all 0.3s ease;
+}
+
+.like:hover path{
+    fill: #EC526C;
+}
+
+.like.active path{
+    fill: #EC526C;
+    stroke: #EC526C;
+}
+
+.content_item:hover .like{
+    background-color: white;
+}
+
+.content_item:hover path{
+    stroke: #EC526C;
+}
+
+#content:has(.content_item:hover) .content_item{
+    opacity: 0.4;
+}
+
+#content:has(.content_item:hover) .content_item:hover{
+    opacity: 1;
+}
+
+.content_item:hover{
+    background-color: white;
+    opacity: 1;
+}
+
+.content_item:hover .content_name{
+    color: #5E6266;
+    border-bottom: solid 1px #9FA3A7;
+}
+
+
+.content_item:hover .content_other{
+    color: #9FA3A7;
+}
+
+.content_item:hover .content_photo{
+    opacity: 1;
+}
+
+.content_item:hover .content_photo_bg{
+    transform: scale(1.08);
+}
+
+#shadow2{
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    background: linear-gradient(0deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0));
+    position: fixed;
+    z-index: 5;
+    pointer-events: none;
+}

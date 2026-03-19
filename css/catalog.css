@@ -1,0 +1,357 @@
+#focus{
+    position: fixed;
+    left: -50px;
+    background: linear-gradient(180deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0.4));
+    width: 100vw;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.8s ease, visibility 0.8s linear; 
+}
+
+#focus.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+#frame{
+    overflow: hidden;
+    position: absolute;
+    z-index: 50;
+    width: 100%;
+    height: 350px;
+    top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+}
+
+#frame.active {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+#filter_container{
+    width: 960px;
+    height: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.values{
+    height: 100%;
+    width: 40px;
+    overflow: hidden;
+    position: relative;
+}
+
+.in_values{
+    position: absolute;
+    width: 100%;
+    border-radius: 10px;
+    top: -10px;
+    background-color: white;
+    transition: transform 0.8s ease;
+    transform: translateY(-100%);
+    padding-top: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.button_space{
+    max-height: 280px;
+    overflow: hidden; 
+}
+
+#brend_buttons{
+    width: 110px;
+    max-height: 280px;
+}
+
+.scroll{
+    width: 2px;
+    border-left: solid 1px #E5E6E7; 
+    position: relative;
+}
+
+.scroll_value{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: #9FA3A7;
+    height: 20px;
+    min-height: 20px;
+    cursor: grab;
+}
+
+#brend_value{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.fitler_button{
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: "Calibri";
+    font-weight: 400;
+    margin-bottom: 5px;
+    background: transparent;
+    font-size: 17px;
+    padding-left: 0;
+    box-sizing: border-box;
+    color: #9FA3A7;
+    transition: color 0.8s ease; 
+  
+}
+
+.fitler_button:hover{
+    color: #EC526C;
+    font-weight: 600;
+}
+
+.fitler_button.clicked{
+    color: #EC526C;
+    font-weight: 600;
+}
+
+.unrolled{
+    transform: translateY(0);
+}
+
+.values p{
+    margin: 0;
+    padding: 0;
+    font-family: "Calibri";
+    font-weight: 400;
+    color: #9FA3A7;
+    font-size: 17px;
+    flex-shrink: 0;
+}
+
+.bound{
+    width: 15px;
+    text-align: left;
+}
+
+.arange{
+    width: 100%;
+    height: 66px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.input_line{
+    width: 100%;
+    height: 28px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    user-select: none;
+}
+
+.input_wrap{
+    position: relative;
+    width: 70px;
+    margin-left: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1;
+}
+
+.input_wrap input{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 25px;
+    border: solid 2px #E5E6E7;
+    font-family: "Calibri";
+    font-weight: 500;
+    color: #9FA3A7;
+    font-size: 17px;
+    user-select: text;
+    outline: none;
+}
+
+.input_wrap p{
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+    z-index: 2;
+}
+
+.input_wrap input:focus {
+    border: solid 2px #9FA3A7;
+    font-weight: 600;
+    color: #EC526C;
+}
+
+#color_space{
+    width: 100%;
+    max-height: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.color{
+    height: 18px;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    opacity: 0.5; 
+    transition: all 0.8s ease;
+}
+
+.color svg{
+    height: 15px;
+    width: auto;
+    transition: all 0.2s ease;
+}
+
+
+.color:hover,
+.color.active {
+    opacity: 1;
+}
+
+
+.color:hover svg,
+.color.active svg {
+    height: 18px;
+}
+
+#type_space{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.type_button{
+    width: 100%;
+    height: 25px;
+    border: none;
+    color: #9FA3A7;
+    font-family: "Calibri";
+    font-weight: 400;
+    font-size: 17px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    background-color: transparent;
+    transition: color 0.8s ease; 
+}
+
+.type_content{
+    width: 100%;
+    height: 25px;
+    border: none;
+    color: #9FA3A7;
+    font-family: "Calibri";
+    font-weight: 400;
+    font-size: 17px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+    background-color: transparent;
+    transition: color 0.8s ease; 
+}
+
+.type_button:hover{
+    color: #EC526C;
+    font-weight: 600;
+}
+
+.type_button:hover path{
+    fill: #EC526C;
+}
+
+.type_button.clicked{
+    color: #EC526C;
+    font-weight: 600;
+}
+
+.type_button.clicked path{
+    fill: #EC526C;
+}
+
+.for_svg{
+    height: 100%;
+    width: 45px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.type_button svg{
+    max-height: 20px;
+    max-width: 45px;
+}
+
+.type_button path{
+    transition: color 0.8s ease; 
+}
+
+.content_row{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    
+    margin-top: 50px;
+    gap: 20px;
+}
+
+
+#year_buttons{
+    width: 60px;
+    max-height: 280px;
+}
+
+#year_scroll{
+    width: 2px;
+    border-left: solid 1px #E5E6E7; 
+    position: relative;
+    
+}
+
+#year_value{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

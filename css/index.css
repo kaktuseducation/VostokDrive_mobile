@@ -1,0 +1,86 @@
+#main_panel{
+    position: fixed;
+    bottom: 68vh;
+    height: 43vh;
+    width: 100%;
+    border-radius: 8vw;
+    background-color: white;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+#logo{
+    width: 72vw;
+    height: auto;
+    margin-bottom: 2vh;
+}
+
+#social_main{
+    margin-top: 10vh;
+    width: 80vw;
+    height: 10vh;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 7vw;
+    align-items: center;
+    justify-content: center;
+    border-bottom: solid 3px #9FA3A7;
+    box-sizing: border-box;
+}
+
+#social_main svg {
+    height: 5vh;
+    max-width: 10vw;
+}
+
+
+#description{
+    position: fixed;
+    bottom: 52vh;
+    width: 80vw;
+    height: auto;
+    text-align: center;
+    font-family: Carlito;
+    font-size: 5vw;
+    letter-spacing: 6pt;
+    color: #9FA3A7;
+}
+
+#manage_buttons{
+    width: 80vw;
+    height: 18vh;
+    position: fixed;
+    top: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#manage_buttons button{
+    width: 100%;
+    height: 7vh;
+    font-family: Carlito;
+    font-size: 5vw;
+    font-weight: 700;
+    letter-spacing: 3pt;
+    border-radius: 8vw; 
+    border: none; 
+}
+
+
+#go{
+    color: white;
+    background-color: #EC526C;  
+}
+
+
+#about{
+    color: #9FA3A7;
+    background-color: #152430;
+}
