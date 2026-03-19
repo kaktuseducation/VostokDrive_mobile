@@ -50,7 +50,7 @@ body{
 
 @font-face {
   font-family: 'Vostok';
-  src: url('VostokDrive.woff2') format('woff2'),
-       url('VostokDrive.woff') format('woff'),
-       url('VostokDrive.otf') format('opentype');
+  src: url('/fonts/VostokDrive.woff2') format('woff2'),
+       url('/fonts/VostokDrive.woff') format('woff');
+  font-display: swap;
 }
