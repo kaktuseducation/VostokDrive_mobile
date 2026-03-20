@@ -1,12 +1,12 @@
 #header{
-    height: 16vh;
+    height: 12vh;
     width: 108vw;
     position: fixed;
     z-index: 10;
     background-color: #152430;
-    top: -8vh;
+    top: -6vh;
     left: -8vw;
-    border-radius: 8vh;
+    border-radius: 10vw;
 }
 
 #header p{
@@ -15,7 +15,7 @@
     letter-spacing: 0.2vh;
     position: absolute;
     margin: 0;
-    bottom: 4vh;
+    bottom: 3vh;
     transform: translateY(50%);
     left: 32vw;
     color: #9FA3A7;
@@ -24,8 +24,8 @@
 #white_box{
     position: absolute;
     width: 28vw;
-    height: 8vh;
-    top: 8vh;
+    height: 6vh;
+    top: 6vh;
     background-color: #9FA3A7;
     border-radius: 8vh;
 }
@@ -34,7 +34,7 @@
 #white_box svg{
     position: absolute;
     left: 18vw;
-    top: 4vh;
+    top: 3vh;
     transform: translateY(-50%);
     height: 3vh;
     width: auto;
@@ -42,9 +42,265 @@
 
 
 #content{
-    margin-top: 14vh;
+    margin-top: 12vh;
 }
 
+#shadow_top{
+    top: 6vh;
+}
+
+#filter_panel{
+    width: 150vw;
+    height: 90vh;
+    position: fixed;
+    z-index: 30;
+    left: -150vw;
+    top: 0;
+    transition: all 1s ease;
+}
+
+#filter_box{
+    width: 100vw;
+    height: 90vh;
+    background-color: white;
+    border-radius: 6vw;
+    padding-left: 30vw;
+    padding-top: 6vh;
+    padding-bottom: 6vh;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+}
+
+#filter_shadow{
+    width: 60vw;
+    height: 90vh;
+    position: absolute;
+    right: 0;
+    background: linear-gradient(90deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0));
+}
+
+#filter_content{
+    width: 65vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#multi_filter{
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    flex-direction: row;
+}
+
+#left_box{
+    height: 100%;
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#distance_box{
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#distance_box p{
+    color: #9FA3A7;
+    font-family: Carlito;
+    font-size: 4vw;
+    letter-spacing: 0.5pt;
+    margin: 0;
+    
+}
+
+
+
+.input_line{
+    position: relative;
+    width: calc(100% - 5vw);
+    height: 4.5vh;
+    user-select: none;
+    padding-right: 2vw;
+    box-sizing: border-box;
+}
+
+#suffix,
+#prefix {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#prefix{
+    left: 4vw;
+}
+
+#suffix{
+    right: 4vw;
+}
+
+#distance_to{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    box-sizing: border-box;
+    text-align: center;
+    color: #5E6266;
+    font-family: Carlito;
+    font-size: 4vw;
+    letter-spacing: 0.5pt;
+    font-weight: 600;
+    border: solid 1px #9FA3A7;
+    border-radius: 4vh;
+}
+
+#distance_to:focus {
+    border: solid 2px #9FA3A7;
+    color: #EC526C;
+}
+
+#type_box{
+    width: 45vw;
+    height: calc(100% - 8vh);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 3vw;
+    padding-top: 5vw;
+    box-sizing: border-box;
+    transform: translateY(1vw);
+}
+
+.type_button{
+    width: 100%;
+    height: 5vh;
+    border: none;
+    color: #9FA3A7;
+    font-family: Carlito;
+    font-size: 4vw;
+    letter-spacing: 0.5pt;
+    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    background-color: transparent;
+    transition: color 0.8s ease; 
+}
+
+.type_button.clicked{
+    color: #EC526C;
+    font-weight: 600;
+}
+
+.type_button.clicked path{
+    fill: #EC526C;
+}
+
+.for_svg{
+    height: 100%;
+    width: 12vw;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 2vw;
+}
+
+.type_button svg{
+    max-height: 5vh;
+    max-width: 12vw;
+}
+
+.type_button path{
+    transition: color 0.8s ease; 
+}
+
+#color_box{
+    height: 100%;
+    width: 20vw;
+    border-left: solid 1px #9FA3A7;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.color{
+    height: 5.7vw;;
+    width: 100%;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    text-align: left;
+    opacity: 1;
+}
+
+.color svg{
+    height: 5.7vw;
+    width: auto;
+    margin-left: 3vw;
+    transition: all 0.2s ease;
+}
+
+
+.color.disactive {
+    opacity: 0.5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#brand_box{
+    width: 100%;
+    height: 6vh;
+    background-color: red;
+}
+
+#year_box{
+    width: 100%;
+    height: 10vh;
+    background-color: purple;
+}
+
+#price_box{
+    width: 100%;
+    height: 6vh;
+    background-color: red;
+}
+
+#apply{
+    width: 100%;
+    height: 5vh;
+    font-family: Carlito;
+    font-size: 5vw;
+    letter-spacing: 1pt;
+    border-radius: 8vw; 
+    border: none; 
+    color: white;
+    background-color: #EC526C; 
+    margin-top: 2vh;
+}
 
 
 
@@ -190,71 +446,7 @@
     flex-shrink: 0;
 }
 
-.bound{
-    width: 15px;
-    text-align: left;
-}
 
-.arange{
-    width: 100%;
-    height: 66px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.input_line{
-    width: 100%;
-    height: 28px;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    user-select: none;
-}
-
-.input_wrap{
-    position: relative;
-    width: 70px;
-    margin-left: 10px;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex: 1;
-}
-
-.input_wrap input{
-    position: absolute;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-    height: 100%;
-    box-sizing: border-box;
-    background-color: white;
-    border-radius: 10px;
-    padding-left: 10px;
-    padding-right: 25px;
-    border: solid 2px #E5E6E7;
-    font-family: "Calibri";
-    font-weight: 500;
-    color: #9FA3A7;
-    font-size: 17px;
-    user-select: text;
-    outline: none;
-}
-
-.input_wrap p{
-    position: absolute;
-    right: 0;
-    margin-right: 10px;
-    z-index: 2;
-}
-
-.input_wrap input:focus {
-    border: solid 2px #9FA3A7;
-    font-weight: 600;
-    color: #EC526C;
-}
 
 #color_space{
     width: 100%;
@@ -264,32 +456,7 @@
     gap: 10px;
 }
 
-.color{
-    height: 18px;
-    width: 100%;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    opacity: 0.5; 
-    transition: all 0.8s ease;
-}
 
-.color svg{
-    height: 15px;
-    width: auto;
-    transition: all 0.2s ease;
-}
-
-
-.color:hover,
-.color.active {
-    opacity: 1;
-}
 
 
 .color:hover svg,
@@ -305,76 +472,7 @@
     justify-content: space-between;
 }
 
-.type_button{
-    width: 100%;
-    height: 25px;
-    border: none;
-    color: #9FA3A7;
-    font-family: "Calibri";
-    font-weight: 400;
-    font-size: 17px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0;
-    background-color: transparent;
-    transition: color 0.8s ease; 
-}
 
-.type_content{
-    width: 100%;
-    height: 25px;
-    border: none;
-    color: #9FA3A7;
-    font-family: "Calibri";
-    font-weight: 400;
-    font-size: 17px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding-left: 15px;
-    padding-right: 15px;
-    box-sizing: border-box;
-    background-color: transparent;
-    transition: color 0.8s ease; 
-}
-
-.type_button:hover{
-    color: #EC526C;
-    font-weight: 600;
-}
-
-.type_button:hover path{
-    fill: #EC526C;
-}
-
-.type_button.clicked{
-    color: #EC526C;
-    font-weight: 600;
-}
-
-.type_button.clicked path{
-    fill: #EC526C;
-}
-
-.for_svg{
-    height: 100%;
-    width: 45px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-right: 10px;
-}
-
-.type_button svg{
-    max-height: 20px;
-    max-width: 45px;
-}
-
-.type_button path{
-    transition: color 0.8s ease; 
-}
 
 
 
