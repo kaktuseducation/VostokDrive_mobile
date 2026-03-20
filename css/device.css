@@ -42,7 +42,7 @@ body{
     position: fixed;
     width: 40vw;
     left: -20vw;
-    height: 8vh;
+    height: 6vh;
     background-color: #152430;
     border: none;
     border-radius: 15vh;
@@ -63,7 +63,7 @@ body{
 #shadow_top{
     position: fixed;
     width: 100vw;
-    height: 25vh;
+    height: 13vh;
     background: linear-gradient(180deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0));
     z-index: 9;
     pointer-events: none;
