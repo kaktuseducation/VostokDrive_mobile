@@ -261,24 +261,61 @@
     opacity: 0.5;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 #brand_box{
     width: 100%;
     height: 6vh;
-    background-color: red;
+    overflow: hidden;
+    position: relative;
 }
+
+#scroll_box{
+    height: 0.7vw;
+    width: 100%;
+    border-top: solid 1px #9FA3A7;
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+#scroll_value{
+    height: 0.5vw;
+    background-color: #8C8C8C;
+    width: 5vw;
+    transition: transform 0.05s linear;
+}
+
+#slider_box{
+    position: absolute;
+    bottom: 0.7vw;
+    top: 3vw;
+    overflow: hidden;
+    width: 100%;
+}
+
+#slider{
+    position: absolute;
+    transform: translateX(0);
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    will-change: transform;
+}
+
+#slider button{
+    padding-left: 2vw;
+    padding-right: 2vw;
+    box-sizing: border-box;
+    color: #5E6266;
+    font-family: Carlito;
+    font-size: 4vw;
+    letter-spacing: 0.5pt;
+    font-weight: 600;
+    background-color: white;
+    border: none;
+}
+
+
+
 
 #year_box{
     width: 100%;
