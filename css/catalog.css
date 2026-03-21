@@ -51,10 +51,10 @@
 
 #filter_panel{
     width: 150vw;
-    height: 90vh;
     position: fixed;
     z-index: 30;
     left: -150vw;
+    top: 0;
     bottom: 10vh;
     transition: all 1s ease;
 }
