@@ -75,7 +75,7 @@
 
 #filter_shadow{
     width: 60vw;
-    height: 90vh;
+    height: 90svh;
     position: absolute;
     right: 0;
     background: linear-gradient(90deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0));
