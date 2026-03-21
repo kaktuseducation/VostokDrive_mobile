@@ -61,7 +61,7 @@
 
 #filter_box{
     width: 100vw;
-    height: 86vh;
+    height: 84vh;
     background-color: white;
     border-radius: 6vw;
     padding-left: 30vw;
@@ -75,7 +75,7 @@
 
 #filter_shadow{
     width: 60vw;
-    height: 90vh;
+    height: 84vh;
     position: absolute;
     right: 0;
     background: linear-gradient(90deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0));
