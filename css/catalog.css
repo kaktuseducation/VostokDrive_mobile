@@ -55,14 +55,13 @@
     z-index: 30;
     left: -150vw;
     height: 90vh;
-    top: 0;
-    height: 90svh;
+    bottom: 10vh;
     transition: all 1s ease;
 }
 
 #filter_box{
     width: 100vw;
-    height: 90dvh;
+    height: 86vh;
     background-color: white;
     border-radius: 6vw;
     padding-left: 30vw;
@@ -70,12 +69,13 @@
     padding-bottom: 6vh;
     box-sizing: border-box;
     position: absolute;
+    bottom: 0;
     left: 0;
 }
 
 #filter_shadow{
     width: 60vw;
-    height: 90svh;
+    height: 90vh;
     position: absolute;
     right: 0;
     background: linear-gradient(90deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0));
