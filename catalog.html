@@ -58,7 +58,7 @@
                             <div id="type_box">
                                 <button class="type_button" data-type="легковые">
                                     <div class="for_svg">
-                                        <svg viewBox="-10 -10 220 90" xmlns="http://www.w3.org/2000/svg">
+                                        <svg viewBox="0 0 196 71" xmlns="http://www.w3.org/2000/svg">
                                             <g fill="#9FA3A7" fill-rule="evenodd">
                                                 <path d="M27.116 55.578C27.116 47.293 33.607 40.578 41.616 40.578 49.625 40.578 56.116 47.293 56.116 
                                                 55.578 56.116 63.863 49.625 70.578 41.616 70.578 33.607 70.578 27.116 63.863 27.116 55.578Z"/>
@@ -265,7 +265,22 @@
                             </button>
                         </div>
                     </div>
-                    <div id="brand_box"></div>
+                    <div id="brand_box">
+                        <div id="slider_box">
+                            <div id="slider">
+                                <button>BMW</button>
+                                <button>Toyota</button>
+                                <button>Haval</button>
+                                <button>Mercedes</button>
+                                <button>BMW</button>
+                            </div>
+                            
+                        </div>
+                        <div id="white_shadow"></div>
+                        <div id="scroll_box">
+                            <div id="scroll_value"></div>
+                        </div>
+                    </div>
                     <div id="year_box"></div>
                     <div id="price_box"></div>
                     <button id="apply" onclick="apply_filter()">применить</button>
@@ -496,6 +511,61 @@
         function apply_filter(){
             closeFilter();
         }
+
+        const slider = document.getElementById('slider');
+        const scrollValue = document.getElementById('scroll_value');
+        const box = document.getElementById('slider_box');
+
+        let currentX = 0;
+
+        function update() {
+            const contentWidth = slider.scrollWidth;
+            const visibleWidth = box.clientWidth;
+
+            const maxScroll = contentWidth - visibleWidth;
+
+            // ограничение
+            if (currentX > 0) currentX = 0;
+            if (currentX < -maxScroll) currentX = -maxScroll;
+
+            // двигаем слайдер
+            slider.style.transform = `translateX(${currentX}px)`;
+
+            // === скролл бар ===
+            const ratio = visibleWidth / contentWidth;
+            const thumbWidth = ratio * visibleWidth;
+
+            scrollValue.style.width = thumbWidth + 'px';
+
+            const maxMove = visibleWidth - thumbWidth;
+            const move = (-currentX / maxScroll) * maxMove;
+
+            scrollValue.style.transform = `translateX(${move}px)`;
+        }
+
+        let startX = 0;
+        let isDown = false;
+
+        box.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startX = e.touches[0].clientX;
+        });
+
+        box.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+
+            const x = e.touches[0].clientX;
+            const dx = x - startX;
+
+            startX = x;
+            currentX += dx;
+
+            update();
+        });
+
+        box.addEventListener('touchend', () => {
+            isDown = false;
+        });
 
 
 
