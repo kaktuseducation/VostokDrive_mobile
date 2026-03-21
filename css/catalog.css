@@ -55,7 +55,7 @@
     position: fixed;
     z-index: 30;
     left: -150vw;
-    top: 0;
+    bottom: 10vh;
     transition: all 1s ease;
 }
 
@@ -166,6 +166,7 @@
 #distance_to:focus {
     border: solid 2px #9FA3A7;
     color: #EC526C;
+    outline: none;
 }
 
 #type_box{
