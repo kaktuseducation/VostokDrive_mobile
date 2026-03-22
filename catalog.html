@@ -411,20 +411,16 @@
             filter.style.left = "-20vw";
             lockScroll();
         }
-
         function closeFilter() {
             filter.style.left = "-150vw";
             unlockScroll();
         }
-
-        let isOpen = false;
         function toggleFilter() {
-            if (isOpen) {
+            if (filter.style.left === "-20vw") {
                 closeFilter();
             } else {
                 openFilter();
             }
-            isOpen = !isOpen;
         }
 
         let scrollY = 0;
