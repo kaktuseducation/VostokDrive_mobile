@@ -88,7 +88,7 @@
                                 </button>
                                 <button class="type_button" data-type="спортивные">
                                     <div class="for_svg">
-                                        <svg viewBox="0 0 190 55" xmlns="http://www.w3.org/2000/svg">
+                                        <svg viewBox="0 0 190 55" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                                             <g fill="#9FA3A7" fill-rule="evenodd">
                                                 <path d="M59.578 20.538 57.105 20.599C57.099 20.663 57.094 20.728 57.088 20.792L58.942 20.792 59.578 
                                                 20.538ZM79.601 4.843C64.736 4.775 53.629 9.214 50.511 10.186 67.738 19.578 96.149 17.132 119.117 16.936 
@@ -116,7 +116,7 @@
                                 </button>
                                 <button class="type_button" data-type="внедорожники">
                                     <div class="for_svg">
-                                        <svg viewBox="0 0 173 66" xmlns="http://www.w3.org/2000/svg">
+                                        <svg viewBox="0 0 173 66" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                                             <g fill="#9FA3A7" fill-rule="evenodd">
                                                 <path d="M21.943 51.413C21.943 43.405 28.659 36.913 36.943 36.913 45.228 36.913 51.943 43.405 51.943 51.413 
                                                 51.943 59.421 45.228 65.913 36.943 65.913 28.659 65.913 21.943 59.421 21.943 51.413Z"/>
@@ -147,7 +147,7 @@
                                 </button>
                                 <button class="type_button" data-type="пикапы">
                                     <div class="for_svg">
-                                        <svg viewBox="0 0 188 70" xmlns="http://www.w3.org/2000/svg">
+                                        <svg viewBox="0 0 188 70" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                                             <g fill="#9FA3A7" fill-rule="evenodd">
                                                 <path d="M103.84 7.45 103.705 21.61 118.204 21.61 118.204 21.87 138.095 21.87C134.518 18 125.194 9.99 119.6 7.59 
                                                 114.418 7.29 107.632 7.57 103.84 7.45ZM75.912 0.535 117.872 0.67C127.37 3.597 136.086 11.13 144.9 18.09L147.346 
@@ -171,7 +171,7 @@
                                 </button>
                                 <button class="type_button" data-type="минивены">
                                     <div class="for_svg">
-                                        <svg viewBox="0 0 190 75" xmlns="http://www.w3.org/2000/svg">
+                                        <svg viewBox="0 0 190 75" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                                             <g fill="#9FA3A7" fill-rule="evenodd">
                                                 <path d="M47.895 7.29 23.19 7.31C17.111 9.27 16.617 17.02 14.73 21.88 16.293 24.32 16.464 23.9 17.262 
                                                 24.58L47.895 25ZM89.272 7.27 53.948 7.29 53.948 25.08 89.272 25.57ZM111.377 7.25 95.327 7.26 95.327 
@@ -409,12 +409,12 @@
 
         function openFilter() {
             filter.style.left = "-20vw";
-            document.body.style.overflow = "hidden";
+            lockScroll();
         }
 
         function closeFilter() {
             filter.style.left = "-150vw";
-            document.body.style.overflow = "";
+            unlockScroll();
         }
 
         let isOpen = false;
@@ -425,6 +425,24 @@
                 openFilter();
             }
             isOpen = !isOpen;
+        }
+
+        let scrollY = 0;
+        function lockScroll() {
+            scrollY = window.scrollY;
+            document.body.style.position = "fixed";
+            document.body.style.top = `-${scrollY}px`;
+            document.body.style.left = "0";
+            document.body.style.right = "0";
+            document.body.style.width = "100%";
+        }
+        function unlockScroll() {
+            document.body.style.position = "";
+            document.body.style.top = "";
+            document.body.style.left = "";
+            document.body.style.right = "";
+            document.body.style.width = "";
+            window.scrollTo(0, scrollY);
         }
 
         function apply_filter(){
