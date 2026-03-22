@@ -46,11 +46,11 @@
                     <div id="multi_filter">
                         <div id="left_box">
                             <div id="distance_box">
-                                <p style="font-weight: 600;">пробег</p>
+                                <p class="label" style="font-weight: 600;">пробег</p>
                                 <div class="input_line">
-                                    <p id="prefix">до</p>
+                                    <p id="prefix" class="label">до</p>
                                     <input id="distance_to" maxlength="7" data-format="number">
-                                    <p id="suffix">км</p>
+                                    <p id="suffix" class="label">км</p>
                                 </div>
                             </div>
 
@@ -281,126 +281,33 @@
                             <div id="scroll_value"></div>
                         </div>
                     </div>
-                    <div id="year_box"></div>
-                    <div id="price_box"></div>
+                    <div id="year_box">
+                        <p class="label" style="font-weight: 600;">год выпуска</p>
+                        <div id="axis_wrap">
+                            <div id="axis">
+                                <div id="value_left" class="value">
+                                    <div id="circle_left" class="circle"></div>
+                                    <p id="year_from" class="year_value"></p>
+                                </div>
+                                <div id="value_right" class="value">
+                                    <div id="circle_right" class="circle"></div>
+                                    <p id="year_to" class="year_value"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="price_box">
+                        <div class="input_wrap">
+                            <p class="rub">₽</p>
+                            <input id="price_from" maxlength="10" data-format="number">
+                        </div>
+                        <p>—</p>
+                        <div class="input_wrap">
+                            <p class="rub label">₽</p>
+                            <input id="price_to" maxlength="10" data-format="number">
+                        </div>
+                    </div>
                     <button id="apply" onclick="apply_filter()">применить</button>
-                </div>
-            </div>
-        </div>
-
-
-        <div class = "desktop_header" style="z-index: 0;display: none;">
-            <div class="extra half">
-                <div id="line"> </div>
-                <div id="overline">
-                    <div id="overline_content">
-                        <button id="type" class="item"
-                                style="flex-direction: column;   align-items: center;">
-                            категория авто
-                            <svg class="down" viewBox="0 0 55 47" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 0 55 0 27.5 47Z" fill="#0F1A23"/>
-                            </svg>
-                        </button>
-
-                        <button id="brend" class="item"
-                                style="flex-direction: column;   align-items: center;">
-                            марка
-                            <svg class="down" viewBox="0 0 55 47" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 0 55 0 27.5 47Z" fill="#0F1A23"/>
-                            </svg>
-                        </button>
-
-                        <button id="year" class="item"
-                                style="flex-direction: column;   align-items: center;">
-                            год
-                            <svg class="down" viewBox="0 0 55 47" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 0 55 0 27.5 47Z" fill="#0F1A23"/>
-                            </svg>
-                        </button>
-
-                        <button id="price" class="item"
-                                style="flex-direction: column;   align-items: center;">
-                            цена
-                            <svg class="down" viewBox="0 0 55 47" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 0 55 0 27.5 47Z" fill="#0F1A23"/>
-                            </svg>
-                        </button>
-
-                        <button id="distance" class="item"
-                                style="flex-direction: column;   align-items: center;">
-                            пробег
-                            <svg class="down" viewBox="0 0 55 47" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 0 55 0 27.5 47Z" fill="#0F1A23"/>
-                            </svg>
-                        </button>
-
-                        <button id="color" class="item"
-                                style="flex-direction: column;   align-items: center;">
-                            цвет
-                            <svg class="down" viewBox="0 0 55 47" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 0 55 0 27.5 47Z" fill="#0F1A23"/>
-                            </svg>
-                        </button>
-
-                    </div>
-                </div>
-                
-                <div id="frame">
-                    <div id="filter_container">
-                        <div class="values">
-                            <div id="type_value" class="in_values" style="height: 230px;">
-                                <div id="type_space">
-                                    
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="values"">
-                            <div id="brend_value" class="in_values">
-                                <div class="button_space" id="brand_space">
-                                    <div id="brend_buttons"></div>
-                                </div>
-                                <div id="brend_scroll" class="scroll">
-                                    <div id="brand_scroll_value" class="scroll_value"></div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="values">
-                            <div id="year_value" class="in_values">
-                                <div class="button_space" id="year_space">
-                                    <div id="year_buttons"></div>
-                                </div>
-                                <div id="year_scroll" class="scroll">
-                                    <div id="year_scroll_value" class="scroll_value"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="values">
-                            <div id="price_value" class="in_values" style="height: 70px;">
-                                <div class="arange">
-                                    <div class="input_line">
-                                        <p class="bound">до</p>
-                                        <div class="input_wrap">
-                                            <input id="price_to" maxlength="10" data-format="number">
-                                            <p>₽</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="values">
-                            <div id="distance_value" class="in_values" style="height: 70px;">
-                                <div class="arange">
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -496,7 +403,6 @@
     </body>
     
     <script src="js/social.js"></script>
-    <script src="js/filter_scroll.js"></script>
     <script src="js/cars.js"></script>
     <script>
         const filter = document.getElementById("filter_panel");
@@ -515,23 +421,17 @@
         const slider = document.getElementById('slider');
         const scrollValue = document.getElementById('scroll_value');
         const box = document.getElementById('slider_box');
-
         let currentX = 0;
 
-        function update() {
+        function updateScroll() {
             const contentWidth = slider.scrollWidth;
             const visibleWidth = box.clientWidth;
 
             const maxScroll = contentWidth - visibleWidth;
-
-            // ограничение
             if (currentX > 0) currentX = 0;
             if (currentX < -maxScroll) currentX = -maxScroll;
-
-            // двигаем слайдер
             slider.style.transform = `translateX(${currentX}px)`;
 
-            // === скролл бар ===
             const ratio = visibleWidth / contentWidth;
             const thumbWidth = ratio * visibleWidth;
 
@@ -539,34 +439,103 @@
 
             const maxMove = visibleWidth - thumbWidth;
             const move = (-currentX / maxScroll) * maxMove;
-
             scrollValue.style.transform = `translateX(${move}px)`;
         }
-
         let startX = 0;
         let isDown = false;
-
         box.addEventListener('touchstart', (e) => {
             isDown = true;
             startX = e.touches[0].clientX;
         });
-
         box.addEventListener('touchmove', (e) => {
             if (!isDown) return;
-
             const x = e.touches[0].clientX;
             const dx = x - startX;
-
             startX = x;
             currentX += dx;
-
-            update();
+            updateScroll();
         });
-
         box.addEventListener('touchend', () => {
             isDown = false;
         });
+        updateScroll();
 
+
+        const MIN_YEAR = 2000;
+        const MAX_YEAR = 2025;
+        // x → год
+        function xToValue(x, width) {
+            return Math.round(MIN_YEAR + (x / width) * (MAX_YEAR - MIN_YEAR));
+        }
+
+        // год → x
+        function valueToX(value, width) {
+            return ((value - MIN_YEAR) / (MAX_YEAR - MIN_YEAR)) * width;
+        }
+
+        const axis = document.getElementById("axis");
+        const left = document.getElementById("value_left");
+        const right = document.getElementById("value_right");
+        const circleLeft = document.getElementById("circle_left");
+        const circleRight = document.getElementById("circle_right");
+        const yearFrom = document.getElementById("year_from");
+        const yearTo = document.getElementById("year_to");
+        let active = null;
+        function getX(e) {
+            return e.touches ? e.touches[0].clientX : e.clientX;
+        }
+        function startDrag(target) {
+            active = target;
+        }
+        function stopDrag() {
+            active = null;
+        }
+        function getCenter(container, circle) {
+            return container.offsetLeft + circle.offsetLeft + circle.offsetWidth / 2;
+        }
+        function setCenter(container, circle, x) {
+            const offset = circle.offsetLeft + circle.offsetWidth / 2;
+            container.style.left = (x - offset) + "px";
+        }
+        function onMove(e) {
+            if (!active) return;
+            const rect = axis.getBoundingClientRect();
+            let x = getX(e) - rect.left;
+            x = Math.max(0, Math.min(x, rect.width));
+            const leftCenter = getCenter(left, circleLeft);
+            const rightCenter = getCenter(right, circleRight);
+            const minGap = circleLeft.offsetWidth;
+            if (active === left) {
+                x = Math.min(x, rightCenter - minGap);
+                setCenter(left, circleLeft, x);
+                yearFrom.textContent = xToValue(x, rect.width);
+            }
+            if (active === right) {
+                x = Math.max(x, leftCenter + minGap);
+                setCenter(right, circleRight, x);
+                yearTo.textContent = xToValue(x, rect.width);
+            }
+        }
+
+        left.addEventListener("mousedown", () => startDrag(left));
+        right.addEventListener("mousedown", () => startDrag(right));
+        document.addEventListener("mousemove", onMove);
+        document.addEventListener("mouseup", stopDrag);
+        left.addEventListener("touchstart", () => startDrag(left));
+        right.addEventListener("touchstart", () => startDrag(right));
+        document.addEventListener("touchmove", onMove);
+        document.addEventListener("touchend", stopDrag);
+
+        function init() {
+            const rect = axis.getBoundingClientRect();
+            const xFrom = valueToX(MIN_YEAR, rect.width);
+            const xTo = valueToX(MAX_YEAR, rect.width);
+            setCenter(left, circleLeft, xFrom);
+            setCenter(right, circleRight, xTo);
+            yearFrom.textContent = MIN_YEAR;
+            yearTo.textContent = MAX_YEAR;
+        }
+        window.addEventListener("load", init);
 
 
         function short_rep(num) {
@@ -854,6 +823,5 @@
         }
         update_content();
     </script>
-    <script src="js/filter_active.js"></script>
     <script src="js/filter_inputs.js"></script>
 </html>
