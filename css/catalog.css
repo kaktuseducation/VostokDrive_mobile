@@ -92,7 +92,7 @@
 
 #multi_filter{
     width: 100%;
-    height: 40vh;
+    height: 37dvh;
     display: flex;
     flex-direction: row;
 }
@@ -113,16 +113,13 @@
     justify-content: space-between;
 }
 
-#distance_box p{
+.label{
     color: #9FA3A7;
     font-family: Carlito;
     font-size: 4vw;
     letter-spacing: 0.5pt;
     margin: 0;
-    
 }
-
-
 
 .input_line{
     position: relative;
@@ -290,6 +287,8 @@
     top: 3vw;
     overflow: hidden;
     width: 100%;
+    border-right: solid 2px white;
+    box-sizing: border-box;
 }
 
 #slider{
@@ -302,8 +301,8 @@
 }
 
 #slider button{
-    padding-left: 2vw;
-    padding-right: 2vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
     box-sizing: border-box;
     color: #5E6266;
     font-family: Carlito;
@@ -314,19 +313,139 @@
     border: none;
 }
 
-
+#white_shadow{
+    position: absolute;
+    right: 0;
+    height: calc(100% - 0.7vw);
+    width: 10vw;
+    z-index: 50;
+    background: linear-gradient(270deg,rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
 
 
 #year_box{
     width: 100%;
-    height: 10vh;
-    background-color: purple;
+    height: 9vh;
+    position: relative;
 }
+
+#axis_wrap{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 4vh;
+    display: flex;
+    justify-content: center;
+}
+
+#axis{
+    width: calc(100% - 18vw);
+    height: 100%;
+    border-top: solid 1px #9FA3A7;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.value{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 9vw;
+}
+
+.circle{
+    width: 4vw;
+    height: 4vw;
+    background-color: #9FA3A7;
+    border-radius: 50%;
+    position: absolute;
+    top: -2vw;
+    touch-action: none;
+}
+
+.year_value{
+    position: absolute;
+    top: 3.5vw;
+    color: #5E6266;
+    font-family: Carlito;
+    font-size: 4vw;
+    letter-spacing: 0.5pt;
+    margin: 0;
+    font-weight: 600;
+}
+
+#circle_left,
+#year_from{
+    right: 0;
+}
+
+#value_left{
+    left: -7vw;
+    transform: translateX(0);
+}
+
+#value_right{
+    right: -7vw;
+    transform: translateX(0);
+}
+
+#year_from{
+    transform: translateX(-1vw);
+}
+
+#year_to{
+    transform: translateX(1vw);
+}
+
 
 #price_box{
     width: 100%;
-    height: 6vh;
-    background-color: red;
+    height: 4.5dvh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input_wrap{
+    height: 4.5dvh;
+    width: 45%;
+    position: relative;
+}
+
+#price_box input{
+    height: 100%;
+    box-sizing: border-box;
+    color: #5E6266;
+    font-family: Carlito;
+    font-size: 4vw;
+    letter-spacing: 0.5pt;
+    font-weight: 600;
+    border: solid 1px #9FA3A7;
+    border-radius: 4dvh;
+    width: 100%;
+    padding-left: 3vw;
+}
+
+#price_box input:focus{
+    border: solid 2px #9FA3A7;
+    color: #EC526C;
+    outline: none;
+}
+
+#price_box p{
+    color: #9FA3A7;
+    font-family: Carlito;
+    font-size: 3.5vw;
+    letter-spacing: 0.5pt;
+    margin: 0;
+}
+
+.rub{
+    position: absolute;
+    right: 3vw;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 #apply{
@@ -340,198 +459,4 @@
     color: white;
     background-color: #EC526C; 
     margin-top: 2vh;
-}
-
-
-
-#focus{
-    position: fixed;
-    left: -50px;
-    background: linear-gradient(180deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0.4));
-    width: 100vw;
-    height: 100%;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.8s ease, visibility 0.8s linear; 
-}
-
-#focus.active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-#frame{
-    overflow: hidden;
-    position: absolute;
-    z-index: 50;
-    width: 100%;
-    height: 350px;
-    top: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    pointer-events: none;
-}
-
-#frame.active {
-    visibility: visible;
-    pointer-events: auto;
-}
-
-#filter_container{
-    width: 960px;
-    height: 100%;
-    padding-left: 50px;
-    padding-right: 50px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.values{
-    height: 100%;
-    width: 40px;
-    overflow: hidden;
-    position: relative;
-}
-
-.in_values{
-    position: absolute;
-    width: 100%;
-    border-radius: 10px;
-    top: -10px;
-    background-color: white;
-    transition: transform 0.8s ease;
-    transform: translateY(-100%);
-    padding-top: 25px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 15px;
-    box-sizing: border-box;
-}
-
-.button_space{
-    max-height: 280px;
-    overflow: hidden; 
-}
-
-#brend_buttons{
-    width: 110px;
-    max-height: 280px;
-}
-
-.scroll{
-    width: 2px;
-    border-left: solid 1px #E5E6E7; 
-    position: relative;
-}
-
-.scroll_value{
-    position: absolute;
-    top: 0;
-    width: 100%;
-    background-color: #9FA3A7;
-    height: 20px;
-    min-height: 20px;
-    cursor: grab;
-}
-
-#brend_value{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.fitler_button{
-    width: 100%;
-    border: none;
-    outline: none;
-    font-family: "Calibri";
-    font-weight: 400;
-    margin-bottom: 5px;
-    background: transparent;
-    font-size: 17px;
-    padding-left: 0;
-    box-sizing: border-box;
-    color: #9FA3A7;
-    transition: color 0.8s ease; 
-  
-}
-
-.fitler_button:hover{
-    color: #EC526C;
-    font-weight: 600;
-}
-
-.fitler_button.clicked{
-    color: #EC526C;
-    font-weight: 600;
-}
-
-.unrolled{
-    transform: translateY(0);
-}
-
-.values p{
-    margin: 0;
-    padding: 0;
-    font-family: "Calibri";
-    font-weight: 400;
-    color: #9FA3A7;
-    font-size: 17px;
-    flex-shrink: 0;
-}
-
-
-
-#color_space{
-    width: 100%;
-    max-height: 240px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-
-
-
-.color:hover svg,
-.color.active svg {
-    height: 18px;
-}
-
-#type_space{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-
-
-
-
-
-#year_buttons{
-    width: 60px;
-    max-height: 280px;
-}
-
-#year_scroll{
-    width: 2px;
-    border-left: solid 1px #E5E6E7; 
-    position: relative;
-    
-}
-
-#year_value{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 }
