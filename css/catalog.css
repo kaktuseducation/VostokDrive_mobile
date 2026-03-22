@@ -19,6 +19,7 @@
     transform: translateY(50%);
     left: 32vw;
     color: #9FA3A7;
+    user-select: none;
 }
 
 #white_box{
@@ -194,7 +195,6 @@
     align-items: center;
     padding: 0;
     background-color: transparent;
-    transition: fill 0.8s ease; 
 }
 
 .type_button.clicked{
@@ -222,7 +222,7 @@
 }
 
 .type_button path{
-    transition: color 0.8s ease; 
+    transition: fill 0.5s ease; 
 }
 
 #color_box{
@@ -283,8 +283,8 @@
 
 #slider_box{
     position: absolute;
-    bottom: 0.7vw;
-    top: 3vw;
+    bottom: calc(0.7vw - 1px);
+    top: 2vw;
     overflow: hidden;
     width: 100%;
     border-right: solid 2px white;
@@ -296,13 +296,13 @@
     transform: translateX(0);
     display: flex;
     flex-direction: row;
-    height: 100%;
     will-change: transform;
 }
 
 #slider button{
     padding-left: 3vw;
     padding-right: 3vw;
+    padding-bottom: 2vw;
     box-sizing: border-box;
     color: #5E6266;
     font-family: Carlito;
@@ -311,6 +311,12 @@
     font-weight: 600;
     background-color: white;
     border: none;
+    transition: all 0.5s ease;
+}
+
+#slider button.clicked{
+    background-color: #EC526C;
+    color: white;
 }
 
 #white_shadow{
@@ -320,6 +326,7 @@
     width: 10vw;
     z-index: 50;
     background: linear-gradient(270deg,rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    pointer-events: none;
 }
 
 
