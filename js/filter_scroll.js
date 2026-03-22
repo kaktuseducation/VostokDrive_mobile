@@ -1,88 +1,40 @@
-function initCustomScroll(content, track, thumb){
+const slider = document.getElementById('slider');
+const scrollValue = document.getElementById('scroll_value');
+const box = document.getElementById('slider_box');
+let currentX = 0;
+function updateScroll() {
+    const contentWidth = slider.scrollWidth;
+    const visibleWidth = box.clientWidth;
 
-    function syncTrackHeight() {
-        track.style.height = content.clientHeight + "px";
-    }
+    const maxScroll = contentWidth - visibleWidth;
+    if (currentX > 0) currentX = 0;
+    if (currentX < -maxScroll) currentX = -maxScroll;
+    slider.style.transform = `translateX(${currentX}px)`;
 
-    function updateThumb() {
-        const visible = content.clientHeight;
-        const total = content.scrollHeight;
-        const trackHeight = track.clientHeight;
+    const ratio = visibleWidth / contentWidth;
+    const thumbWidth = ratio * visibleWidth;
 
-        const ratio = visible / total;
-        const thumbHeight = Math.max(20, trackHeight * ratio);
+    scrollValue.style.width = thumbWidth + 'px';
 
-        thumb.style.height = thumbHeight + "px";
-
-        const maxThumbTop = trackHeight - thumbHeight;
-        const maxScrollTop = total - visible;
-
-        thumb.style.top = (content.scrollTop / maxScrollTop) * maxThumbTop + "px";
-    }
-
-    function updateAll(){
-        syncTrackHeight();
-        updateThumb();
-    }
-
-    window.addEventListener("load", updateAll);
-    window.addEventListener("resize", updateAll);
-
-    content.addEventListener("scroll", updateThumb);
-    new ResizeObserver(updateAll).observe(content);
-
-    let dragging = false;
-    let dragStartY = 0;
-    let thumbStartTop = 0;
-
-    thumb.addEventListener("mousedown", (e)=>{
-        dragging = true;
-        dragStartY = e.clientY;
-        thumbStartTop = parseFloat(thumb.style.top) || 0;
-        thumb.style.cursor = "grabbing";
-        e.preventDefault();
-    });
-
-    document.addEventListener("mousemove",(e)=>{
-        if(!dragging) return;
-
-        const trackHeight = track.clientHeight;
-        const thumbHeight = thumb.clientHeight;
-
-        const dy = e.clientY - dragStartY;
-
-        let newTop = thumbStartTop + dy;
-        newTop = Math.max(0, Math.min(trackHeight - thumbHeight, newTop));
-
-        thumb.style.top = newTop + "px";
-
-        const maxThumbTop = trackHeight - thumbHeight;
-        const maxScrollTop = content.scrollHeight - content.clientHeight;
-
-        content.scrollTop = (newTop / maxThumbTop) * maxScrollTop;
-    });
-
-    document.addEventListener("mouseup", ()=>{
-        dragging = false;
-        thumb.style.cursor = "grab";
-    });
-
-    content.addEventListener("wheel",(e)=>{
-        e.preventDefault();
-        content.scrollTop += e.deltaY * 0.17;
-        updateThumb();
-    },{ passive:false });
-
+    const maxMove = visibleWidth - thumbWidth;
+    const move = (-currentX / maxScroll) * maxMove;
+    scrollValue.style.transform = `translateX(${move}px)`;
 }
-
-initCustomScroll(
-    document.getElementById("brand_space"),
-    document.getElementById("brend_scroll"),
-    document.getElementById("brand_scroll_value")
-);
-
-initCustomScroll(
-    document.getElementById("year_space"),
-    document.getElementById("year_scroll"),
-    document.getElementById("year_scroll_value")
-);
+let startX = 0;
+let isDown = false;
+box.addEventListener('touchstart', (e) => {
+    isDown = true;
+    startX = e.touches[0].clientX;
+});
+box.addEventListener('touchmove', (e) => {
+    if (!isDown) return;
+    const x = e.touches[0].clientX;
+    const dx = x - startX;
+    startX = x;
+    currentX += dx;
+    updateScroll();
+});
+box.addEventListener('touchend', () => {
+    isDown = false;
+});
+updateScroll();
