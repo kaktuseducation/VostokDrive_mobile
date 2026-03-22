@@ -267,14 +267,7 @@
                     </div>
                     <div id="brand_box">
                         <div id="slider_box">
-                            <div id="slider">
-                                <button>BMW</button>
-                                <button>Toyota</button>
-                                <button>Haval</button>
-                                <button>Mercedes</button>
-                                <button>BMW</button>
-                            </div>
-                            
+                            <div id="slider"></div>
                         </div>
                         <div id="white_shadow"></div>
                         <div id="scroll_box">
@@ -445,339 +438,190 @@
             closeFilter();
         }
 
-        const slider = document.getElementById('slider');
-        const scrollValue = document.getElementById('scroll_value');
-        const box = document.getElementById('slider_box');
-        let currentX = 0;
-
-        function updateScroll() {
-            const contentWidth = slider.scrollWidth;
-            const visibleWidth = box.clientWidth;
-
-            const maxScroll = contentWidth - visibleWidth;
-            if (currentX > 0) currentX = 0;
-            if (currentX < -maxScroll) currentX = -maxScroll;
-            slider.style.transform = `translateX(${currentX}px)`;
-
-            const ratio = visibleWidth / contentWidth;
-            const thumbWidth = ratio * visibleWidth;
-
-            scrollValue.style.width = thumbWidth + 'px';
-
-            const maxMove = visibleWidth - thumbWidth;
-            const move = (-currentX / maxScroll) * maxMove;
-            scrollValue.style.transform = `translateX(${move}px)`;
-        }
-        let startX = 0;
-        let isDown = false;
-        box.addEventListener('touchstart', (e) => {
-            isDown = true;
-            startX = e.touches[0].clientX;
-        });
-        box.addEventListener('touchmove', (e) => {
-            if (!isDown) return;
-            const x = e.touches[0].clientX;
-            const dx = x - startX;
-            startX = x;
-            currentX += dx;
-            updateScroll();
-        });
-        box.addEventListener('touchend', () => {
-            isDown = false;
-        });
-        updateScroll();
-
-
-        const MIN_YEAR = 2000;
-        const MAX_YEAR = 2025;
-        // x → год
-        function xToValue(x, width) {
-            return Math.round(MIN_YEAR + (x / width) * (MAX_YEAR - MIN_YEAR));
-        }
-
-        // год → x
-        function valueToX(value, width) {
-            return ((value - MIN_YEAR) / (MAX_YEAR - MIN_YEAR)) * width;
-        }
-
-        const axis = document.getElementById("axis");
-        const left = document.getElementById("value_left");
-        const right = document.getElementById("value_right");
-        const circleLeft = document.getElementById("circle_left");
-        const circleRight = document.getElementById("circle_right");
-        const yearFrom = document.getElementById("year_from");
-        const yearTo = document.getElementById("year_to");
-        let active = null;
-        function getX(e) {
-            return e.touches ? e.touches[0].clientX : e.clientX;
-        }
-        function startDrag(target) {
-            active = target;
-        }
-        function stopDrag() {
-            active = null;
-        }
-        function getCenter(container, circle) {
-            return container.offsetLeft + circle.offsetLeft + circle.offsetWidth / 2;
-        }
-        function setCenter(container, circle, x) {
-            const offset = circle.offsetLeft + circle.offsetWidth / 2;
-            container.style.left = (x - offset) + "px";
-        }
-        function onMove(e) {
-            if (!active) return;
-            const rect = axis.getBoundingClientRect();
-            let x = getX(e) - rect.left;
-            x = Math.max(0, Math.min(x, rect.width));
-            const leftCenter = getCenter(left, circleLeft);
-            const rightCenter = getCenter(right, circleRight);
-            const minGap = circleLeft.offsetWidth;
-            if (active === left) {
-                x = Math.min(x, rightCenter - minGap);
-                setCenter(left, circleLeft, x);
-                yearFrom.textContent = xToValue(x, rect.width);
-            }
-            if (active === right) {
-                x = Math.max(x, leftCenter + minGap);
-                setCenter(right, circleRight, x);
-                yearTo.textContent = xToValue(x, rect.width);
-            }
-        }
-
-        left.addEventListener("mousedown", () => startDrag(left));
-        right.addEventListener("mousedown", () => startDrag(right));
-        document.addEventListener("mousemove", onMove);
-        document.addEventListener("mouseup", stopDrag);
-        left.addEventListener("touchstart", () => startDrag(left));
-        right.addEventListener("touchstart", () => startDrag(right));
-        document.addEventListener("touchmove", onMove);
-        document.addEventListener("touchend", stopDrag);
-
-        function init() {
-            const rect = axis.getBoundingClientRect();
-            const xFrom = valueToX(MIN_YEAR, rect.width);
-            const xTo = valueToX(MAX_YEAR, rect.width);
-            setCenter(left, circleLeft, xFrom);
-            setCenter(right, circleRight, xTo);
-            yearFrom.textContent = MIN_YEAR;
-            yearTo.textContent = MAX_YEAR;
-        }
-        window.addEventListener("load", init);
-
-
-        function short_rep(num) {
-            if (num >= 1_000_000)   {return (num / 1_000_000).toFixed(1).replace('.0', '') + ' млн';}
-            if (num >= 1_000)       {return Math.floor(num / 1_000) + ' тыс';}
-            return num.toString();
-        }
-        function formated(n) {
-            return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-        }
-
-        const type_buttons  = document.getElementById("type_space");
-        const brend_buttons = document.getElementById("brend_buttons");
-        const year_buttons  = document.getElementById("year_buttons");
-        const color_buttons = document.getElementById("color_space");
-
-        let TYPE_FILTER  = null;       let BRAND_FILTER = null;      let COLOR_FILTER = null;       let YEAR_FILTER  = null;
-        let PRICE_FILTER  = Math.max(...cars.map(car => car.price));
-        let DISTANCE_FILTER   = Math.max(...cars.map(car => car.distance));
+        
+        let TYPE = null;    let BRAND = null;   let COLOR = 'green';
+        let MIN_YEAR    = Math.min(...cars.map(car => car.year));
+        let MAX_YEAR    = Math.max(...cars.map(car => car.year));
+        let MIN_PRICE   = Math.min(...cars.map(car => car.price));
+        let MAX_PRICE   = Math.max(...cars.map(car => car.price));
+        let DISTANCE    = Math.max(...cars.map(car => car.distance));
 
         let FILTERED = cars;
 
-        function filterCars() {
-            FILTERED = cars.filter(car => {
-                    if (TYPE_FILTER && car.type     !== TYPE_FILTER)    return false;
-                    if (BRAND_FILTER && car.brand   !== BRAND_FILTER)   return false;
-                    if (COLOR_FILTER && car.color   !== COLOR_FILTER)   return false;
-                    if (YEAR_FILTER && car.year     !== YEAR_FILTER)    return false;
-                    if (car.price > PRICE_FILTER) return false;
-                    if (car.distance > DISTANCE_FILTER) return false;
-                    return true;
-                })
-                .sort((a, b) => a.price - b.price);
-            update_content();
-        }
-
-        function clean_choice(container, mark){
-            const clicked = container.querySelector('.' + mark);
-            if (clicked) {
-                clicked.classList.remove(mark);
+        function clean_container(container){
+            const item = container.querySelector('.clicked');
+            if(item){
+                item.classList.remove("clicked");
             }
-        }
-
-        function unclick(container, mark){
-            const clicked = container.querySelector('.' + mark);
-            if (clicked) {
-                clicked.click();
-            }
-        }
-
-        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-        function update_brand(){
-            let brends = [...new Set(FILTERED.map(car => car.brand))];
-            document.getElementById("brend_scroll").style.display = brends.length <= 10 ? "none" : "block";
-            brend_buttons.innerHTML = '';
-            brends.forEach(brend => {
-                const brend_label = document.getElementById("brend");
-                const btn = document.createElement("button");
-                btn.textContent = brend;
-                btn.className = "fitler_button";
-                btn.style.textAlign = "left";
-                if(BRAND_FILTER == brend){
-                    brend_label.firstChild.textContent = brend;
-                    btn.classList.add('clicked');
-                }
-                btn.addEventListener("click", () => {
-                    if (btn.classList.contains("clicked")) {
-                        brend_label.firstChild.textContent = "марка";
-                        btn.classList.remove("clicked");
-                        BRAND_FILTER = null;
-                    }
-                    else{
-                        clean_choice(brend_buttons, "clicked");
-                        brend_label.firstChild.textContent = brend;
-                        btn.classList.add('clicked');
-                        BRAND_FILTER = brend;
-                    }
-
-                    COLOR_FILTER = null;    unclick(color_buttons,  'active');
-                    YEAR_FILTER  = null;    unclick(year_buttons,   'clicked');
-                    PRICE_FILTER = Math.max(...cars.map(car => car.price));
-                    DISTANCE_FILTER  = Math.max(...cars.map(car => car.distance));
-                    update_filter('brand');    closeFilter("brend_value");     closeFocus();
-                });
-                brend_buttons.appendChild(btn);
-            });
-        }
-
-        function update_year(){
-            years = [...new Set(FILTERED.map(car => car.year))].sort((a, b) => b - a);
-            document.getElementById("year_scroll").style.display = years.length <= 10 ? "none" : "block";
-            year_buttons.innerHTML = '';
-            const year_label = document.getElementById("year");
-            year_label.firstChild.textContent = "год";
-
-            years.forEach(year => {
-                
-                const btn = document.createElement("button");
-                btn.textContent = year;
-                btn.className = "fitler_button";
-                btn.style.textAlign = "left";
-                if(YEAR_FILTER == year){
-                    year_label.firstChild.textContent = year;
-                    btn.classList.add('clicked');
-                }
-                btn.addEventListener("click", () => {
-                    if (btn.classList.contains("clicked")) {
-                        year_label.firstChild.textContent = "год";
-                        btn.classList.remove("clicked");
-                        YEAR_FILTER = null;
-                    }
-                    else{
-                        clean_choice(year_buttons, "clicked");
-                        year_label.firstChild.textContent = year;
-                        btn.classList.add('clicked');
-                        YEAR_FILTER = year;
-                    }
-                    PRICE_FILTER = Math.max(...cars.map(car => car.price));
-                    DISTANCE_FILTER  = Math.max(...cars.map(car => car.distance));
-                    update_filter('year');    closeFilter("year_value");     closeFocus();
-                });
-                year_buttons.appendChild(btn);
-            });
-        }
-
-        function update_color() {
-            colors = [...new Set(FILTERED.map(car => car.color))];
-            document.querySelectorAll('.color').forEach(btn => {
-                btn.style.display = colors.includes(btn.id) ? "block" : "none";
-            });
-        }
-
-        function update_distance() {
-            const label = document.getElementById('distance');
-            DISTANCE_FILTER = Math.max(...FILTERED.map(car => car.distance));
-            document.getElementById('distance_to').value  = DISTANCE_FILTER.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-            label.firstChild.textContent = '< ' + formated(DISTANCE_FILTER) + ' км';
-        }
-
-        function update_price() {
-            const label = document.getElementById('price');
-            PRICE_FILTER = Math.max(...FILTERED.map(car => car.price));
-            document.getElementById('price_to').value   = PRICE_FILTER.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-            label.firstChild.textContent = '< ' + short_rep(PRICE_FILTER) + ' ₽';  
-        }
-
-        function update_filter(origin){
-            filterCars();
-            if (origin  == 'type' || BRAND_FILTER == null) update_brand();
-            if (origin !== 'year') update_year();
-            if (origin !== 'color') update_color();
-            if (origin !== 'distance') update_distance();
-            if (origin !== 'price') update_price();
-        }
-        update_filter('type');
             
-        // TYPE ----------------------------------------------------------    
+        }
+    
+        const type_buttons  = document.getElementById("type_box");
         document.querySelectorAll('.type_button').forEach(btn => {
             btn.addEventListener('click', () => {
                 const type_label = document.getElementById("type");
                 
                 if (btn.classList.contains('clicked')) {
                     btn.classList.remove('clicked');
-                    type_label.removeChild(type_label.firstChild);
-                    const textNode = document.createTextNode("категория авто");
-                    type_label.insertBefore(textNode, type_label.firstChild);
-
-                    TYPE_FILTER = ''; 
+                    TYPE = null; 
                 } else {
-                    clean_choice(type_buttons, "clicked");
+                    clean_container(type_buttons);
                     btn.classList.add('clicked');
-                    const contentDiv = document.createElement('div');
-                    contentDiv.classList.add('type_content');
-                    contentDiv.innerHTML = btn.innerHTML;
-                    type_label.removeChild(type_label.firstChild);
-                    type_label.insertBefore(contentDiv, type_label.firstChild);
-                    TYPE_FILTER = btn.dataset.type;
+                    TYPE = btn.dataset.type;
                 }
 
-                BRAND_FILTER = null;    unclick(brend_buttons,   'clicked');
-                COLOR_FILTER = null;    unclick(color_buttons,  'active');
-                YEAR_FILTER  = null;    unclick(year_buttons,   'clicked');
-                PRICE_FILTER = Math.max(...cars.map(car => car.price));
-                DISTANCE_FILTER  = Math.max(...cars.map(car => car.distance));
+                // BRAND_FILTER = null;    unclick(brend_buttons,   'clicked');
+                // COLOR_FILTER = null;    unclick(color_buttons,  'active');
+                // YEAR_FILTER  = null;    unclick(year_buttons,   'clicked');
+                // PRICE_FILTER = Math.max(...cars.map(car => car.price));
+                // DISTANCE_FILTER  = Math.max(...cars.map(car => car.distance));
 
-                update_filter('type');    closeFilter("type_value");      closeFocus();
+                // update_filter('type'); 
             });
         });
-        // COLOR ----------------------------------------------------------    
-        document.querySelectorAll('.color').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const color_label = document.getElementById("color");
-                if (btn.classList.contains('active')) {
-                    btn.classList.remove('active');
-                    color_label.removeChild(color_label.firstChild);
-                    const textNode = document.createTextNode("цвет");
-                    color_label.insertBefore(textNode, color_label.firstChild);
-                    COLOR_FILTER = null;
-                } else {
-                    clean_choice(color_buttons, "active");
-                    btn.classList.add('active');
-                    color_label.removeChild(color_label.firstChild);
-                    const svg = btn.querySelector('svg');
-                        svg.style.height = '18px';
-                        svg.style.width = 'auto';
-                        svg.style.marginTop = '4px';
-                    color_label.insertBefore(svg.cloneNode(true), color_label.firstChild);
-                    COLOR_FILTER = btn.id;
+
+        
+        
+        function update_brand(){
+            let brends = [...new Set(FILTERED.map(car => car.brand))];
+            const brend_buttons = document.getElementById("slider");
+            brend_buttons.innerHTML = '';
+            brends.forEach(brend => {
+                const btn = document.createElement("button");
+                btn.textContent = brend;
+                if(BRAND == brend){
+                    btn.classList.add('clicked');
                 }
-                PRICE_FILTER = Math.max(...cars.map(car => car.price));
-                DISTANCE_FILTER  = Math.max(...cars.map(car => car.distance));
-                update_filter('color');    closeFilter("color_value");     closeFocus();
+                btn.addEventListener("click", () => {
+                    if (btn.classList.contains("clicked")) {
+                        btn.classList.remove("clicked");
+                        BRAND = null;
+                    }
+                    else{
+                        clean_container(brend_buttons);
+                        btn.classList.add('clicked');
+                        BRAND = brend;
+                    }
+                    // COLOR = null;
+                    // YEAR_FILTER  = null;
+                    // PRICE_FILTER = Math.max(...cars.map(car => car.price));
+                    // DISTANCE_FILTER  = Math.max(...cars.map(car => car.distance));
+                    // update_filter('brand');
+                });
+                brend_buttons.appendChild(btn);
+                // document.getElementById("brend_scroll").style.display = brends.length <= 10 ? "none" : "block";
             });
-        });
+        }
+        update_brand();
+
+
+        function getCenter(container, circle) {return container.offsetLeft + circle.offsetLeft + circle.offsetWidth / 2;}
+        function setCenter(container, circle, x) {
+            const offset = circle.offsetLeft + circle.offsetWidth / 2;
+            container.style.left = (x - offset) + "px";
+        }
+        function xToValue(x, width) {return Math.round(MIN_YEAR + (x / width) * (MAX_YEAR - MIN_YEAR));}
+        function valueToX(value, width) {return ((value - MIN_YEAR) / (MAX_YEAR - MIN_YEAR)) * width;}
+        function update_year() {
+            MIN_YEAR = Math.min(...FILTERED.map(car => car.year));
+            MAX_YEAR = Math.max(...FILTERED.map(car => car.year));
+            const year_container    = document.getElementById("axis");
+            const rect              = year_container.getBoundingClientRect();
+            const xFrom = valueToX(MIN_YEAR, rect.width);
+            const xTo   = valueToX(MAX_YEAR, rect.width);
+            const left_part             = document.getElementById("value_left");
+            const right_part            = document.getElementById("value_right");
+            left_part.style.transform   = 'translateX(0)';
+            right_part.style.transform  = 'translateX(0)';
+            setCenter(left_part, document.getElementById("circle_left"), xFrom);
+            setCenter(right_part, document.getElementById("circle_right"), xTo);
+            document.getElementById("year_from").textContent = MIN_YEAR;
+            document.getElementById("year_to").textContent = MAX_YEAR;
+        }
+        update_year();
+
+        
+        
+        function formated(n) {return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');}
+        function update_distance(){
+            DISTANCE = Math.max(...FILTERED.map(car => car.distance));
+            const input_distance = document.getElementById('distance_to');
+            input_distance.value = formated(DISTANCE);
+        }
+        update_distance();
+
+        function update_price(){
+            MIN_PRICE = Math.min(...FILTERED.map(car => car.price));
+            MAX_PRICE = Math.max(...FILTERED.map(car => car.price));
+            const input_price_from  = document.getElementById('price_from');
+            const input_price_to    = document.getElementById('price_to');
+            input_price_from.value  = formated(MIN_PRICE);
+            input_price_to.value    = formated(MAX_PRICE);
+        }
+        update_price();
+
+
+        // const color_buttons = document.getElementById("color_space");
+
+        // function filterCars() {
+        //     FILTERED = cars.filter(car => {
+        //             if (TYPE && car.type     !== TYPE)    return false;
+        //             if (BRAND_FILTER && car.brand   !== BRAND_FILTER)   return false;
+        //             if (COLOR_FILTER && car.color   !== COLOR_FILTER)   return false;
+        //             if (YEAR_FILTER && car.year     !== YEAR_FILTER)    return false;
+        //             if (car.price > PRICE_FILTER) return false;
+        //             if (car.distance > DISTANCE_FILTER) return false;
+        //             return true;
+        //         })
+        //         .sort((a, b) => a.price - b.price);
+        //     update_content();
+        // }
+
+        
+        // function update_color() {
+        //     colors = [...new Set(FILTERED.map(car => car.color))];
+        //     document.querySelectorAll('.color').forEach(btn => {
+        //         btn.style.display = colors.includes(btn.id) ? "block" : "none";
+        //     });
+        // }
+
+        // function update_filter(origin){
+        //     filterCars();
+        //     if (origin  == 'type' || BRAND_FILTER == null) update_brand();
+        //     if (origin !== 'year') update_year();
+        //     if (origin !== 'color') update_color();
+        //     if (origin !== 'distance') update_distance();
+        //     if (origin !== 'price') update_price();
+        // }
+        // update_filter('type');
+            
+        
+        // // COLOR ----------------------------------------------------------    
+        // document.querySelectorAll('.color').forEach(btn => {
+        //     btn.addEventListener('click', () => {
+        //         const color_label = document.getElementById("color");
+        //         if (btn.classList.contains('active')) {
+        //             btn.classList.remove('active');
+        //             color_label.removeChild(color_label.firstChild);
+        //             const textNode = document.createTextNode("цвет");
+        //             color_label.insertBefore(textNode, color_label.firstChild);
+        //             COLOR_FILTER = null;
+        //         } else {
+        //             clean_choice(color_buttons, "active");
+        //             btn.classList.add('active');
+        //             color_label.removeChild(color_label.firstChild);
+        //             const svg = btn.querySelector('svg');
+        //                 svg.style.height = '18px';
+        //                 svg.style.width = 'auto';
+        //                 svg.style.marginTop = '4px';
+        //             color_label.insertBefore(svg.cloneNode(true), color_label.firstChild);
+        //             COLOR_FILTER = btn.id;
+        //         }
+        //         PRICE_FILTER = Math.max(...cars.map(car => car.price));
+        //         DISTANCE_FILTER  = Math.max(...cars.map(car => car.distance));
+        //         update_filter('color');    closeFilter("color_value");     closeFocus();
+        //     });
+        // });
         
         function update_content(){
             const content = document.getElementById("content");
@@ -785,70 +629,47 @@
             for (let i = 0; i < FILTERED.length; i += 2) {
                 const row = document.createElement("div");
                 row.classList.add("content_row");
-
                 for (let j = i; j < i + 2 && j < FILTERED.length; j++) {
                     const item = document.createElement("div");
                     item.classList.add("content_item");
-
                     const photo = document.createElement("div");
                     photo.classList.add("content_photo");
-
                         const photo_bg = document.createElement("div");
                         photo_bg.classList.add("content_photo_bg");
                         photo_bg.style.backgroundImage = 'url(media/' + FILTERED[j].image + '.png)';
                         photo.appendChild(photo_bg);
-
-                        const like = document.createElement("button");
-                        like.classList.add("like");
-                        like.innerHTML = `
-                            <svg viewBox="-10 -10 133 115" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M56.5 23C79.63 -33 169.81 23 56.5 95 -56.81 23 33.38 -33 56.5 23Z"
-                                    fill="transparent"
-                                    stroke="#9FA3A7"
-                                    stroke-width="15"
-                                    stroke-linejoin="round"/>
-                            </svg>
-                            `;
-
                         const id = FILTERED[j].id;
-                        
                         const car_price = document.createElement("div");
                         car_price.classList.add("content_price");
                             const price = document.createElement("p");
                             price.classList.add("price");
                             price.textContent = FILTERED[j].price.toLocaleString('ru-RU');
                             car_price.appendChild(price);
-
                             const rub = document.createElement("span");
                             rub.classList.add("rub");
                             rub.textContent = '₽';
                             car_price.appendChild(rub);
                         photo.appendChild(car_price);
                     item.appendChild(photo);
-
                     const name = document.createElement("div");
                     name.classList.add("content_name");
                     name.innerHTML = "<b>" + FILTERED[j].brand.toUpperCase() + "</b><br>" + FILTERED[j].name;
                     item.appendChild(name);
-
-                    
-
                     const other = document.createElement("div");
                     other.classList.add("content_other");
                     other.textContent = FILTERED[j].year + ' г   ' + FILTERED[j].distance.toLocaleString('ru-RU')+ ' км';
                     item.appendChild(other);
-
                     item.addEventListener("click", () => {
                         window.location.href = "car.html?id=" + id;
                     });
-
                     row.appendChild(item);
                 }
-
                 content.appendChild(row);
             }
         }
         update_content();
     </script>
     <script src="js/filter_inputs.js"></script>
+    <script src="js/filter_range.js"></script>
+    <script src="js/filter_scroll.js"></script>
 </html>
