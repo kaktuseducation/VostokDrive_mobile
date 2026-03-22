@@ -65,7 +65,7 @@
     background-color: white;
     border-radius: 6vw;
     padding-left: 30vw;
-    padding-top: 6vh;
+    padding-top: 5vh;
     padding-bottom: 6vh;
     box-sizing: border-box;
     position: absolute;
@@ -92,7 +92,7 @@
 
 #multi_filter{
     width: 100%;
-    height: 37dvh;
+    height: 36dvh;
     display: flex;
     flex-direction: row;
 }
@@ -175,7 +175,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding-right: 3vw;
-    padding-top: 5vw;
+    padding-top: 3vw;
     box-sizing: border-box;
     transform: translateY(1vw);
 }
@@ -260,7 +260,7 @@
 
 #brand_box{
     width: 100%;
-    height: 6vh;
+    height: 5vh;
     overflow: hidden;
     position: relative;
 }
@@ -327,6 +327,8 @@
     width: 100%;
     height: 9vh;
     position: relative;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }
 
 #axis_wrap{
