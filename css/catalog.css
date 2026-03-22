@@ -54,7 +54,7 @@
     position: fixed;
     z-index: 30;
     left: -150vw;
-    height: 90vh;
+    height: 84vh;
     bottom: 10vh;
     transition: all 1s ease;
 }
@@ -194,7 +194,7 @@
     align-items: center;
     padding: 0;
     background-color: transparent;
-    transition: color 0.8s ease; 
+    transition: fill 0.8s ease; 
 }
 
 .type_button.clicked{
