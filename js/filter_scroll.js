@@ -23,17 +23,20 @@ function updateScroll() {
 let startX = 0;
 let isDown = false;
 box.addEventListener('touchstart', (e) => {
+    if (!swipeEnabled) return;
     isDown = true;
     startX = e.touches[0].clientX;
 });
+
 box.addEventListener('touchmove', (e) => {
-    if (!isDown) return;
+    if (!isDown || !swipeEnabled) return;
     const x = e.touches[0].clientX;
     const dx = x - startX;
     startX = x;
     currentX += dx;
     updateScroll();
 });
+
 box.addEventListener('touchend', () => {
     isDown = false;
 });
