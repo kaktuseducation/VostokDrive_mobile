@@ -462,9 +462,16 @@
         const price_to      = document.getElementById('price_to');
         const distance_to   = document.getElementById('distance_to');
 
+        const slider        = document.getElementById('slider');
+        const scroll_value  = document.getElementById('scroll_value');
         const slider_box    = document.getElementById('slider_box');
-        const scroll_box    = document.getElementById('scroll_value');
         let swipeEnabled    = true;
+        function reset_slider(){
+            slider.style.transform = 'translateX(0)';
+            scroll_value.style.transform = 'translateX(0)';
+            startX = 0;
+            currentX = 0;
+        }
 
 
         function clean_container(container){
@@ -484,9 +491,9 @@
                     btn.classList.add('clicked');
                     TYPE = btn.dataset.type;
                 }
-                BRAND = null;       clean_container(brend_buttons);
+                BRAND = null;       clean_container(brend_buttons);     reset_slider()   
                 COLOR = null;       clean_container(color_buttons);
-
+                
                 MIN_YEAR = null;    MAX_YEAR = null;   DISTANCE = null;
                 MIN_PRICE = null;  MAX_PRICE = null;
 
@@ -523,16 +530,16 @@
                     MIN_PRICEv = null;  MAX_PRICE = null;
 
                     filterCars();
-                    if (BRAND == null)  {update_brand()}
+                    if (BRAND == null)  {update_brand();   reset_slider()}
                     update_color();     update_year();  
                     update_price();     update_distance();
                 });
                 brend_buttons.appendChild(btn);
                 if (brend_buttons.offsetWidth <= slider_box.offsetWidth) {
-                    scroll_box.style.display = "none";
+                    scroll_value.style.display = "none";
                     swipeEnabled = false;
                 } else {
-                    scroll_box.style.display = "block";
+                    scroll_value.style.display = "block";
                     swipeEnabled = true;
                 }  
             });
@@ -619,8 +626,8 @@
                     COLOR = btn.id;
                 }
                 filterCars();
-                if (COLOR == null)  {update_color()}
-                if (BRAND == null)  {update_brand();}
+                if (COLOR == null)  {update_color();}
+                if (BRAND == null)  {update_brand();    reset_slider()}
                 update_year();      update_price();     update_distance(); 
             });
         });
