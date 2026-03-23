@@ -23,54 +23,43 @@ document.querySelectorAll('input').forEach(input => {
 });
 
 
-const distance_to = document.getElementById('distance_to');
-function applyDistance() {
-    const distances = FILTERED.map(car => car.distance);
-    const min = Math.min(...distances); const max = Math.max(...distances);
-    const label = document.getElementById('distance');
-    let value = Number(distance_to.value.replace(/\s/g, ''));
-    if (value < min || value > max){
-        value = max;
-    }
-    label.firstChild.textContent = '< ' + formated(value) + ' км';
-    DISTANCE_FILTER  = value;
-    distance_to.value = formated(value);
-    filterCars();  
+function validate(input) {
+    let value = getValue(input.value);
+    const min = +input.dataset.min;
+    const max = +input.dataset.max;
+
+    if (value < min) value = min;
+    if (value > max) value = max;
+
+    input.value = formated(value);
 }
 
-distance_to.addEventListener('keydown', function(e) {
-    if (e.key === "Enter") {
-        applyDistance();
-        closeFilter("distance_value"); 
-        update_filter('distance');  
-        closeFocus();  
-    }
-});
-distance_to.addEventListener('blur', applyDistance);
-
-
-const price_to = document.getElementById('price_to');
-function applyPriceTo() {
-    const prices = FILTERED.map(car => car.price);
-    const min = Math.min(...prices);    const max = Math.max(...prices);
-    const label = document.getElementById('price');
-    let value = Number(price_to.value.replace(/\s/g, ''));
-    if (value < min || value > max){
-        value = max;
-    }
-    label.firstChild.textContent = '< ' + short_rep(value) + ' ₽';
-    PRICE_FILTER  = value;
-    price_to.value = formated(value);
-    filterCars();  
+function updateRange() {
+    const fromVal = getValue(price_from.value);
+    const toVal   = getValue(price_to.value);
+    price_to.dataset.min   = fromVal;
+    price_from.dataset.max = toVal;
 }
 
-price_to.addEventListener('keydown', function(e) {
-    if (e.key === "Enter") {
-        applyPriceTo();
-        closeFilter("price_value");
-        update_filter('price');  
-        closeFocus();
-    }
-});
-price_to.addEventListener('blur', applyPriceTo);
+function handleRange(input) {
+    validate(input);
+    updateRange(); 
+}
 
+
+document.querySelectorAll('input[data-min], input[data-max]').forEach(input => {
+    input.addEventListener('blur', validate(input));
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            validate(input);
+            input.blur();
+        }
+    });
+});
+
+
+price_from.addEventListener('blur', () => handleRange(price_from));
+price_from.addEventListener('keydown', e => {if (e.key === 'Enter') handleRange(price_from);})
+
+price_to.addEventListener('blur', () => handleRange(price_to));
+price_to.addEventListener('keydown', e => {if (e.key === 'Enter') handleRange(price_to);});
