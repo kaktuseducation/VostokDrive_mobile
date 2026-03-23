@@ -1,10 +1,7 @@
-const slider = document.getElementById('slider');
-const scrollValue = document.getElementById('scroll_value');
-const box = document.getElementById('slider_box');
 let currentX = 0;
 function updateScroll() {
     const contentWidth = slider.scrollWidth;
-    const visibleWidth = box.clientWidth;
+    const visibleWidth = slider_box.clientWidth;
 
     const maxScroll = contentWidth - visibleWidth;
     if (currentX > 0) currentX = 0;
@@ -14,21 +11,21 @@ function updateScroll() {
     const ratio = visibleWidth / contentWidth;
     const thumbWidth = ratio * visibleWidth;
 
-    scrollValue.style.width = thumbWidth + 'px';
+    scroll_value.style.width = thumbWidth + 'px';
 
     const maxMove = visibleWidth - thumbWidth;
     const move = (-currentX / maxScroll) * maxMove;
-    scrollValue.style.transform = `translateX(${move}px)`;
+    scroll_value.style.transform = `translateX(${move}px)`;
 }
 let startX = 0;
 let isDown = false;
-box.addEventListener('touchstart', (e) => {
+slider_box.addEventListener('touchstart', (e) => {
     if (!swipeEnabled) return;
     isDown = true;
     startX = e.touches[0].clientX;
 });
 
-box.addEventListener('touchmove', (e) => {
+slider_box.addEventListener('touchmove', (e) => {
     if (!isDown || !swipeEnabled) return;
     const x = e.touches[0].clientX;
     const dx = x - startX;
@@ -37,7 +34,7 @@ box.addEventListener('touchmove', (e) => {
     updateScroll();
 });
 
-box.addEventListener('touchend', () => {
+slider_box.addEventListener('touchend', () => {
     isDown = false;
 });
 updateScroll();
