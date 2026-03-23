@@ -49,7 +49,7 @@
                                 <p class="label" style="font-weight: 600;">пробег</p>
                                 <div class="input_line">
                                     <p id="prefix" class="label">до</p>
-                                    <input id="distance_to" maxlength="7" data-format="number">
+                                    <input id="distance_to" maxlength="7" data-format="number" data-min="0" data-max="0">
                                     <p id="suffix" class="label">км</p>
                                 </div>
                             </div>
@@ -292,12 +292,12 @@
                     <div id="price_box">
                         <div class="input_wrap">
                             <p class="rub">₽</p>
-                            <input id="price_from" maxlength="10" data-format="number">
+                            <input id="price_from" maxlength="10" data-format="number" data-min="0" data-max="0">
                         </div>
                         <p>—</p>
                         <div class="input_wrap">
                             <p class="rub label">₽</p>
-                            <input id="price_to" maxlength="10" data-format="number">
+                            <input id="price_to" maxlength="10" data-format="number" data-min="0" data-max="0">
                         </div>
                     </div>
                     <button id="apply" onclick="apply_filter()">применить</button>
@@ -399,7 +399,6 @@
     <script src="js/cars.js"></script>
     <script>
         const filter = document.getElementById("filter_panel");
-
         function openFilter() {
             filter.style.left = "-20vw";
             lockScroll();
@@ -415,7 +414,6 @@
                 openFilter();
             }
         }
-
         let scrollY = 0;
         function lockScroll() {
             scrollY = window.scrollY;
@@ -434,24 +432,11 @@
             window.scrollTo(0, scrollY);
         }
 
-        function apply_filter(){
-            closeFilter();
-            update_content();
-        }
-
-        
-        let TYPE        = null;    
-        let BRAND       = null;   
-        let COLOR       = null;
-        let MIN_YEAR    = null;
-        let MAX_YEAR    = null;
-        let MIN_PRICE   = null;
-        let MAX_PRICE   = null;
-        let DISTANCE    = null;
+        let TYPE        = null;    let BRAND       = null;   let COLOR       = null;
+        let MIN_YEAR    = null;    let MAX_YEAR    = null;   let DISTANCE    = null;
+        let MIN_PRICE   = null;    let MAX_PRICE   = null;
 
         let FILTERED = cars;
-
-
         function filterCars() {
             FILTERED = cars.filter(car => {
                     if (TYPE        &&  car.type !== TYPE)          return false;
@@ -467,17 +452,28 @@
                 .sort((a, b) => a.price - b.price);
         }
 
+        const type_buttons  = document.getElementById("type_box");
         const brend_buttons = document.getElementById("slider");
         const color_buttons = document.getElementById("color_box");
+
+        const year_from     = document.getElementById("year_from");
+        const year_to       = document.getElementById("year_to");
+        const price_from    = document.getElementById('price_from');
+        const price_to      = document.getElementById('price_to');
+        const distance_to   = document.getElementById('distance_to');
+
+        const slider_box    = document.getElementById('slider_box');
+        const scroll_box    = document.getElementById('scroll_value');
+        let swipeEnabled    = true;
+
+
         function clean_container(container){
             const item = container.querySelector('.clicked');
             if(item){
                 item.classList.remove("clicked");
-            }
-            
+            }   
         }
     
-        const type_buttons  = document.getElementById("type_box");
         document.querySelectorAll('.type_button').forEach(btn => {
             btn.addEventListener('click', () => {
                 if (btn.classList.contains('clicked')) {
@@ -490,9 +486,9 @@
                 }
                 BRAND = null;       clean_container(brend_buttons);
                 COLOR = null;       clean_container(color_buttons);
-                MIN_YEAR  = null;   MAX_YEAR  = null;
-                MIN_PRICE = null;   MAX_PRICE = null;
-                DISTANCE  = null;
+
+                MIN_YEAR = null;    MAX_YEAR = null;   DISTANCE = null;
+                MIN_PRICE = null;  MAX_PRICE = null;
 
                 filterCars();
                 update_brand();
@@ -503,18 +499,14 @@
             });
         });
 
-        let swipeEnabled = true;
-        const slider_box = document.getElementById('slider_box');
-        const scroll_box = document.getElementById('scroll_value');
+
         function update_brand(){
             let brends = [...new Set(FILTERED.map(car => car.brand))];
             brend_buttons.innerHTML = '';
             brends.forEach(brend => {
                 const btn = document.createElement("button");
                 btn.textContent = brend;
-                if(BRAND == brend){
-                    btn.classList.add('clicked');
-                }
+                if(BRAND == brend){btn.classList.add('clicked');}
                 btn.addEventListener("click", () => {
                     if (btn.classList.contains("clicked")) {
                         btn.classList.remove("clicked");
@@ -524,22 +516,18 @@
                         clean_container(brend_buttons);
                         btn.classList.add('clicked');
                         BRAND = brend;
-                    }
-
-                    MIN_YEAR  = null;   MAX_YEAR  = null;
-                    MIN_PRICE = null;   MAX_PRICE = null;
-                    DISTANCE  = null;   
+                    }   
                     COLOR     = null;   clean_container(color_buttons);
 
+                    MIN_YEAR = null;    MAX_YEAR = null;   DISTANCE = null;
+                    MIN_PRICEv = null;  MAX_PRICE = null;
+
                     filterCars();
-                    if (BRAND == null){update_brand()}
-                    update_color();
-                    update_year();  
-                    update_price();  
-                    update_distance();
+                    if (BRAND == null)  {update_brand()}
+                    update_color();     update_year();  
+                    update_price();     update_distance();
                 });
                 brend_buttons.appendChild(btn);
-
                 if (brend_buttons.offsetWidth <= slider_box.offsetWidth) {
                     scroll_box.style.display = "none";
                     swipeEnabled = false;
@@ -551,7 +539,7 @@
         }
         update_brand();
 
-
+        
         let minYEAR = Math.min(...FILTERED.map(car => car.year));
         let maxYEAR = Math.max(...FILTERED.map(car => car.year));
         function getCenter(container, circle) {return container.offsetLeft + circle.offsetLeft + circle.offsetWidth / 2;}
@@ -574,27 +562,34 @@
             right_part.style.transform  = 'translateX(0)';
             setCenter(left_part, document.getElementById("circle_left"), xFrom);
             setCenter(right_part, document.getElementById("circle_right"), xTo);
-            document.getElementById("year_from").textContent = minYEAR;
-            document.getElementById("year_to").textContent = maxYEAR;
+            year_from.textContent = minYEAR;
+            year_to.textContent = maxYEAR;
         }
         update_year();
 
         
         function formated(n) {return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');}
-        function update_distance(){
-            let value            = Math.max(...FILTERED.map(car => car.distance));
-            const input_distance = document.getElementById('distance_to');
-            input_distance.value = formated(value);
+        function getValue(value) {return parseInt(value.replace(/\D/g, ''), 10) || 0;}
+        
+        function update_distance() {
+            const distances = FILTERED.map(c => c.distance);
+            distance_to.dataset.max = Math.max(...distances);
+            distance_to.dataset.min = Math.min(...distances);
+            distance_to.value = formated(distance_to.dataset.max);
         }
         update_distance();
 
-        function update_price(){
-            min_value = Math.min(...FILTERED.map(car => car.price));
-            max_value = Math.max(...FILTERED.map(car => car.price));
-            const input_price_from  = document.getElementById('price_from');
-            const input_price_to    = document.getElementById('price_to');
-            input_price_from.value  = formated(min_value);
-            input_price_to.value    = formated(max_value);
+
+        function update_price() {
+            const prices = FILTERED.map(c => c.price);
+            const min = Math.min(...prices);
+            const max = Math.max(...prices);
+            [price_from, price_to].forEach(input => {
+                input.dataset.min = min;
+                input.dataset.max = max;
+            });
+            price_from.value = formated(min);
+            price_to.value   = formated(max);
         }
         update_price();
 
@@ -623,63 +618,23 @@
                     btn.classList.add('clicked');
                     COLOR = btn.id;
                 }
-
-                MIN_YEAR  = null;   MAX_YEAR  = null;
-                MIN_PRICE = null;   MAX_PRICE = null;
-                DISTANCE  = null;
-
                 filterCars();
                 if (COLOR == null)  {update_color()}
                 if (BRAND == null)  {update_brand();}
-                
-                update_year();  
-                update_price();  
-                update_distance(); 
+                update_year();      update_price();     update_distance(); 
             });
         });
 
-       
+        function apply_filter(){
+            MIN_YEAR    = getValue(year_from.textContent);
+            MAX_YEAR    = getValue(year_to.textContent);
+            MIN_PRICE   = getValue(price_from.value);
+            MAX_PRICE   = getValue(price_to.value);
+            DISTANCE    = getValue(distance_to.value);
+            filterCars();   closeFilter();
+            update_content();
+        }
 
-        
-        
-
-        // function update_filter(origin){
-        //     filterCars();
-        //     if (origin  == 'type' || BRAND_FILTER == null) update_brand();
-        //     if (origin !== 'year') update_year();
-        //     if (origin !== 'color') update_color();
-        //     if (origin !== 'distance') update_distance();
-        //     if (origin !== 'price') update_price();
-        // }
-        // update_filter('type');
-            
-        
-        // // COLOR ----------------------------------------------------------    
-        // document.querySelectorAll('.color').forEach(btn => {
-        //     btn.addEventListener('click', () => {
-        //         const color_label = document.getElementById("color");
-        //         if (btn.classList.contains('active')) {
-        //             btn.classList.remove('active');
-        //             color_label.removeChild(color_label.firstChild);
-        //             const textNode = document.createTextNode("цвет");
-        //             color_label.insertBefore(textNode, color_label.firstChild);
-        //             COLOR_FILTER = null;
-        //         } else {
-        //             clean_choice(color_buttons, "active");
-        //             btn.classList.add('active');
-        //             color_label.removeChild(color_label.firstChild);
-        //             const svg = btn.querySelector('svg');
-        //                 svg.style.height = '18px';
-        //                 svg.style.width = 'auto';
-        //                 svg.style.marginTop = '4px';
-        //             color_label.insertBefore(svg.cloneNode(true), color_label.firstChild);
-        //             COLOR_FILTER = btn.id;
-        //         }
-        //         PRICE_FILTER = Math.max(...cars.map(car => car.price));
-        //         DISTANCE_FILTER  = Math.max(...cars.map(car => car.distance));
-        //         update_filter('color');    closeFilter("color_value");     closeFocus();
-        //     });
-        // });
         
         function update_content(){
             const content = document.getElementById("content");
