@@ -251,11 +251,22 @@
     width: auto;
     margin-left: 3vw;
     transition: all 0.2s ease;
+    opacity: 1;
 }
 
 
 .color.disactive {
-    opacity: 0.5;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+
+.color.clicked {
+    background: linear-gradient(
+        to right,
+        #9FA3A7 0%,
+        rgba(159, 163, 167, 0) 50%
+    );
 }
 
 #brand_box{
@@ -311,7 +322,6 @@
     font-weight: 600;
     background-color: white;
     border: none;
-    transition: all 0.5s ease;
 }
 
 #slider button.clicked{
