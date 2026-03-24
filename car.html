@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Восток Драйв</title>
         <link rel="stylesheet" href="css/device.css">
         <link rel="stylesheet" href="css/car.css">
+    </head>
     <body>
-        <button id = "back" onclick="document.location.href = 'index.html'">
+        <button id = "back" onclick="history.back()">
             <svg viewBox="156 43 60 94">
                 <path d="M204.226 44.8521C203.013 43.639 201.046 43.639 199.833 44.8521L157.616 87.0685C156.403 88.2817 156.403 90.2483 157.616 
                 91.4615L166.402 100.247 166.819 100.247 201.759 135.187C202.972 136.4 204.939 136.4 206.152 135.187L214.938 126.401C216.151 
@@ -74,14 +75,12 @@
 
         <div id="condition">
             <p>Состояние</p>
-            <div id="condition_info">
+            <div id="condition_info" lang="ru">
                 полностью оригинальный кузов и лакокрасочное покрытие, все винты без следов разборки, салон без износа, состояние почти нового автомобиля</div>
             </div>
         </div>
 
-        <div id="details">
-            <div id="left_half"  class="content_half"></div>
-        </div>
+        <div id="details"></div>
 
 
 
@@ -237,11 +236,6 @@
             <div id="success_text">Отправляем заявку...</div>
         </div>
 
-        <div id="photo_viewer">
-            <button id="viewer_left" class="viewer_button" onclick="move('left')" style="padding-right: 10px;">◀</button>
-            <button id="viewer_right" class="viewer_button" onclick="move('right')" style="padding-left: 10px;">▶</button>
-        </div>
-
         <div id="navigation" onclick="closeFilter()">
             <svg id="home" class="side" viewBox="0 0 125 132" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" overflow="hidden"
                 onclick="document.location.href = 'index.html'">
@@ -336,11 +330,32 @@
     <script src="js/cars.js"></script>
     <script src="js/photo_slider.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/inputmask/dist/inputmask.min.js"></script>
+    
     <script>
         const slider = document.getElementById('slider');
         
-
-
+        function addSoftHyphens(text) {
+            const vowels = 'аеёиоуыэюя';
+            return text.replace(/([а-яё]{6,})/gi, word => {
+                let result = '';
+                for (let i = 0; i < word.length; i++) {
+                    result += word[i];
+                    const prev = word[i];
+                    const next = word[i + 1];
+                    const next2 = word[i + 2];
+                    if (!next || !next2) continue;
+                    if (vowels.includes(prev)) {
+                        if (i < 2 || word.length - i < 3) continue;
+                        if (next === 'ь' || next === 'ъ' || next === 'й') continue;
+                        if (result.endsWith('\u00AD')) continue;
+                        result += '\u00AD';
+                    }
+                }
+                return result;
+            });
+        }
+        const el = document.getElementById('condition_info');
+        el.innerHTML = addSoftHyphens(el.innerText);
 
 
 
@@ -407,8 +422,7 @@
                 "немногофункциональный руль"
             ]
         }
-        const left = document.getElementById("left_half");
-        let side = 0;
+        const left = document.getElementById("details");
         Object.entries(details).forEach(([title, items]) => {
             const block = document.createElement("div");
             block.className = "category_block";
@@ -426,33 +440,8 @@
             left.appendChild(block);
         });
 
-        let PHOTO_NUM = 0;
-        let PHOTO_LIM = photos.length;
+       
         
-        const progress = document.getElementById('progress');
-
-        const viewer = document.getElementById("photo_viewer");
-        function openPhoto(){
-            updateViewer();
-            viewer.classList.add("active");
-            const viewer_left = document.getElementById("viewer_left");
-            const viewer_right = document.getElementById("viewer_right");
-
-            if(PHOTO_NUM === 0){viewer_left.style.opacity = '0';} 
-            else {viewer_left.style.opacity = '1';}
-            
-            if(PHOTO_NUM === PHOTO_LIM - 1){viewer_right.style.opacity = '0';} 
-            else {viewer_right.style.opacity = '1';}
-        }
-        function updateViewer(){
-            viewer.style.backgroundImage = `url("media/${photos[PHOTO_NUM]}.png")`;
-        }
-        viewer.onclick = (e)=>{
-            if(e.target === viewer){
-                viewer.classList.remove("active");
-            }
-        };
-
         photos.forEach((photo, i) => {
             const img = document.createElement("div");
             img.className = "photo";
