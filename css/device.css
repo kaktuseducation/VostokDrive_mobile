@@ -64,9 +64,9 @@ body{
 #shadow_top{
     position: fixed;
     width: 100vw;
-    height: 13vh;
+    height: 15vh;
     background: linear-gradient(180deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0));
-    z-index: 9;
+    z-index: 8;
     pointer-events: none;
 }
 
