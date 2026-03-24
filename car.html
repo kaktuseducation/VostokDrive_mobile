@@ -18,7 +18,13 @@
 
         <div id="photo_box">
             <div id="slider"></div>
+            <svg id="rubber_overlay" preserveAspectRatio="none">
+                <path id="rubber_path" d=""></path>
+            </svg>
         </div>
+
+        <p id="brand">TOYOTA</p>
+        <p id="name">Murciélago</p>
 
         <div class="desktop" style="z-index: 1; display: none;">
             <div id="main_info">
@@ -27,7 +33,7 @@
 
                 <div id="right_panel">
                     <div id="car_name">
-                        <span><b>MITSUBISHI</b> Colardo</span>
+                        
                         <div id="name_shadow"></div>
                         <button id="like">
                             <svg viewBox="-10 -10 133 115" xmlns="http://www.w3.org/2000/svg">
@@ -41,7 +47,7 @@
                     </div>
                     <div id="info">
                         <div class="param">
-                            <div class="picture" style="background-image: url('../media/ico/people.svg');"></div>
+                            <div class="picture" style="background-image: url('media/ico/people.svg');"></div>
                             <div class="info_block">
                                 <span class="label">руль</span>
                                 <span class="value">правый</span>
@@ -52,7 +58,7 @@
                             </div>
                         </div>
                         <div class="param">
-                            <div class="picture" style="background-image: url('../media/ico/rudder.svg');"></div>
+                            <div class="picture" style="background-image: url('media/ico/rudder.svg');"></div>
                             <div class="info_block">
                                 <span class="label">привод</span>
                                 <span class="value">передний</span>
@@ -63,7 +69,7 @@
                             </div>
                         </div>
                         <div class="param" style="border-bottom: solid 5px #0F1A23;">
-                            <div class="picture" style="background-image: url('../media/ico/engine.svg');"></div>
+                            <div class="picture" style="background-image: url('media/ico/engine.svg');"></div>
                             <div class="info_block">
                                 <span class="label">двигатель</span>
                                 <span class="value">гибрид 5л, 110лс</span>
@@ -236,40 +242,107 @@
             <button id="viewer_left" class="viewer_button" onclick="move('left')" style="padding-right: 10px;">◀</button>
             <button id="viewer_right" class="viewer_button" onclick="move('right')" style="padding-left: 10px;">▶</button>
         </div>
+
+        <div id="navigation" onclick="closeFilter()">
+            <svg id="home" class="side" viewBox="0 0 125 132" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" overflow="hidden"
+                onclick="document.location.href = 'index.html'">
+                <defs>
+                    <clipPath id="home_clip">
+                        <rect x="348" y="3093" width="125" height="132"/>
+                    </clipPath>
+                </defs>
+                <g clip-path="url(#home_clip)" transform="translate(-348 -3093)">
+                    <path d="M55.9224 0 55.5 0.0643493 55.0776 0 C51.5644 0 48.3838 1.43495 46.0814 3.755
+                    40.9772 6.936 31.3153 14.2134 24.4522 19.086 L13.4577 26.9064 4.69427 33.0335 4.44912 33.0834
+                    C1.83455 34.1978 0 36.8066 0 39.8471 L0 47.8167 0 69.2086 0 102.69 C0 111.145 6.80232 118 15.1934 
+                    118 L15.5256 118 33.2907 118 33.9529 118 33.9529 84.7551 C33.9529 81.7704 35.1534 79.0683 37.0945 
+                    77.1123 L37.9233 76.5492 73.0768 76.5492 73.9056 77.1123 C75.8466 79.0683 77.0472 81.7704 77.0472 
+                    84.7551 L77.0472 118 77.7094 118 95.4744 118 95.8067 118 C104.198 118 111 111.145 111 102.69 L111 
+                    69.2086 111 47.8167 111 39.8471 C111 36.8066 109.165 34.1978 106.551 33.0834 L106.306 33.0335 
+                    97.5423 26.9064 86.5478 19.086 C79.6848 14.2134 70.0229 6.936 64.9186 3.755 62.6163 1.43495 59.4356 
+                    0 55.9224 0Z"
+                    stroke="#9FA3A7"
+                    stroke-width="13.75"
+                    stroke-miterlimit="8"
+                    fill="none"
+                    fill-rule="evenodd"
+                    transform="matrix(-1 0 0 1 466 3100)"/>
+                </g>
+            </svg>
+
+            <svg id="catalog" viewBox="0 0 196 196" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" overflow="hidden"
+                onclick="document.location.href = 'catalog.html'">
+                <defs>
+                    <clipPath id="catalog_clip">
+                        <rect x="830" y="3069" width="196" height="196"/>
+                    </clipPath>
+                </defs>
+                <g clip-path="url(#catalog_clip)" transform="translate(-830 -3069)">
+                    <path d="M916.792 3119.17C935.451 3119.17 950.577 3134.14 950.577 3152.61 950.577 3171.07 935.451 
+                    3186.04 916.792 3186.04 898.132 3186.04 883.006 3171.07 883.006 3152.61 883.006 3134.14 898.132 
+                    3119.17 916.792 3119.17ZM916.791 3103.48 916.749 3103.49 897.533 3107.34C879.775 3114.8 867.315 
+                    3132.26 867.315 3152.61 867.315 3172.96 879.775 3190.42 897.533 3197.87L916.749 3201.73 916.791 
+                    3201.73 916.792 3201.73C923.623 3201.73 930.131 3200.36 936.05 3197.87L942.861 3193.31 943.968 
+                    3196.11 973.648 3226.73C975.943 3229.1 979.723 3229.16 982.09 3226.86L985.931 3223.14C988.298 
+                    3220.84 988.358 3217.06 986.063 3214.7L956.383 3184.08 954.54 3183.28 962.381 3171.73C964.884 
+                    3165.85 966.269 3159.39 966.269 3152.61 966.269 3125.48 944.117 3103.48 916.792 3103.48ZM928 
+                    3069C982.124 3069 1026 3112.88 1026 3167 1026 3221.12 982.124 3265 928 3265 873.876 3265 830 3221.12 
+                    830 3167 830 3112.88 873.876 3069 928 3069Z"
+                    fill="#9FA3A7"
+                    fill-rule="evenodd"/>
+                </g>
+            </svg>
+
+            <svg id="favorite" class="side" viewBox="0 0 132 114" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" overflow="hidden">
+                <defs>
+                    <clipPath id="favorite_clip">
+                        <rect x="1381" y="3100" width="132" height="114"/>
+                    </clipPath>
+                </defs>
+
+                <g clip-path="url(#favorite_clip)" transform="translate(-1381 -3100)">
+                    <path d="M1418.94 3108 1419.88 3108.05 1420.9 3108.05 1421.96 3108.17 1422.85 3108.23 1423.66 
+                    3108.38 1424.54 3108.48 1425.7 3108.75 1426.67 3108.93 1427.34 3109.14 1428.07 3109.31 1429.33 
+                    3109.75 1430.36 3110.06 1430.89 3110.29 1431.47 3110.5 1432.8 3111.12 1433.85 3111.57 1434.09 
+                    3111.71 1434.7 3112 1438.35 3114.37 1440.13 3115.48 1440.35 3115.68 1440.48 3115.76 1440.73 3116 
+                    1442.81 3117.78 C1443.65 3118.58 1444.43 3119.4 1445.13 3120.24 L1447 3122.74 1448.87 3120.24
+                    C1449.58 3119.4 1450.35 3118.58 1451.19 3117.78 L1453.27 3116 1453.52 3115.76 1453.65 3115.68 
+                    1453.87 3115.48 1455.65 3114.37 1459.3 3112 1459.91 3111.71 1460.15 3111.57 1461.2 3111.12 1462.53 
+                    3110.5 1463.11 3110.29 1463.64 3110.06 1464.67 3109.75 1465.93 3109.31 1466.66 3109.14 1467.33 
+                    3108.93 1468.3 3108.75 1469.46 3108.48 1470.34 3108.38 1471.15 3108.23 1472.04 3108.17 1473.1 3108.05 
+                    1474.12 3108.05 1475.06 3108 1475.97 3108.06 1476.79 3108.06 1477.58 3108.17 1478.53 3108.24 1479.58 
+                    3108.44 1480.52 3108.57 1481.2 3108.76 1482.01 3108.92 1483.19 3109.32 1484.23 3109.61 1484.79 3109.85 
+                    1485.46 3110.08 1486.78 3110.73 1487.9 3111.22 1488.34 3111.5 1488.86 3111.75 1490.33 3112.74 1491.48 
+                    3113.46 1491.8 3113.73 1492.18 3113.98 1493.81 3115.41 1494.94 3116.36 1495.15 3116.58 1495.39 3116.8
+                    1497.27 3118.9 1498.25 3119.97 1498.34 3120.1 1498.46 3120.23 C1499.46 3121.49 1500.42 3122.85 1501.36 
+                    3124.33 1517.37 3149.69 1489.59 3189.08 1454.13 3204.7 1447.04 3207.69 1447.39 3207.84 1439.87 3204.7
+                    1413.27 3192.98 1391 3167.9 1388.28 3145.39 1387.37 3137.89 1388.64 3130.67 1392.64 3124.33 1393.58 
+                    3122.85 1394.54 3121.49 1395.54 3120.23 L1395.66 3120.1 1395.75 3119.97 1396.73 3118.9 1398.61 3116.8 
+                    1398.85 3116.58 1399.06 3116.36 1400.19 3115.41 1401.82 3113.98 1402.2 3113.73 1402.52 3113.46 1403.67 
+                    3112.74 1405.14 3111.75 1405.66 3111.5 1406.1 3111.22 1407.22 3110.73 1408.54 3110.08 1409.21 3109.85 
+                    1409.77 3109.61 1410.81 3109.32 1412 3108.92 1412.8 3108.76 1413.48 3108.57 1414.42 3108.44 1415.47 
+                    3108.24 1416.42 3108.17 1417.21 3108.06 1418.03 3108.06 1418.94 3108Z"
+                    stroke="#9FA3A7"
+                    stroke-width="13.75"
+                    stroke-miterlimit="8"
+                    fill="none"
+                    fill-rule="evenodd"/>
+                </g>
+            </svg>
+        </div>
        
     </body>
     
     <script src="js/social.js"></script>
     <script src="js/cars.js"></script>
+    <script src="js/photo_slider.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/inputmask/dist/inputmask.min.js"></script>
     <script>
         const slider = document.getElementById('slider');
-        let currentIndex = 0;   let startX = 0;     let isDragging = false;
-        slider.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            isDragging = true;
-        });
-        slider.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            const currentX = e.touches[0].clientX;
-            const dx = currentX - startX;
-            slider.style.transition = 'none';
-            slider.style.transform = `translateX(${-currentIndex * window.innerWidth + dx}px)`;
-        });
+        
 
-        slider.addEventListener('touchend', (e) => {
-            isDragging = false;
-            const endX = e.changedTouches[0].clientX;
-            const dx = endX - startX;
-            const threshold = 20;
-            if (dx < -threshold) currentIndex++;
-            if (dx > threshold) currentIndex--;
-            const maxIndex = slider.children.length - 1;
-            if (currentIndex < 0) currentIndex = 0;
-            if (currentIndex > maxIndex) currentIndex = maxIndex;
-            slider.style.transition = 'transform 0.3s ease';
-            slider.style.transform = `translateX(${-currentIndex * window.innerWidth}px)`;
-        });
+
+
 
 
         const params = new URLSearchParams(window.location.search);
@@ -379,7 +452,7 @@
             else {viewer_right.style.opacity = '1';}
         }
         function updateViewer(){
-            viewer.style.backgroundImage = `url("../media/${photos[PHOTO_NUM]}.png")`;
+            viewer.style.backgroundImage = `url("media/${photos[PHOTO_NUM]}.png")`;
         }
         viewer.onclick = (e)=>{
             if(e.target === viewer){
@@ -390,7 +463,7 @@
         photos.forEach((photo, i) => {
             const img = document.createElement("div");
             img.className = "photo";
-            img.style.backgroundImage = `url("../media/${photo}.png")`;
+            img.style.backgroundImage = `url("media/${photo}.png")`;
             img.onclick = () => openPhoto();
             slider.appendChild(img);
         });
