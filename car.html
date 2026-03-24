@@ -15,81 +15,80 @@
                 fill="#9FA3A7"/>
             </svg>
         </button>
-
+        <div id="upper_line"></div>
+        <div id="shadow_top"></div>
         <div id="photo_box">
             <div id="slider"></div>
             <svg id="rubber_overlay" preserveAspectRatio="none">
                 <path id="rubber_path" d=""></path>
             </svg>
         </div>
+        <div id="header">
+            <button id="like">
+                <svg viewBox="-10 -10 133 115" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M56.5 23C79.63 -33 169.81 23 56.5 95 -56.81 23 33.38 -33 56.5 23Z"
+                        fill="transparent"
+                        stroke="#EC526C"
+                        stroke-width="12"
+                        stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div id="car_name">
+                <p id="name">Continental</p>
+                <p id="brand">LAMBORGHINI</p>
+            </div>
+        </div>
 
-        <p id="brand">TOYOTA</p>
-        <p id="name">Murciélago</p>
+        <div id="info">
+            <div class="param">
+                <div class="picture" style="background-image: url('media/ico/people_light.svg');"></div>
+                <div class="info_block">
+                    <span class="label">руль</span>
+                    <span class="value">правый</span>
+                </div>
+                <div class="info_block">
+                    <span class="label">мест</span>
+                    <span class="value">5</span>
+                </div>
+            </div>
+            <div class="param" style="border-bottom: solid 0.5vw #9FA3A7; border-top: solid 0.5vw #9FA3A7; ">
+                <div class="picture" style="background-image: url('media/ico/rudder_light.svg');"></div>
+                <div class="info_block">
+                    <span class="label">привод</span>
+                    <span class="value">передний</span>
+                </div>
+                <div class="info_block">
+                    <span class="label">коробка</span>
+                    <span class="value">механика</span>
+                </div>
+            </div>
+            <div class="param" >
+                <div class="picture" style="background-image: url('media/ico/engine_light.svg');"></div>
+                <div class="info_block">
+                    <span class="label">двигатель</span>
+                    <span class="value">гибрид 5л, 110лс</span>
+                </div>
+            </div>
+            <p id="main_param">144 000 км    —    2015 год</p>
+        </div>
+
+        <div id="condition">
+            <p>Состояние</p>
+            <div id="condition_info">
+                полностью оригинальный кузов и лакокрасочное покрытие, все винты без следов разборки, салон без износа, состояние почти нового автомобиля</div>
+            </div>
+        </div>
+
+        <div id="details">
+            <div id="left_half"  class="content_half"></div>
+        </div>
+
+
+
 
         <div class="desktop" style="z-index: 1; display: none;">
-            <div id="main_info">
-                
-
-
-                <div id="right_panel">
-                    <div id="car_name">
-                        
-                        <div id="name_shadow"></div>
-                        <button id="like">
-                            <svg viewBox="-10 -10 133 115" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M56.5 23C79.63 -33 169.81 23 56.5 95 -56.81 23 33.38 -33 56.5 23Z"
-                                    fill="transparent"
-                                    stroke="#9FA3A7"
-                                    stroke-width="12"
-                                    stroke-linejoin="round"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <div id="info">
-                        <div class="param">
-                            <div class="picture" style="background-image: url('media/ico/people.svg');"></div>
-                            <div class="info_block">
-                                <span class="label">руль</span>
-                                <span class="value">правый</span>
-                            </div>
-                            <div class="info_block">
-                                <span class="label">мест</span>
-                                <span class="value">5</span>
-                            </div>
-                        </div>
-                        <div class="param">
-                            <div class="picture" style="background-image: url('media/ico/rudder.svg');"></div>
-                            <div class="info_block">
-                                <span class="label">привод</span>
-                                <span class="value">передний</span>
-                            </div>
-                            <div class="info_block">
-                                <span class="label">коробка</span>
-                                <span class="value">механика</span>
-                            </div>
-                        </div>
-                        <div class="param" style="border-bottom: solid 5px #0F1A23;">
-                            <div class="picture" style="background-image: url('media/ico/engine.svg');"></div>
-                            <div class="info_block">
-                                <span class="label">двигатель</span>
-                                <span class="value">гибрид 5л, 110лс</span>
-                            </div>
-                        </div>
-                        <span id="main_param">144 000 км    —    2015 год</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <div id="condition">
-                <span>Состояние</span>
-                <div id="condition_info">
-                    полностью оригинальный кузов и лакокрасочное покрытие, все винты без следов разборки, салон без износа, состояние почти нового автомобиля</div>
-                </div>
-            <div id="details">
-                <div id="left_half"  class="content_half"></div>
-                <div id="right_half" class="content_half"> </div>
-            </div>
+            
+            
         </div>
 
         <div class="bottom_bar" onclick="openWindow()" style="display: none;">
@@ -409,7 +408,6 @@
             ]
         }
         const left = document.getElementById("left_half");
-        const right = document.getElementById("right_half");
         let side = 0;
         Object.entries(details).forEach(([title, items]) => {
             const block = document.createElement("div");
@@ -425,12 +423,7 @@
                     </ul>
                 </div>
             `;
-            if (side === 0) {
-                left.appendChild(block);
-            } else {
-                right.appendChild(block);
-            }
-            side = 1 - side;
+            left.appendChild(block);
         });
 
         let PHOTO_NUM = 0;
