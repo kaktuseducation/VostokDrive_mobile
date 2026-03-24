@@ -112,14 +112,13 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   width: 50%;
   height: auto;
 }
 
-
 #like:active svg {
-  transform: translate(-50%, -50%) scale(0.95);
+  transform: translateX(-50%) scale(0.95);
 }
 
 #like path{
@@ -132,16 +131,16 @@
 }
 
 #info{
-    height: 35vh;
+    height: 32vh;
     width: 80vw;
     background-color: #152430;
     border-radius: 4vw;
     overflow: hidden;
-    margin-top: 5vh;
+    margin-top: 6vh;
 }
 
 .param{
-    height: 8.5vh;
+    height: 8vh;
     width: 100%;
     background-color: #E5E6E7;
     overflow: hidden;
@@ -200,17 +199,16 @@
     white-space: pre;
     letter-spacing: 0.5pt;
     margin: 0;
-    margin-top: 4vh;
+    margin-top: 3.5vh;
 }
 
 #condition{
     min-height: 50px;
     width: 100vw;
     background-color: #152430;
-   
     overflow: hidden;
     position: relative;
-    margin-top: 50px;
+    margin-top: 6.5vh;
 }
 
 #condition p{
@@ -228,90 +226,79 @@
 #condition_info{
     font-family: Carlito;
     font-size: 4.5vw;
-    letter-spacing: 0.5pt;
     width: 100%;
     margin-top: 6vh;
     color: #152430;
     padding-left: 10vw;
     padding-right: 10vw;
-    padding-top: 15px;
-    padding-bottom: 25px;
+    padding-top: 2vh;
+    padding-bottom: 3vh;
     box-sizing: border-box;
-    background-color: #E5E6E7
+    background-color: #E5E6E7;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: normal;
 }
-
-
 
 #details{
-    margin-top: 50px;
+    margin-top: 6.5vh;
     width: 80vw;
-    background-color: #152430;
     min-height: 100px;
     margin-bottom: 120px;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 35px;
-    padding-bottom: 5px;
     box-sizing: border-box;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.content_half{
-    width: calc(50% - 20px);
-    min-height: 100px;
+    flex-direction: column;
     position: relative;
-    overflow: hidden;
 }
 
-.content_half::before{
+#details::before{
     content: "";
     position: absolute;
-    left: 8px;
+    left: 1.75vw;
     top: 0;
     bottom: 40px;
-    width: 3px;
+    width: 0.5vw;
     background: white;
+}
+
+.circle{
+    height: 4vw;
+    width: 4vw;
+    background-color: white;
+    border-radius: 50%;
 }
 
 .category_block{
     width: 100%;
-    min-height: 100px;
+    min-height: 1vh;
     position: relative;
 }
 
 .head{
-    height: 18px;
+    height: 5vw;
     width: 100%;
     display: flex;
     flex-direction: row;
 }
 
-.circle{
-    height: 18px;
-    width: 18px;
-    background-color: white;
-    border-radius: 50px;
-}
-
 .head span{
+    font-family: Carlito;
+    font-size: 5vw;
+    font-weight: 600;
+    letter-spacing: 0.5pt;
     color: white;
-    margin-left: 25px;
+    margin-left: 5vw;
     display: block;
-    transform: translateY(-3px);
-    font-family: Calibri, sans-serif;
-    font-size: 21px;
-    font-weight: bold;
+    transform: translateY(-1vw);
 }
 
 .body{
-    margin-left: 8px;
-    width: calc(100% - 8px);
-    min-height: 100px;
-    padding-top: 13px;
-    padding-left: 35px;
-    padding-bottom: 35px;
+    margin-left: 2vw;
+    width: calc(100% - 2vw);
+    min-height: 1vh;
+    padding-top: 1vh;
+    padding-left: 7vw;
+    padding-bottom: 5vh;
     box-sizing: border-box;
 }
 
@@ -322,12 +309,12 @@
 }
 
 .car_features li{
+    font-family: Carlito;
+    font-size: 4.5vw;
     position: relative;
-    padding-left: 30px;
-    margin-bottom: 6px;
-    font-family: Calibri, sans-serif;
-    font-size: 21px;
-    line-height: 22px;
+    padding-left: 5vw;
+    margin-bottom: 1.5vw;
+    line-height: 1.0;
     color: #9FA3A7;
 }
 
@@ -338,11 +325,19 @@
     top: 50%;
     transform: translateY(-50%);
 
-    width: 5px;
-    height: 5px;
+    width: 1vw;
+    height: 1vw;
     background: #7A7F84;
     border-radius: 50%;
 }
+
+
+
+
+
+
+
+
 
 .bottom_bar{
     position: fixed;
