@@ -1,9 +1,24 @@
+#upper_line{
+    position: fixed;
+    width: 100vw;
+    height: 6vh;
+    background-color: #152430;
+    z-index: 8;
+}
+
+#shadow_top{
+    top: 6vh;
+}
+
+
 #photo_box{
     height: 42vh;
     width: 100vw;
-    position: absolute;
+    position: relative;
     overflow: hidden;
+    z-index: 9;
 }
+
 
 #slider{
     position: absolute;
@@ -38,11 +53,24 @@
     will-change: d;
 }
 
+#header{
+    width: 80vw;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+}
+
+#car_name{
+    height: 100%;
+    width: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    margin-left: 6vw;
+}
+
 #brand{
-    position: absolute;
     margin: 0;
-    left: 10vw;
-    top: 43.5vh;
+    top: 1vh;
     color: white;
     font-family: Carlito;
     font-size: 6vw;
@@ -51,10 +79,8 @@
 }
 
 #name{
-    position: absolute;
     margin: 0;
-    left: 10vw;
-    top: 47vh;
+    bottom: 0;
     color: #9FA3A7;
     font-family: Carlito;
     font-size: 6vw;
@@ -62,60 +88,165 @@
 }
 
 
-
-
-
-
-
-#main_info{
-    height: 400px;
-    width: 100%;
-    margin-top: 50px;
+#like {
+    width: 14vw;
+    height: 9vh;
+    background-color: #152430; 
+    border: none;
+    padding: 0;
     position: relative;
+}
+
+#like::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #152430;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+}
+
+#like svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: auto;
+}
+
+
+#like:active svg {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+#like path{
+    transition: all 0.1s ease;
+}
+
+#like.active path{
+    fill: #EC526C;
+    stroke: #EC526C;
+}
+
+#info{
+    height: 35vh;
+    width: 80vw;
+    background-color: #152430;
+    border-radius: 4vw;
+    overflow: hidden;
+    margin-top: 5vh;
+}
+
+.param{
+    height: 8.5vh;
+    width: 100%;
+    background-color: #E5E6E7;
+    overflow: hidden;
+    
+    display: flex;
+    flex-direction: row;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    box-sizing: border-box;
+}
+
+.picture{
+    height: 100%;
+    width: 11vw;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    margin-right: 1vw;
+}
+
+.info_block{
+    height: 100%;
+    min-width: 25vw;
+    position: relative;
+    margin-left: 5vw;
+}
+
+.label{
+    color: #7B8085; 
+    position: absolute;
+    top: 1vh;
+    font-family: Carlito;
+    font-size: 4.5vw;
+    letter-spacing: 0.5pt;
+}
+
+.value{
+    font-family: Carlito;
+    font-size: 4.5vw;
+    color: #152430;
+    font-weight: 600;
+    position: absolute; 
+    top: 3.5vh; 
+    white-space: nowrap;
+    letter-spacing: 0.5pt;
+    
+}
+
+#main_param{
+    font-family: Carlito;
+    font-size: 4.5vw;
+    width: 100%;
+    text-align: center;
+    color: #9FA3A7;
+    font-weight: bold;
+    white-space: pre;
+    letter-spacing: 0.5pt;
+    margin: 0;
+    margin-top: 4vh;
 }
 
 #condition{
     min-height: 50px;
-    width: calc(100% - 8px);
+    width: 100vw;
     background-color: #152430;
-    border-radius: 20px;
+   
     overflow: hidden;
     position: relative;
     margin-top: 50px;
-    border: solid 4px #152430;
 }
 
-#condition span{
-    display: block;
-    font-family: Calibri, sans-serif;
-    font-size: 21px;
-    font-weight: bold;
-    margin-left: 50px;
-    margin-top: 20px;
+#condition p{
+    font-family: Carlito;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 5vw;
+    font-weight: 600;
+    letter-spacing: 0.5pt;
+    margin-top: 1vh;
     color: #9FA3A7;
 }
 
 #condition_info{
-    font-family: Calibri, sans-serif;
-    font-size: 21px;
-    letter-spacing: 1pt;
+    font-family: Carlito;
+    font-size: 4.5vw;
+    letter-spacing: 0.5pt;
     width: 100%;
-    margin-top: 12px;
-    color: white;
-    padding-left: 50px;
-    padding-right: 50px;
+    margin-top: 6vh;
+    color: #152430;
+    padding-left: 10vw;
+    padding-right: 10vw;
     padding-top: 15px;
     padding-bottom: 25px;
     box-sizing: border-box;
-    background-color: #0F1A23;
+    background-color: #E5E6E7
 }
+
+
 
 #details{
     margin-top: 50px;
-    width: 100%;
+    width: 80vw;
     background-color: #152430;
     min-height: 100px;
-    border-radius: 20px;
     margin-bottom: 120px;
     padding-left: 50px;
     padding-right: 50px;
@@ -131,6 +262,7 @@
     width: calc(50% - 20px);
     min-height: 100px;
     position: relative;
+    overflow: hidden;
 }
 
 .content_half::before{
@@ -329,138 +461,19 @@
     background-color: white;
 }
 
-#info{
-    position: absolute;
-    height: 330px;
-    bottom: 0;
-    width: 100%;
-    background-color: #152430;
-    border-radius: 30px;
-    overflow: hidden;
-}
-
-.param{
-    height: 82px;
-    width: 100%;
-    background-color: #0F1A23;
-    overflow: hidden;
-    border-bottom: solid 4px #152430; 
-    display: flex;
-    flex-direction: row;
-}
-
-.picture{
-    height: 100%;
-    width: 75px;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    margin-right: 25px;
-}
-
-.info_block{
-    height: 100%;
-    min-width: 130px;
-    position: relative;
-}
-
-.label{
-    font-family: Calibri, sans-serif;
-    font-size: 21px;
-    color: #7B8085; 
-    position: absolute;
-    top: 17px;
-    letter-spacing: 1px; 
-}
-
-.value{
-    font-family: Calibri, sans-serif;
-    font-size: 21px;
-    /* color: #9FA3A7; */
-    color: white;
-    font-weight: bold;
-    position: absolute; 
-    top: 40px; 
-    white-space: nowrap;
-    letter-spacing: 1px;
-    
-}
-
-#main_param{
-    font-family: Calibri, sans-serif;
-    font-size: 21px;
-    color: #9FA3A7;
-    font-weight: bold;
-    position: absolute;
-    bottom: 22px;
-    width: 100%;
-    text-align: center;
-    white-space: pre;
-    letter-spacing: 1px;
-}
 
 
-#car_name{
-    width: 100%;
-    position: relative;
-}
 
-#car_name span{
-    position: absolute;
-    width: 300px;
-    font-family: Calibri, sans-serif;
-    font-size: 35px;
-    color: white;
-    white-space: nowrap;
-    overflow: hidden; 
-    
-}
 
-#like{
-    position: absolute;
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    border: none;
-    background-color: #152430;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.6s ease;
-    padding: 10px;
-    box-sizing: border-box;
-}
 
-#like path{
-    transition: all 0.3s ease;
-}
 
-#like:hover{
-    background-color: white;
-}
 
-#like:hover path{
-    fill: #EC526C;
-    stroke: #EC526C;
-}
 
-#like.active path{
-    fill: #EC526C;
-    stroke: #EC526C;
-}
 
 .no-transition{
     transition: none !important;
 }
 
-#name_shadow{
-    position: absolute;
-    right: 60px;
-    height: 46px;
-    width: 80px;
-    background: linear-gradient(270deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0));
-}
 
 #button_middle{
     position: absolute;
