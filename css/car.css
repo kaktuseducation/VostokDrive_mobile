@@ -48,20 +48,6 @@
     position: absolute;
 }
 
-#price_left{
-    z-index: 6;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    bottom: 0;
-    width: 100vw;
-    background-color: #152430;
-    height: 6vh;
-    gap: 2vw;
-    padding-top: 1vw;
-    padding-left: 30vw;
-    box-sizing: border-box;
-}
 
 #rub{
     font-family: 'Roboto';
@@ -87,18 +73,81 @@
 }
 
 #header{
-    width: 80vw;
-    height: 10vh;
+    width: 100vw;
+    height: 16vh;
+    position: relative;
+}
+
+#price_left{
+    position: absolute;
+    left: 0;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    background-color: #152430;
+    height: 7vh;
+    gap: 2vw;
+    padding-top: 1vw;
+    box-sizing: border-box;
+    width: 100vw;
+    padding-left: 30vw;
+}
+
+#like {
+    position: absolute;
+    top: 0;
+    left: 10vw;
+    width: 14vw;
+    height: 100%;
+    background-color: #152430; 
+    border: none;
+    padding: 0;
+    position: relative;
+    clip-path: url(#bookmark-shape);
+}
+
+#like svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  width: 50%;
+  height: auto;
+}
+
+#like:active svg {
+  transform: translate(-50%, -100%) scale(0.95);
+}
+
+#like path{
+    transition: all 0.1s ease;
+}
+
+#like.active path{
+    fill: #EC526C;
+    stroke: #EC526C;
+}
+
+.no-transition{
+    transition: none !important;
+}
+
+#bookmark_shadow{
+    height: 7vh;
+    width: 6vw;
+    background: linear-gradient(90deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0));
+    position: absolute;
+    left: 24vw;
 }
 
 #car_name{
-    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 30vw;
+    height: 9vh;
     width: auto;
     display: flex;
     flex-direction: column-reverse;
-    margin-left: 6vw;
 }
 
 #brand{
@@ -118,53 +167,6 @@
     font-family: 'Carlito';
     font-size: 6vw;
     letter-spacing: 1.5pt;
-}
-
-
-#like {
-    width: 14vw;
-    height: 9vh;
-    background-color: #152430; 
-    border: none;
-    padding: 0;
-    position: relative;
-}
-
-#like::before {
-  content: '';
-  position: absolute;
-  top: 15%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #152430;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
-}
-
-#like svg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50%;
-  height: auto;
-}
-
-#like:active svg {
-  transform: translateX(-50%) scale(0.95);
-}
-
-#like path{
-    transition: all 0.1s ease;
-}
-
-#like.active path{
-    fill: #EC526C;
-    stroke: #EC526C;
-}
-
-.no-transition{
-    transition: none !important;
 }
 
 
@@ -243,11 +245,12 @@
     font-family: 'Carlito';
     text-align: right;
     font-size: 4.5vw;
-    color: #E5E6E7;
+    color: #9FA3A7;
     white-space: pre;
     margin: 0;
     margin-top: 0.5vh;
     letter-spacing: 1pt;
+    font-weight: 600;
 }
 
 #condition{
