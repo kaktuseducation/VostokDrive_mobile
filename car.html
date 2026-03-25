@@ -82,28 +82,31 @@
 
         <div id="details"></div>
 
-
-
-
-        <div class="desktop" style="z-index: 1; display: none;">
-            
-            
-        </div>
-
-        <div class="bottom_bar" onclick="openWindow()" style="display: none;">
-            <div class="bottom_side"></div>
-            <div class="bottom_wave">
-                <div id="button_middle">
-                    <span id="price">1 зоо ооо</span>
-                    <span id="rub">₽</span>
-                    <div>отправить<br> заявку</div>
-                </div>
+        <button id="send">
+            <div id="price_left">
+                <span id="price">12 зоо ооо </span>
+                <span id="rub">  ₽</span>
             </div>
-            <div class="bottom_side"></div>
-        </div>
-        <div class = "shadow"></div>
-        <div id = "shadow2"></div>
+                <div id="split"></div>
+                <span id="button_description">отправить заявку</span> 
+        </button>
+
+        <svg width="0" height="0" style="position: absolute;">
+        <defs>
+            <clipPath id="panel-shape" clipPathUnits="objectBoundingBox">
+            <path d="M 0,1 
+                    C 0.035,1 0.035,0 0.115,0 
+                    L 0.885,0 
+                    C 0.965,0 0.965,1 1,1 
+                    Z" />
+            </clipPath>
+        </defs>
+        </svg>
+        <div id="shadow_bottom2"></div>
+
         
+        
+
         <div id="request_box" style="display: none;">
             <div id="connect">
                 <div class="inner_content">
