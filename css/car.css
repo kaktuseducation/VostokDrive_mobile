@@ -72,7 +72,7 @@
     margin: 0;
     top: 1vh;
     color: white;
-    font-family: Carlito;
+    font-family: 'Carlito';
     font-size: 6vw;
     font-weight: 600;
     letter-spacing: 2pt;
@@ -82,7 +82,7 @@
     margin: 0;
     bottom: 0;
     color: #9FA3A7;
-    font-family: Carlito;
+    font-family: 'Carlito';
     font-size: 6vw;
     letter-spacing: 1.5pt;
 }
@@ -130,6 +130,11 @@
     stroke: #EC526C;
 }
 
+.no-transition{
+    transition: none !important;
+}
+
+
 #info{
     height: 32vh;
     width: 80vw;
@@ -172,13 +177,13 @@
     color: #7B8085; 
     position: absolute;
     top: 1vh;
-    font-family: Carlito;
+    font-family: 'Carlito';
     font-size: 4.5vw;
     letter-spacing: 0.5pt;
 }
 
 .value{
-    font-family: Carlito;
+    font-family: 'Carlito';
     font-size: 4.5vw;
     color: #152430;
     font-weight: 600;
@@ -190,16 +195,16 @@
 }
 
 #main_param{
-    font-family: Carlito;
+    font-family: 'Carlito';
     font-size: 4.5vw;
     width: 100%;
     text-align: center;
-    color: #9FA3A7;
+    color: #E5E6E7;
     font-weight: bold;
     white-space: pre;
     letter-spacing: 0.5pt;
     margin: 0;
-    margin-top: 3.5vh;
+    margin-top: 2.5vh;
 }
 
 #condition{
@@ -212,7 +217,7 @@
 }
 
 #condition p{
-    font-family: Carlito;
+    font-family: 'Carlito';
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -224,7 +229,7 @@
 }
 
 #condition_info{
-    font-family: Carlito;
+    font-family: 'Carlito';
     font-size: 4.5vw;
     width: 100%;
     margin-top: 6vh;
@@ -258,13 +263,13 @@
     top: 0;
     bottom: 40px;
     width: 0.5vw;
-    background: white;
+    background: #E5E6E7;
 }
 
 .circle{
     height: 4vw;
     width: 4vw;
-    background-color: white;
+    background-color: #E5E6E7;
     border-radius: 50%;
 }
 
@@ -282,11 +287,11 @@
 }
 
 .head span{
-    font-family: Carlito;
+    font-family: 'Carlito';
     font-size: 5vw;
     font-weight: 600;
     letter-spacing: 0.5pt;
-    color: white;
+    color: #E5E6E7;
     margin-left: 5vw;
     display: block;
     transform: translateY(-1vw);
@@ -296,7 +301,7 @@
     margin-left: 2vw;
     width: calc(100% - 2vw);
     min-height: 1vh;
-    padding-top: 1vh;
+    padding-top: 2vh;
     padding-left: 7vw;
     padding-bottom: 5vh;
     box-sizing: border-box;
@@ -309,7 +314,7 @@
 }
 
 .car_features li{
-    font-family: Carlito;
+    font-family: 'Carlito';
     font-size: 4.5vw;
     position: relative;
     padding-left: 5vw;
@@ -332,69 +337,93 @@
 }
 
 
-
-
-
-
-
-
-
-.bottom_bar{
+#send{
     position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 70px;
+    bottom: 10vh;
+    width: 100vw;
+    height: 8vh;
+    background-color: #EC526C;
+    border: none;
+    z-index: 9;
     display: flex;
-    z-index: 50;
-    align-items: flex-end;
-    opacity: 1;
-    transition: all 0.7s ease;
+    flex-direction: row;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;
+    clip-path: url(#panel-shape);
 }
 
-.bottom_wave{
-    width: 960px;
-    height: 70px;
-    background-image: url("../../media/ico/wave.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    transition: all 0.6s ease;
+#price_left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-.wave_svg{
-    width: 100%;
-    height: 100%;
-    fill: #EC526C;
-    pointer-events: visiblePainted;
+
+#rub{
+    font-family: 'Roboto';
+    font-size: 3.7vw;
+    color: white;
+    white-space: pre;
 }
 
-.bottom_bar:hover .bottom_wave{
-    filter: saturate(150%) brightness(80%);
+#price{
+    font-family: 'Vostok';
+    font-size: 2.7vw;
+    color: white;
+    padding-top: 1vw;
+    box-sizing: border-box;
 }
 
-.bottom_bar:hover .bottom_side{
-    filter: saturate(150%) brightness(80%);
+#split{
+    height: 3vh;
+    width: 0;
+    border-left: solid 0.5vw white;
 }
 
-.bottom_side{
-    flex: 1;
-    background: #EC526C;
-    height: 32px;
-    transition: all 0.6s ease;;
+#button_description{
+    font-family: 'Carlito';
+    font-size: 5vw;
+    color: white;
+    letter-spacing: 0.5pt;
+    margin: 0;
+    padding: 0;
+    transform: translateY(-0.5vw);
 }
 
-#shadow2{
-    display: block;
-    position: absolute;
-    bottom: 32px;
-    left: 0;
-    height: 90px;
-    width: 100%;
-    background: linear-gradient(0deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0));
+#shadow_bottom2{
     position: fixed;
-    z-index: 5;
+    bottom: 10vh;
+    width: 100vw;
+    height: 29vh;
+    background: linear-gradient(0deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0));
+    z-index: 8;
     pointer-events: none;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -465,57 +494,9 @@
 
 
 
-.no-transition{
-    transition: none !important;
-}
 
 
-#button_middle{
-    position: absolute;
-    height: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding-bottom: 8px;
-    box-sizing: border-box;
-    user-select: none;
-    cursor: pointer;
-}
 
-#button_middle div{
-    height: 55%;
-    border-left: solid 2px white;
-    padding-left: 20px;
-    box-sizing: border-box;
-    color: white;
-    font-family: Calibri, sans-serif;
-    font-size: 21px;
-    font-weight: bold;
-    line-height: 21px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 1pt;
-}
-
-#rub{
-    color: white;
-    font-family: Calibri, sans-serif;
-    font-size: 21px;
-    font-weight: bold;
-    margin-right: 20px;
-    margin-left: 6px;
-}
-
-#price{
-    padding-top: 2px;
-    font-family: 'Vostok';
-    font-size: 14px;
-    letter-spacing: 1px;
-    color: white;
-    margin-top: 5px; 
-}
 
 #request_box{
     width: 860px;
