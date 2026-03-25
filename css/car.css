@@ -141,11 +141,11 @@
     background-color: #152430;
     border-radius: 4vw;
     overflow: hidden;
-    margin-top: 6vh;
+    margin-top: 5.5vh;
 }
 
 .param{
-    height: 8vh;
+    height: 7vh;
     width: 100%;
     background-color: #E5E6E7;
     overflow: hidden;
@@ -204,7 +204,7 @@
     white-space: pre;
     letter-spacing: 0.5pt;
     margin: 0;
-    margin-top: 2.5vh;
+    margin-top: 4vh;
 }
 
 #condition{
@@ -254,6 +254,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    margin-bottom: 19vh;
 }
 
 #details::before{
@@ -341,7 +342,7 @@
     position: fixed;
     bottom: 10vh;
     width: 100vw;
-    height: 8vh;
+    height: 7vh;
     background-color: #EC526C;
     border: none;
     z-index: 9;
@@ -352,7 +353,7 @@
     box-sizing: border-box;
     align-items: center;
     justify-content: space-between;
-    clip-path: url(#panel-shape);
+    
 }
 
 #price_left{
@@ -395,9 +396,9 @@
 
 #shadow_bottom2{
     position: fixed;
-    bottom: 10vh;
+    bottom: 17vh;
     width: 100vw;
-    height: 29vh;
+    height: 15vh;
     background: linear-gradient(0deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0));
     z-index: 8;
     pointer-events: none;
