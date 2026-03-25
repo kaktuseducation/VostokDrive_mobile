@@ -93,3 +93,10 @@ body{
        url('fonts/Carlito.woff') format('woff'),
        url('fonts/Carlito.otf') format('opentype');
 }
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('fonts/Roboto.woff2') format('woff2'),
+       url('fonts/Roboto.woff') format('woff'),
+       url('fonts/Roboto.otf') format('opentype');
+}
