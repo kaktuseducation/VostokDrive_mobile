@@ -136,7 +136,7 @@
 
 
 #info{
-    height: 32vh;
+    height: 34vh;
     width: 80vw;
     background-color: #152430;
     border-radius: 4vw;
@@ -155,6 +155,7 @@
     padding-left: 4vw;
     padding-right: 4vw;
     box-sizing: border-box;
+    border-bottom: solid 0.5vw #9FA3A7;
 }
 
 .picture{
@@ -194,17 +195,47 @@
     
 }
 
+#bottom_info{
+    width: 100%;
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 4vw;
+    box-sizing: border-box;
+}
+
+#price_left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#rub{
+    font-family: 'Roboto';
+    font-size: 4vw;
+    color: #EC526C;
+    white-space: pre;
+    font-weight: 600;
+}
+
+#price{
+    font-family: 'Vostok';
+    font-size: 3.5vw;
+    color: #EC526C;
+    padding-top: 1vw;
+    box-sizing: border-box;
+}
+
 #main_param{
     font-family: 'Carlito';
+    text-align: right;
     font-size: 4.5vw;
-    width: 100%;
-    text-align: center;
     color: #E5E6E7;
-    font-weight: bold;
     white-space: pre;
-    letter-spacing: 0.5pt;
     margin: 0;
-    margin-top: 4vh;
+    margin-top: 0.5vh;
+    letter-spacing: 0.5pt;
 }
 
 #condition{
@@ -337,70 +368,42 @@
     border-radius: 50%;
 }
 
-
-#send{
+#button_background{
     position: fixed;
     bottom: 10vh;
     width: 100vw;
     height: 7vh;
-    background-color: #EC526C;
-    border: none;
+    background-color: #152430;
     z-index: 9;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+}
+
+
+#send{
+    border: none;
+    background-color: #EC526C;
+    width: 80vw;
+    height: 6vh;
     padding-left: 10vw;
     padding-right: 10vw;
     box-sizing: border-box;
-    align-items: center;
-    justify-content: space-between;
-    
-}
-
-#price_left{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-
-#rub{
-    font-family: 'Roboto';
-    font-size: 3.7vw;
-    color: white;
-    white-space: pre;
-    font-weight: 600;
-}
-
-#price{
-    font-family: 'Vostok';
-    font-size: 2.7vw;
-    color: white;
-    padding-top: 1vw;
-    box-sizing: border-box;
-}
-
-#split{
-    height: 3vh;
-    width: 0;
-    border-left: solid 0.5vw white;
-}
-
-#button_description{
     font-family: 'Carlito';
     font-size: 5vw;
     color: white;
     letter-spacing: 0.5pt;
-    margin: 0;
-    padding: 0;
-    transform: translateY(-0.5vw);
     font-weight: 600;
+    border-radius: 4vw;
+    /* border-top-left-radius: 4vw;
+    border-top-right-radius: 4vw; */
 }
+
 
 #shadow_bottom2{
     position: fixed;
     bottom: 17vh;
     width: 100vw;
-    height: 15vh;
+    height: 25vh;
     background: linear-gradient(0deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0));
     z-index: 8;
     pointer-events: none;
