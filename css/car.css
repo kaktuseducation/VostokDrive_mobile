@@ -18,7 +18,6 @@
     z-index: 9;
 }
 
-
 #slider{
     position: absolute;
     left: 0;
@@ -176,7 +175,7 @@
     background-color: #152430;
     border-radius: 4vw;
     overflow: hidden;
-    margin-top: 5.5vh;
+    margin-top: 6vh;
     position: relative;
 }
 
@@ -294,7 +293,7 @@
     background-color: #152430;
     overflow: hidden;
     position: relative;
-    margin-top: 6.5vh;
+    margin-top: 8vh;
 }
 
 #condition p{
@@ -420,25 +419,38 @@
 }
 
 
-
+#button_background{
+    position: fixed;
+    bottom: calc(10vh - 3vw);
+    left: 46vw;
+    width: 60vw;
+    background-color: #152430;
+    border-radius: 4vw;
+    height: calc(5vh + 6vw);
+    z-index: 9;
+    clip-path: polygon(24% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
 
 #send{
-    position: fixed;
-    bottom: 10vh;
+    position: absolute;
     border: none;
     background-color: #EC526C;
-    width: 100vw;
-    height: 6vh;
-    z-index: 9;
-    padding-left: 10vw;
-    padding-right: 10vw;
+    text-align: right;
+    border-radius: 4vw 0 4vw 0;
+    bottom: 3vw;
+    left: 7vw;
+    width: 37vw;
+    height: 5vh;
+    /* padding-left: 10vw;
+    padding-right: 10vw; */
+    padding-right: 6vw;
     box-sizing: border-box;
     font-family: 'Carlito';
     font-size: 5vw;
     color: white;
-    letter-spacing: 1.5pt;
+    letter-spacing: 1pt;
     font-weight: 600;
-
+    clip-path: polygon(24% 0%, 100% 0%, 100% 100%, 0% 100%);
     /* border-top-left-radius: 4vw;
     border-top-right-radius: 4vw; */
 }
