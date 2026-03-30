@@ -11,7 +11,7 @@ body{
 
 #navigation{
     width: 100vw;
-    height: 10vh;
+    height: 7vh;
     position: fixed;
     bottom: 0;
     z-index: 10;
@@ -24,8 +24,8 @@ body{
 }
 
 .side{
-    width: 9vw;
-    max-height: 6vh;
+    max-width: 9vw;
+    max-height: 4vh;
 }
 
 .active path{
@@ -34,8 +34,8 @@ body{
 }
 
 #catalog{
-    width: 14vw;
-    max-height: 8vh;
+    max-width: 14vw;
+    max-height: 5.5vh;
 }
 
 #back{
@@ -52,6 +52,7 @@ body{
     flex-direction: row;
     align-items: center;
     z-index: 10;
+    transition: all 1.2s ease;
 }
 
 #back svg{
@@ -68,11 +69,12 @@ body{
     background: linear-gradient(180deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0));
     z-index: 8;
     pointer-events: none;
+   
 }
 
 #shadow_bottom{
     position: fixed;
-    bottom: 10vh;
+    bottom: 7vh;
     width: 100vw;
     height: 13vh;
     background: linear-gradient(0deg,rgba(15, 26, 35, 1), rgba(15, 26, 35, 0));
