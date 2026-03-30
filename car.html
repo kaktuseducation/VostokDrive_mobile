@@ -24,6 +24,88 @@
                 <path id="rubber_path" d=""></path>
             </svg>
         </div>
+
+        <div id="content">
+            <div id="header">
+                <div id="price_left">
+                    <span id="price">12 зоо ооо</span>
+                    <span id="rub">₽</span>
+                </div>
+                <div id="car_name">
+                    <p id="name" lang="en">Tayron 280TSI, Luxury Advanced Edition</p>
+                    <p id="brand">VOLKSWAGEN</p>
+                </div>
+
+                <div id="bookmark_shadow"></div>
+                <button id="like">
+                    <svg viewBox="-10 -10 133 115" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M56.5 23C79.63 -33 169.81 23 56.5 95 -56.81 23 33.38 -33 56.5 23Z"
+                            fill="transparent"
+                            stroke="#EC526C"
+                            stroke-width="12"
+                            stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="info">
+                <div class="param">
+                    <div class="picture" style="background-image: url('media/ico/people_light.svg');"></div>
+                    <div class="info_block">
+                        <span class="label">руль</span>
+                        <span class="value">правый</span>
+                    </div>
+                    <div class="info_block">
+                        <span class="label">мест</span>
+                        <span class="value">5</span>
+                    </div>
+                </div>
+                <div class="param">
+                    <div class="picture" style="background-image: url('media/ico/rudder_light.svg');"></div>
+                    <div class="info_block">
+                        <span class="label">привод</span>
+                        <span class="value">передний</span>
+                    </div>
+                    <div class="info_block">
+                        <span class="label">коробка</span>
+                        <span class="value">механика</span>
+                    </div>
+                </div>
+                <div class="param" style="border: none">
+                    <div class="picture" style="background-image: url('media/ico/engine_light.svg');"></div>
+                    <div class="info_block">
+                        <span class="label">двигатель</span>
+                        <span class="value">гибрид 5л, 110лс</span>
+                    </div>
+                </div>
+                <div id="bottom_info">
+                    <div class="param_half">
+                        <p class="param_value">30 780 км</p>
+                        <p class="param_type">пробегa</p>
+                    </div>
+                    <div id="split"></div>
+                    <div class="param_half">
+                        <p class="param_value">2022 год</p>
+                        <p class="param_type">выпуска</p>
+                    </div> 
+                </div>
+                <div id="background_svg"></div>
+            </div>
+
+            <div id="condition">
+                <p>Состояние</p>
+                <div id="condition_info" lang="ru">
+                    оригинальная аводская краска<
+                    количество ключей: 2
+                    готов к выдаче в любое время
+                    страховка до
+                    полностью оригинальный кузов и лакокрасочное покрытие, все винты без следов разборки, салон без износа, состояние почти нового автомобиля
+                </div>
+            </div>
+            <div id="details"></div>
+            
+        </div>
+        
         <svg width="0" height="0">
             <defs>
                 <clipPath id="bookmark-shape" clipPathUnits="objectBoundingBox">
@@ -31,220 +113,118 @@
                 </clipPath>
             </defs>
         </svg>
-        <div id="header">
-            <div id="price_left">
-                <span id="price">12 зоо ооо</span>
-                <span id="rub">₽</span>
-            </div>
-            <div id="bookmark_shadow"></div>
-            <button id="like">
-                <svg viewBox="-10 -10 133 115" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M56.5 23C79.63 -33 169.81 23 56.5 95 -56.81 23 33.38 -33 56.5 23Z"
-                        fill="transparent"
-                        stroke="#EC526C"
-                        stroke-width="12"
-                        stroke-linejoin="round"/>
-                </svg>
-            </button>
-            <div id="car_name">
-                <p id="name">Continental</p>
-                <p id="brand">LAMBORGHINI</p>
-            </div>
-        </div>
-
-        <div id="info">
-            <div class="param">
-                <div class="picture" style="background-image: url('media/ico/people_light.svg');"></div>
-                <div class="info_block">
-                    <span class="label">руль</span>
-                    <span class="value">правый</span>
-                </div>
-                <div class="info_block">
-                    <span class="label">мест</span>
-                    <span class="value">5</span>
-                </div>
-            </div>
-            <div class="param">
-                <div class="picture" style="background-image: url('media/ico/rudder_light.svg');"></div>
-                <div class="info_block">
-                    <span class="label">привод</span>
-                    <span class="value">передний</span>
-                </div>
-                <div class="info_block">
-                    <span class="label">коробка</span>
-                    <span class="value">механика</span>
-                </div>
-            </div>
-            <div class="param" style="border: none">
-                <div class="picture" style="background-image: url('media/ico/engine_light.svg');"></div>
-                <div class="info_block">
-                    <span class="label">двигатель</span>
-                    <span class="value">гибрид 5л, 110лс</span>
-                </div>
-            </div>
-            <div id="bottom_info">
-                <div class="param_half">
-                    <p class="param_value">144 000 км</p>
-                    <p class="param_type">пробегa</p>
-                </div>
-                <div id="split"></div>
-                <div class="param_half">
-                    <p class="param_value">2015 год</p>
-                    <p class="param_type">выпуска</p>
-                </div> 
-            </div>
-            <div id="background_svg"></div>
-            
-            
-        </div>
-
-        <div id="condition">
-            <p>Состояние</p>
-            <div id="condition_info" lang="ru">
-                полностью оригинальный кузов и лакокрасочное покрытие, все винты без следов разборки, салон без износа, состояние почти нового автомобиля</div>
-            </div>
-        </div>
-
-        <div id="details"></div>
-
         <div id="button_background">
-            <button id="send">заказать</button>
+            <button id="send" onclick="openWindow()">заказать</button>
         </div>
-            
-   
-        
         <div id="shadow_bottom2"></div>
 
 
-
-        
-
-
-        <div id="request_box" style="display: none;">
-            <div id="connect">
-                <div class="inner_content">
-                    <p class="text_head">Свяжитесь с нами</p>
-                    <p id="phone">+7 (932) 484 - 74 - 36</p>
-                    <div id="our_media">
-                        <svg id = "telegram" viewBox="0 0 675 562" preserveAspectRatio="xMidYMid meet"  xmlns="http://www.w3.org/2000/svg" overflow="hidden">
-                            <defs>
-                                <clipPath id="telegram_clip"><rect x="349" y="602" width="675" height="562"/></clipPath>
-                            </defs>
-                            <g clip-path="url(#clip0)" transform="translate(-349 -602)">
-                                <path d="M901.474 714.262C913.749 695.018 889.558 700.733 882.712 707.245 855.338 726.753 559.586 910.178 525.683 928.724 458.163 
-                                908.542 389.411 891.867 363.031 877.221 336.651 862.574 352.953 848.092 367.403 840.845 432.054 815.002 767.385 686.25 972.185 
-                                605.894 982.318 603.88 1023.66 588.707 1024 636.108 986.997 807.774 954.252 981.264 912.99 1151.11 904.357 1160.24 899.398 1166.17 
-                                878.703 1163.25 819.656 1118.69 762.13 1084.31 710.803 1041.68 675.185 1070.99 625.093 1133.08 603.949 1129.59 604.285 1074.47 
-                                612.304 1028.66 613.122 973.054L901.474 714.262Z" 
-                                fill="#9FA3A7" fill-rule="evenodd"/>
-                            </g>
-                        </svg>
-
-                        <svg id="wechat" viewBox="0 0 129 113" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" overflow="hidden">
-                            <defs>
-                                <clipPath id="wechat_clip">
-                                    <rect x="300" y="1667" width="129" height="113"/>
-                                </clipPath>
-                            </defs>
-                            <g clip-path="url(#wechat_clip)" transform="translate(-300 -1667)">
-                                <path d="M400.838 1725.57C397.505 1725.57 394.803 1728.29 394.803 1731.64 394.803 1735 397.505 1737.72 400.838 1737.72 404.17 
-                                1737.72 406.872 1735 406.872 1731.64 406.872 1728.29 404.17 1725.57 400.838 1725.57Z M376.779 1725.57C373.441 1725.57 370.735 
-                                1728.29 370.735 1731.64 370.735 1735 373.441 1737.72 376.779 1737.72 380.117 1737.72 382.822 1735 382.822 1731.64 382.822 1728.29 
-                                380.117 1725.57 376.779 1725.57Z M388.692 1707.61C410.954 1707.61 429 1722.14 429 1740.07 429 1749.03 424.488 1757.14 417.194 
-                                1763.01 L413.046 1765.77 420.583 1780 399.318 1771.34 L396.816 1771.86C394.192 1772.29 391.475 1772.52 388.692 1772.52 366.431 
-                                1772.52 348.384 1757.99 348.384 1740.07 348.384 1722.14 366.431 1707.61 388.692 1707.61Z M364.637 1684.92C361.34 1684.92 358.667 
-                                1687.64 358.667 1691 358.667 1694.35 361.34 1697.07 364.637 1697.07 367.935 1697.07 370.607 1694.35 370.607 1691 370.607 1687.64 
-                                367.935 1684.92 364.637 1684.92Z M332.339 1684.92C329.041 1684.92 326.368 1687.64 326.368 1691 326.368 1694.35 329.041 1697.07 
-                                332.339 1697.07 335.636 1697.07 338.309 1694.35 338.309 1691 338.309 1687.64 335.636 1684.92 332.339 1684.92Z M348.605 1667C372.093 
-                                1667 391.69 1680.8 396.222 1699.15 L396.304 1699.6 393.898 1699.29 C392.264 1699.15 390.606 1699.08 388.928 1699.08 362.085 1699.08 
-                                340.323 1717.11 340.323 1739.35 340.323 1740.74 340.408 1742.11 340.574 1743.47 L341.239 1747.07 341.203 1747.07 C338.789 1746.77 
-                                336.434 1746.31 334.151 1745.73 L329.746 1744.39 312.194 1751.54 318.813 1739.04 317.688 1738.34 C306.885 1730.95 300 1719.78 300 
-                                1707.27 300 1685.03 321.761 1667 348.605 1667Z"
-                                fill="#9FA3A7" fill-rule="evenodd"/>
-                            </g>
-                        </svg>
-
-                        <svg id="viber" viewBox="0 0 119 133" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" overflow="hidden">
-                            <defs>
-                                <clipPath id="viber_clip">
-                                    <rect x="719" y="1657" width="119" height="133"/>
-                                </clipPath>
-                            </defs>
-
-                            <g clip-path="url(#viber_clip)" transform="translate(-719 -1657)">
-                                <path d="M784.437 1693.41 784.432 1693.51 784.201 1693.46 C782.976 1693.46 781.982 1694.39 781.982 1695.53 781.982 1696.67 782.976 
-                                1697.6 784.201 1697.6 L784.52 1697.54 786.197 1697.76 C787.86 1698.12 788.768 1698.79 790.5 1699.77 792.048 1701.31 793.02 1703.08 
-                                793.166 1706.2 L793.255 1706.21 793.394 1706.94 C793.708 1707.73 794.442 1708.29 795.298 1708.29 796.439 1708.29 797.364 1707.3 
-                                797.364 1706.08 L797.316 1705.83 797.402 1705.22 C797.462 1702.36 795.331 1698.93 793.465 1697.04 791.332 1694.87 788.073 1693.04 
-                                784.437 1693.41Z M784.873 1684.31 C783.989 1684.28 783.104 1684.31 782.223 1684.4 L782.232 1684.48 781.982 1684.43 C780.756 1684.43 
-                                779.763 1685.41 779.763 1686.63 779.763 1687.85 780.756 1688.84 781.982 1688.84 782.289 1688.84 782.58 1688.78 782.846 1688.67 L782.905 
-                                1688.63 784.923 1688.55 C789.997 1688.7 794.321 1691.16 797.977 1694.67 801.569 1698.67 802.563 1703.15 802.104 1708.17 L802.123 
-                                1708.17 802.098 1708.29 C802.098 1709.51 803.091 1710.5 804.317 1710.5 805.543 1710.5 806.536 1709.51 806.536 1708.29 L806.437 1707.8 
-                                806.672 1706.44 C807.081 1701.12 804.151 1695.31 801.052 1691.88 797.175 1687.58 791.06 1684.53 784.873 1684.31Z M754.05 1682.6 C749.041 
-                                1683.85 741.89 1692.34 741.474 1694.58 740.377 1705.24 746.059 1714.62 749.866 1720.69 757.218 1732.41 779.27 1752.09 794.124 1753.55
-                                803.401 1754.64 811.326 1742.33 811.343 1739.47 811.131 1735.53 799.439 1723.88 795.247 1723.07 790.086 1721.96 788.291 1728.77 784.814 
-                                1731.62 773.181 1731.81 765.988 1721.19 762.621 1712.7 761.311 1708.27 765.971 1705.93 768.564 1704.78 770.563 1703.32 771.158 1703.78 
-                                771.549 1697.75 768.675 1693.23 759.526 1681.26 754.05 1682.6Z M786.126 1675.41 C784.882 1675.39 783.63 1675.45 782.376 1675.6 L782.389 
-                                1675.72 781.982 1675.63 C780.756 1675.63 779.763 1676.62 779.763 1677.84 779.763 1679.06 780.756 1680.05 781.982 1680.05 L782.838 
-                                1679.88 782.841 1679.9 C791.448 1678.88 798.967 1682.95 804.915 1689.5 809.391 1695.21 811.784 1702.56 810.999 1709.78 L810.604 1712.07 
-                                810.548 1712.15 C810.436 1712.42 810.374 1712.71 810.374 1713.01 810.374 1714.23 811.367 1715.22 812.593 1715.22 813.206 1715.22 813.761 
-                                1714.97 814.162 1714.57 L814.585 1713.95 814.671 1713.97 C816.994 1704.41 814.795 1694.28 808.749 1686.68 803.13 1679.61 794.832 1675.53 
-                                786.126 1675.41Z M764.598 1657 L792.402 1657 C817.585 1657 838 1677.31 838 1702.36 L838 1723.92 C838 1748.97 817.585 1769.28 792.402 
-                                1769.28 L769.117 1769.28 748.795 1789.38 C748.115 1790.59 744.367 1789.88 744.637 1788.57 L745.011 1764.84 742.863 1763.81 C728.649 
-                                1756.13 719 1741.15 719 1723.92 L719 1702.36 C719 1677.31 739.415 1657 764.598 1657Z"
-                                fill="#9FA3A7" fill-rule="evenodd"/>
-                            </g>
-                        </svg>
-
-                        <svg id="whatsapp" viewBox="0 0 126 127" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" overflow="hidden">
-                            <defs>
-                                <clipPath id="whatsapp_clip">
-                                    <rect x="919" y="1660" width="126" height="127"/>
-                                </clipPath>
-                            </defs>
-
-                            <g clip-path="url(#whatsapp_clip)" transform="translate(-919 -1660)">
-                                <path d="M959.061 1688.74 C957.562 1688.7 955.97 1689.07 954.633 1689.58 949.262 1692.42 943.927 1701.11 945.11 1709.42 948.634 
-                                1724.18 973.931 1761.01 1007.79 1758.63 1017.7 1754.32 1020.77 1748.21 1020.16 1740.57 1013.69 1737.25 1008.25 1733.65 1001.29 
-                                1732.02 996.155 1734.48 998.338 1739.56 992.084 1741.54 981.817 1741.26 966.205 1724.47 964.474 1718.18 963.881 1716.14 968.836 
-                                1712.3 971.193 1708.83 969.62 1705.18 966.04 1692.85 962.932 1690.39 961.966 1689.24 960.56 1688.79 959.061 1688.74Z M982 1660 
-                                C1016.79 1660 1045 1688.43 1045 1723.5 1045 1758.57 1016.79 1787 982 1787 971.127 1787 960.897 1784.22 951.97 1779.34 L947.303 
-                                1776.48 923.532 1783.7 930.995 1760.67 929.759 1759 C922.966 1748.87 919 1736.65 919 1723.5 919 1688.43 947.206 1660 982 1660Z"
-                                fill="#9FA3A7" fill-rule="evenodd"/>
-                            </g>
-                        </svg>
-                    </div>
-                </div>
+        <div id="request_box">
+            <p class="text_head">Свяжитесь с нами</p>
+            <p id="phone">+7 (932) 484 - 74 - 36</p>
+            <div id="our_media">
+                <svg id = "telegram" viewBox="0 0 675 562" preserveAspectRatio="xMidYMid meet"  xmlns="http://www.w3.org/2000/svg" overflow="hidden">
+                    <defs>
+                        <clipPath id="telegram_clip"><rect x="349" y="602" width="675" height="562"/></clipPath>
+                    </defs>
+                    <g clip-path="url(#clip0)" transform="translate(-349 -602)">
+                        <path d="M901.474 714.262C913.749 695.018 889.558 700.733 882.712 707.245 855.338 726.753 559.586 910.178 525.683 928.724 458.163 
+                        908.542 389.411 891.867 363.031 877.221 336.651 862.574 352.953 848.092 367.403 840.845 432.054 815.002 767.385 686.25 972.185 
+                        605.894 982.318 603.88 1023.66 588.707 1024 636.108 986.997 807.774 954.252 981.264 912.99 1151.11 904.357 1160.24 899.398 1166.17 
+                        878.703 1163.25 819.656 1118.69 762.13 1084.31 710.803 1041.68 675.185 1070.99 625.093 1133.08 603.949 1129.59 604.285 1074.47 
+                        612.304 1028.66 613.122 973.054L901.474 714.262Z" 
+                        fill="#9FA3A7" fill-rule="evenodd"/>
+                    </g>
+                </svg>
+                <svg id="wechat" viewBox="0 0 129 113" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" overflow="hidden">
+                    <defs>
+                        <clipPath id="wechat_clip">
+                            <rect x="300" y="1667" width="129" height="113"/>
+                        </clipPath>
+                    </defs>
+                    <g clip-path="url(#wechat_clip)" transform="translate(-300 -1667)">
+                        <path d="M400.838 1725.57C397.505 1725.57 394.803 1728.29 394.803 1731.64 394.803 1735 397.505 1737.72 400.838 1737.72 404.17 
+                        1737.72 406.872 1735 406.872 1731.64 406.872 1728.29 404.17 1725.57 400.838 1725.57Z M376.779 1725.57C373.441 1725.57 370.735 
+                        1728.29 370.735 1731.64 370.735 1735 373.441 1737.72 376.779 1737.72 380.117 1737.72 382.822 1735 382.822 1731.64 382.822 1728.29 
+                        380.117 1725.57 376.779 1725.57Z M388.692 1707.61C410.954 1707.61 429 1722.14 429 1740.07 429 1749.03 424.488 1757.14 417.194 
+                        1763.01 L413.046 1765.77 420.583 1780 399.318 1771.34 L396.816 1771.86C394.192 1772.29 391.475 1772.52 388.692 1772.52 366.431 
+                        1772.52 348.384 1757.99 348.384 1740.07 348.384 1722.14 366.431 1707.61 388.692 1707.61Z M364.637 1684.92C361.34 1684.92 358.667 
+                        1687.64 358.667 1691 358.667 1694.35 361.34 1697.07 364.637 1697.07 367.935 1697.07 370.607 1694.35 370.607 1691 370.607 1687.64 
+                        367.935 1684.92 364.637 1684.92Z M332.339 1684.92C329.041 1684.92 326.368 1687.64 326.368 1691 326.368 1694.35 329.041 1697.07 
+                        332.339 1697.07 335.636 1697.07 338.309 1694.35 338.309 1691 338.309 1687.64 335.636 1684.92 332.339 1684.92Z M348.605 1667C372.093 
+                        1667 391.69 1680.8 396.222 1699.15 L396.304 1699.6 393.898 1699.29 C392.264 1699.15 390.606 1699.08 388.928 1699.08 362.085 1699.08 
+                        340.323 1717.11 340.323 1739.35 340.323 1740.74 340.408 1742.11 340.574 1743.47 L341.239 1747.07 341.203 1747.07 C338.789 1746.77 
+                        336.434 1746.31 334.151 1745.73 L329.746 1744.39 312.194 1751.54 318.813 1739.04 317.688 1738.34 C306.885 1730.95 300 1719.78 300 
+                        1707.27 300 1685.03 321.761 1667 348.605 1667Z"
+                        fill="#9FA3A7" fill-rule="evenodd"/>
+                    </g>
+                </svg>
+                <svg id="viber" viewBox="0 0 119 133" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" overflow="hidden">
+                    <defs>
+                        <clipPath id="viber_clip">
+                            <rect x="719" y="1657" width="119" height="133"/>
+                        </clipPath>
+                    </defs>
+                    <g clip-path="url(#viber_clip)" transform="translate(-719 -1657)">
+                        <path d="M784.437 1693.41 784.432 1693.51 784.201 1693.46 C782.976 1693.46 781.982 1694.39 781.982 1695.53 781.982 1696.67 782.976 
+                        1697.6 784.201 1697.6 L784.52 1697.54 786.197 1697.76 C787.86 1698.12 788.768 1698.79 790.5 1699.77 792.048 1701.31 793.02 1703.08 
+                        793.166 1706.2 L793.255 1706.21 793.394 1706.94 C793.708 1707.73 794.442 1708.29 795.298 1708.29 796.439 1708.29 797.364 1707.3 
+                        797.364 1706.08 L797.316 1705.83 797.402 1705.22 C797.462 1702.36 795.331 1698.93 793.465 1697.04 791.332 1694.87 788.073 1693.04 
+                        784.437 1693.41Z M784.873 1684.31 C783.989 1684.28 783.104 1684.31 782.223 1684.4 L782.232 1684.48 781.982 1684.43 C780.756 1684.43 
+                        779.763 1685.41 779.763 1686.63 779.763 1687.85 780.756 1688.84 781.982 1688.84 782.289 1688.84 782.58 1688.78 782.846 1688.67 L782.905 
+                        1688.63 784.923 1688.55 C789.997 1688.7 794.321 1691.16 797.977 1694.67 801.569 1698.67 802.563 1703.15 802.104 1708.17 L802.123 
+                        1708.17 802.098 1708.29 C802.098 1709.51 803.091 1710.5 804.317 1710.5 805.543 1710.5 806.536 1709.51 806.536 1708.29 L806.437 1707.8 
+                        806.672 1706.44 C807.081 1701.12 804.151 1695.31 801.052 1691.88 797.175 1687.58 791.06 1684.53 784.873 1684.31Z M754.05 1682.6 C749.041 
+                        1683.85 741.89 1692.34 741.474 1694.58 740.377 1705.24 746.059 1714.62 749.866 1720.69 757.218 1732.41 779.27 1752.09 794.124 1753.55
+                        803.401 1754.64 811.326 1742.33 811.343 1739.47 811.131 1735.53 799.439 1723.88 795.247 1723.07 790.086 1721.96 788.291 1728.77 784.814 
+                        1731.62 773.181 1731.81 765.988 1721.19 762.621 1712.7 761.311 1708.27 765.971 1705.93 768.564 1704.78 770.563 1703.32 771.158 1703.78 
+                        771.549 1697.75 768.675 1693.23 759.526 1681.26 754.05 1682.6Z M786.126 1675.41 C784.882 1675.39 783.63 1675.45 782.376 1675.6 L782.389 
+                        1675.72 781.982 1675.63 C780.756 1675.63 779.763 1676.62 779.763 1677.84 779.763 1679.06 780.756 1680.05 781.982 1680.05 L782.838 
+                        1679.88 782.841 1679.9 C791.448 1678.88 798.967 1682.95 804.915 1689.5 809.391 1695.21 811.784 1702.56 810.999 1709.78 L810.604 1712.07 
+                        810.548 1712.15 C810.436 1712.42 810.374 1712.71 810.374 1713.01 810.374 1714.23 811.367 1715.22 812.593 1715.22 813.206 1715.22 813.761 
+                        1714.97 814.162 1714.57 L814.585 1713.95 814.671 1713.97 C816.994 1704.41 814.795 1694.28 808.749 1686.68 803.13 1679.61 794.832 1675.53 
+                        786.126 1675.41Z M764.598 1657 L792.402 1657 C817.585 1657 838 1677.31 838 1702.36 L838 1723.92 C838 1748.97 817.585 1769.28 792.402 
+                        1769.28 L769.117 1769.28 748.795 1789.38 C748.115 1790.59 744.367 1789.88 744.637 1788.57 L745.011 1764.84 742.863 1763.81 C728.649 
+                        1756.13 719 1741.15 719 1723.92 L719 1702.36 C719 1677.31 739.415 1657 764.598 1657Z"
+                        fill="#9FA3A7" fill-rule="evenodd"/>
+                    </g>
+                </svg>
+                <svg id="whatsapp" viewBox="0 0 126 127" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" overflow="hidden">
+                    <defs>
+                        <clipPath id="whatsapp_clip">
+                            <rect x="919" y="1660" width="126" height="127"/>
+                        </clipPath>
+                    </defs>
+                    <g clip-path="url(#whatsapp_clip)" transform="translate(-919 -1660)">
+                        <path d="M959.061 1688.74 C957.562 1688.7 955.97 1689.07 954.633 1689.58 949.262 1692.42 943.927 1701.11 945.11 1709.42 948.634 
+                        1724.18 973.931 1761.01 1007.79 1758.63 1017.7 1754.32 1020.77 1748.21 1020.16 1740.57 1013.69 1737.25 1008.25 1733.65 1001.29 
+                        1732.02 996.155 1734.48 998.338 1739.56 992.084 1741.54 981.817 1741.26 966.205 1724.47 964.474 1718.18 963.881 1716.14 968.836 
+                        1712.3 971.193 1708.83 969.62 1705.18 966.04 1692.85 962.932 1690.39 961.966 1689.24 960.56 1688.79 959.061 1688.74Z M982 1660 
+                        C1016.79 1660 1045 1688.43 1045 1723.5 1045 1758.57 1016.79 1787 982 1787 971.127 1787 960.897 1784.22 951.97 1779.34 L947.303 
+                        1776.48 923.532 1783.7 930.995 1760.67 929.759 1759 C922.966 1748.87 919 1736.65 919 1723.5 919 1688.43 947.206 1660 982 1660Z"
+                        fill="#9FA3A7" fill-rule="evenodd"/>
+                    </g>
+                </svg>
             </div>
-            <div id="inner_shadow"></div>
-            <div id="request">
-                <div class="inner_content">
-                    <div class="row_top">
-                        <p class="text_head">Или оставьте заявку <br>мы на связи и скоро ответим</p>
-                        <button id="close" onclick="closeWindow()">X</button>
-                    </div>
-
-                    <div class="row_top" style="margin-top: 30px; height: 75px;"> 
-                        <div id='user_phone_box' class="user_data" style="width: 192px;">
-                            <p class="user_label">номер телефона</p>
-                            <input id="user_phone" class="user_input" type="tel" placeholder="+7 (___) ___ __ __">
-                        </div>
-                        <div class="user_data" style="width: 297px;">
-                            <p class="user_label">имя (по желанию)</p>
-                            <input id="user_name" class="user_input" maxlength="24">
-                        </div>
-                    </div>
-
-                    <button id="send_request" onclick="send()">отправить</button>
-
-                    <div id='agreement_box' class="row_top">
-                        <button id="agree" onclick="this.classList.toggle('active')"></button>
-                        <p id="agreement" lang="ru">
-                            Даю согласие на обработку персо&shy;нальных данных и принимаю политику конфиден&shy;циальности
-                        </p>
-                    </div>  
-                </div>
+            <p class="text_head">Или оставьте заявку <br>мы на связи и скоро ответим</p>
+                
+            <div id='user_phone_box' class="user_data">
+                <p class="user_label">номер телефона</p>
+                <input id="user_phone" class="user_input" type="tel" placeholder="+7 (___) ___ __ __">
             </div>
+            <div class="user_data">
+                <p class="user_label">имя (по желанию)</p>
+                <input id="user_name" class="user_input" maxlength="24">
+            </div>
+            <button id="send_request" onclick="send()">отправить</button>
+            <div id='agreement_box'>
+                <button id="agree" onclick="this.classList.toggle('active')"></button>
+                <p id="agreement" lang="ru">
+                    Даю согласие на обработку персо&shy;нальных данных и принимаю политику конфиден&shy;циальности
+                </p>
+            </div> 
+            <button id="close" onclick="closeWindow()">X</button>
+           
         </div>
 
         <div id="success_box">
@@ -252,7 +232,7 @@
             <div id="success_text">Отправляем заявку...</div>
         </div>
 
-        <div id="navigation" onclick="closeFilter()">
+        <div id="navigation">
             <svg id="home" class="side" viewBox="0 0 125 132" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" overflow="hidden"
                 onclick="document.location.href = 'index.html'">
                 <defs>
@@ -370,9 +350,13 @@
                 return result;
             });
         }
-        const el = document.getElementById('condition_info');
-        el.innerHTML = addSoftHyphens(el.innerText);
+        function get_wrap(element_id){
+            const el = document.getElementById(element_id);
+            el.innerHTML = addSoftHyphens(el.innerText);
 
+        }
+        get_wrap('condition_info');
+        get_wrap('agreement');
 
 
         const params = new URLSearchParams(window.location.search);
@@ -467,28 +451,38 @@
         });
 
 
-        const desktop = document.querySelector('.desktop');
-        const main_button = document.querySelector('.bottom_bar');
-        const shadow = document.getElementById('shadow2');
-        const box = document.getElementById('request_box');
+        const back_btn      = document.getElementById('back');
+        const content       = document.getElementById('content');
+        const request_box   = document.getElementById('request_box');
+        const photo_box     = document.getElementById('photo_box');
+        const send_btn      = document.getElementById('button_background');
+        
         function openWindow(){
-            desktop.style.opacity = 0;
-            shadow.style.opacity = 0;
-            main_button.style.transform = 'translateY(70px)';
-            box.style.transform = 'translateX(0)';
+            content.style.transform     = 'translateX(-100vw)';
+            back_btn.style.transform    = 'translateX(-100vw)';
+            photo_box.style.transform   = 'translateX(-100vw)';
+
+            content.style.opacity       = 0;
+            back_btn.style.opacity      = 0;
+            photo_box.style.opacity     = 0;
+            
+            send_btn.style.transform = 'translateY(7vh)';
+            request_box.style.transform = 'translateX(0)';
             document.body.style.overflow = "hidden";
         }
 
         function closeWindow(){
-            box.style.transform = 'translateX(-100vw)';
-            main_button.style.transform = 'translateY(0)';
+            content.style.transform     = 'translateX(0)';
+            back_btn.style.transform    = 'translateX(0)';
+            photo_box.style.transform   = 'translateX(0)';
 
-            setTimeout(() => {
-                
-                desktop.style.opacity = 1;
-                shadow.style.opacity = 1;
-                document.body.style.overflow = "auto";
-            }, 280);
+            content.style.opacity       = 1;
+            back_btn.style.opacity      = 1;
+            photo_box.style.opacity     = 1;
+            
+            send_btn.style.transform = 'translateY(0)';
+            request_box.style.transform = 'translateX(100vw)';
+            document.body.style.overflow = "auto";
         }
 
         const input_phone = document.getElementById("user_phone");
@@ -521,7 +515,8 @@
             if(isPhoneComplete()){
                 if(document.getElementById('agree').classList.contains('active')){
                     localStorage.setItem("garage_phone", input_phone.value);
-                    box.style.transform = 'translateX(-100vw)';
+                    request_box.style.transform = 'translateX(100vw)';
+                    
 
                     document.getElementById("success_box").classList.add("active");
 
@@ -531,14 +526,18 @@
 
                         setTimeout(() => {
                             document.getElementById("success_box").classList.remove("active");
-                            main_button.style.transform = 'translateY(0)';
-                            desktop.style.opacity = 1;
-                            shadow.style.opacity = 1;
                             document.body.style.overflow = "auto";
-
+                            content.style.transform      = 'translateX(0)';
+                            back_btn.style.transform     = 'translateX(0)';
+                            photo_box.style.transform    = 'translateX(0)';
+                            content.style.opacity        = 1;
+                            back_btn.style.opacity       = 1;
+                            photo_box.style.opacity      = 1;
+                            send_btn.style.transform     = 'translateY(0)';
+                
                             setTimeout(() => {
-                            document.querySelector(".spinner").style.display = "block";
-                            document.getElementById("success_text").innerText = "Отправляем заявку...";
+                                document.querySelector(".spinner").style.display = "block";
+                                document.getElementById("success_text").innerText = "Отправляем заявку...";
                             }, 800);
                         }, 700);
 
