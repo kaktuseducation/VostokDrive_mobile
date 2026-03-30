@@ -55,14 +55,14 @@
     position: fixed;
     z-index: 30;
     left: -150vw;
-    height: 84vh;
-    bottom: 10vh;
+    height: 87dvh;
+    bottom: 7vh;
     transition: all 1s ease;
 }
 
 #filter_box{
     width: 100vw;
-    height: 84vh;
+    height: 100%;
     background-color: white;
     border-radius: 6vw;
     padding-left: 30vw;
@@ -76,7 +76,7 @@
 
 #filter_shadow{
     width: 60vw;
-    height: 84vh;
+    height: 100%;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -460,7 +460,7 @@
     margin: 0;
 }
 
-.rub{
+.rub_filter{
     position: absolute;
     right: 3vw;
     top: 50%;
