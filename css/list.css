@@ -38,7 +38,7 @@
 .content_name{
     width: calc(100% - 6vw);
     border-bottom: solid 1px #5E6266;
-    font-family: Carlito;
+    font-family: 'Carlito';
     font-size: 4vw;
     line-height: 1.1;
     letter-spacing: 1pt;
@@ -84,11 +84,11 @@
 
 .rub{
     color: #EC526C;
-    font-family: Carlito;
+    font-family: 'Carlito';
     font-size: 3.9vw;
     font-weight: bold;
     margin-left: 2vw;
-    margin-top: 2vw;
+    margin-top: 1.5vw;
 }
 
 
