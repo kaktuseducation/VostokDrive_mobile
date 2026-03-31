@@ -479,7 +479,7 @@
     width: 80vw;
     position: fixed;
     top: 12vh;
-    height: 70vh;
+    height: 70dvh;
     z-index: 70;
     background-color: white;
     border-radius: 4vw;
@@ -606,7 +606,7 @@
 
 #agree.active{
     background-color:#EC526C;
-    border: solid 2px #EC526C; 
+    border: solid 0.7vw #EC526C; 
 }
 
 #agreement{
