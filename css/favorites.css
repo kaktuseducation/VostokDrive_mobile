@@ -1,60 +1,62 @@
-.content_row{
-    width: 655px;
-    height: 300px;
-    display: flex;
-    flex-direction: row;
-    
-    margin-top: 50px;
-    gap: 20px;
+#manage{
+    position: fixed;
+    top: -10vh;
+    height: calc(24vh + 5vw);
+    width: 100vw;
+    background: #E5E6E7;
+    z-index: 15;
+    border-radius: 4vw;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
-#manage{
-    display: block;
-    position: absolute;
-    top: 203px;
-    bottom: 0;
-    right: calc(50% - 430px);
-    height: calc(100% - 263px);
-    width: 200px;
-    background: #E5E6E7;
-    position: fixed;
-    z-index: 15;
-    border-radius: 30px;
-    padding: 15px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    opacity: 1;
-    transition: all 0.6s ease;
+#content{
+    margin-top: calc(20vh + 5vw);;
 }
 
 #manage_content{
-    width: 100%;
+    position: absolute;
+    top: calc(10vh + 5vw);
+    left: 10vw;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-#manage_head{
-    width: 100%;
-    height: 90px;
-    font-family: Calibri;
-    font-size: 18px;
-    color: #9FA3A7;
+#head_top{
+    width: 50%;
+    color: #6E7378;
+    font-family: 'Carlito';
+    font-size: 4.5vw;
+    line-height: 1.2;
+    font-weight: 600;
+    margin: 0;
+    hyphens: auto;
 }
 
-.head_top{
-    color: #5E6266;
+#right_half{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 11vh;
 }
+
 
 #phone_number{
     width: 100%;
-    height: 35px;
-    border-radius: 30px;
+    height: 5vh;
+    border-radius: 4vw;
     box-sizing: border-box;
+    font-family: 'Carlito';
 
     border: none;
     background: white;
-    padding-left: 12px;
-    font-family: Calibri;
-    font-size: 18px;
+    padding-left: 2.5vw;
+    
+    font-size: 4vw;
     font-weight: bold;
     color: #9FA3A7;
 }
@@ -69,72 +71,52 @@
 
 #confirm{
     width: 100%;
-    border-radius: 30px;
-    margin-top: 28px;
-    margin-bottom: 28px;
-    height: 35px;
+    border-radius: 4vw;
+    height: 5vh;
     color: white;
     background-color: #EC526C;
-
-    border-radius: 50px;
-    font-family: Calibri;
-    font-weight: 700;
-    font-size: 21px;
-    letter-spacing: 1.33px;
+    font-family: 'Carlito';
+    font-weight: 600;
+    font-size: 4.5vw;
+    letter-spacing: 1.5pt;
     border: none;
-    transition: all 0.4s ease;
-}
-
-#confirm:hover{
-    filter: saturate(150%) brightness(90%);
 }
 
 #agreement{
-    width: 100%;
+    position: absolute;
+    background-color: blue;
+    bottom: 5vw;
+    left: 10vw;
+    width: 80vw;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    gap: 3vw;
 }
 
 #agree{
-    width: 20px;
-    height: 20px;
+    width: 5vw;
+    height: 5vw;
     background-color: white;
-    border-radius: 6px;
-    border: solid 2px #9FA3A7;
+    border-radius: 2vw;
+    border: solid 0.7vw #9FA3A7;
     transition: all 0.4s ease;
-}
-
-#agree:hover{
-    border: solid 2px #EC526C; 
 }
 
 #agree.active{
     background-color:#EC526C;
-    border: solid 2px #EC526C; 
+    border: solid 0.7vw #EC526C; 
 }
 
-#agreement p{
-    width: 143px;
-    margin-left: 7px;
-    margin-top: 0;
-    margin-bottom: 0;
+#agree_text{
+    flex: 1;
+    margin: 0;
     hyphens: auto;
-    overflow-wrap: normal;
-    padding: 0;
-    white-space: normal;
     color: #9FA3A7;
-    font-family: Calibri, sans-serif;
-    font-size: 17px;
-    line-height: 18px;
+    font-family: 'Carlito';
+    font-size: 4vw;
 }
 
-body:has(#content .content_item:hover) #manage{
-    opacity: 0.4;
-}
-
-body:has(#manage:hover) #content{
-    opacity: 0.4;
-}
 
 .shake{
     animation: shake 0.3s ease;
