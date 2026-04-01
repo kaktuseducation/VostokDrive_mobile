@@ -630,49 +630,53 @@
             update_content();
         }
 
-        
+        const content = document.getElementById("content");
         function update_content(){
-            const content = document.getElementById("content");
-            content.innerHTML = "";
-            for (let i = 0; i < FILTERED.length; i += 2) {
-                const row = document.createElement("div");
-                row.classList.add("content_row");
-                for (let j = i; j < i + 2 && j < FILTERED.length; j++) {
-                    const item = document.createElement("div");
-                    item.classList.add("content_item");
-                    const photo = document.createElement("div");
-                    photo.classList.add("content_photo");
-                        const photo_bg = document.createElement("div");
-                        photo_bg.classList.add("content_photo_bg");
-                        photo_bg.style.backgroundImage = 'url(media/' + FILTERED[j].image + '.png)';
-                        photo.appendChild(photo_bg);
-                        const id = FILTERED[j].id;
-                        const car_price = document.createElement("div");
-                        car_price.classList.add("content_price");
-                            const price = document.createElement("p");
-                            price.classList.add("price");
-                            price.textContent = FILTERED[j].price.toLocaleString('ru-RU');
-                            car_price.appendChild(price);
-                            const rub = document.createElement("span");
-                            rub.classList.add("rub");
-                            rub.textContent = '₽';
-                            car_price.appendChild(rub);
-                        photo.appendChild(car_price);
-                    item.appendChild(photo);
-                    const name = document.createElement("div");
-                    name.classList.add("content_name");
-                    name.innerHTML = "<b>" + FILTERED[j].brand.toUpperCase() + "</b><br>" + FILTERED[j].name;
-                    item.appendChild(name);
-                    const other = document.createElement("div");
-                    other.classList.add("content_other");
-                    other.textContent = FILTERED[j].year + ' г   ' + FILTERED[j].distance.toLocaleString('ru-RU')+ ' км';
-                    item.appendChild(other);
-                    item.addEventListener("click", () => {
-                        window.location.href = "car.html?id=" + id;
-                    });
-                    row.appendChild(item);
+             if (FILTERED.length == 0){
+                content.innerHTML = "машины не найдены, попробуйте поменять значение фильтров";
+            }
+            else{
+                content.innerHTML = "";
+                for (let i = 0; i < FILTERED.length; i += 2) {
+                    const row = document.createElement("div");
+                    row.classList.add("content_row");
+                    for (let j = i; j < i + 2 && j < FILTERED.length; j++) {
+                        const item = document.createElement("div");
+                        item.classList.add("content_item");
+                        const photo = document.createElement("div");
+                        photo.classList.add("content_photo");
+                            const photo_bg = document.createElement("div");
+                            photo_bg.classList.add("content_photo_bg");
+                            photo_bg.style.backgroundImage = 'url(media/' + FILTERED[j].image + '.png)';
+                            photo.appendChild(photo_bg);
+                            const id = FILTERED[j].id;
+                            const car_price = document.createElement("div");
+                            car_price.classList.add("content_price");
+                                const price = document.createElement("p");
+                                price.classList.add("price");
+                                price.textContent = FILTERED[j].price.toLocaleString('ru-RU');
+                                car_price.appendChild(price);
+                                const rub = document.createElement("span");
+                                rub.classList.add("rub");
+                                rub.textContent = '₽';
+                                car_price.appendChild(rub);
+                            photo.appendChild(car_price);
+                        item.appendChild(photo);
+                        const name = document.createElement("div");
+                        name.classList.add("content_name");
+                        name.innerHTML = "<b>" + FILTERED[j].brand.toUpperCase() + "</b><br>" + FILTERED[j].name;
+                        item.appendChild(name);
+                        const other = document.createElement("div");
+                        other.classList.add("content_other");
+                        other.textContent = FILTERED[j].year + ' г   ' + FILTERED[j].distance.toLocaleString('ru-RU')+ ' км';
+                        item.appendChild(other);
+                        item.addEventListener("click", () => {
+                            window.location.href = "car.html?id=" + id;
+                        });
+                        row.appendChild(item);
+                    }
+                    content.appendChild(row);
                 }
-                content.appendChild(row);
             }
         }
         update_content();
