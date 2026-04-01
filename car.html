@@ -49,17 +49,7 @@
             </div>
 
             <div id="info">
-                <div class="param">
-                    <div class="picture" style="background-image: url('media/ico/people_light.svg');"></div>
-                    <div class="info_block">
-                        <span class="label">руль</span>
-                        <span class="value">правый</span>
-                    </div>
-                    <div class="info_block">
-                        <span class="label">мест</span>
-                        <span class="value">5</span>
-                    </div>
-                </div>
+
                 <div class="param">
                     <div class="picture" style="background-image: url('media/ico/rudder_light.svg');"></div>
                     <div class="info_block">
@@ -71,22 +61,35 @@
                         <span class="value">механика</span>
                     </div>
                 </div>
+
+                <div class="param">
+                    <div class="picture" style="background-image: url('media/ico/people_light.svg');"></div>
+                    <div class="info_block">
+                        <span class="label">vin-номер</span>
+                        <span class="value">076343</span>
+                    </div>
+                    <div class="info_block">
+                        <span class="label">мест</span>
+                        <span class="value">5</span>
+                    </div>
+                </div>
+                
                 <div class="param" style="border: none">
                     <div class="picture" style="background-image: url('media/ico/engine_light.svg');"></div>
                     <div class="info_block">
                         <span class="label">двигатель</span>
-                        <span class="value">гибрид 5л, 110лс</span>
+                        <span class="value">1.4T, 110лс</span>
                     </div>
                 </div>
                 <div id="bottom_info">
                     <div class="param_half">
                         <p class="param_value">30 780 км</p>
-                        <p class="param_type">пробегa</p>
+                        <p class="param_type">пробег</p>
                     </div>
                     <div id="split"></div>
                     <div class="param_half">
-                        <p class="param_value">2022 год</p>
-                        <p class="param_type">выпуска</p>
+                        <p class="param_value">16.11.2022</p>
+                        <p class="param_type">выпуск</p>
                     </div> 
                 </div>
                 <div id="background_svg"></div>
@@ -95,11 +98,11 @@
             <div id="condition">
                 <p>Состояние</p>
                 <div id="condition_info" lang="ru">
-                    оригинальная аводская краска
-                    количество ключей: 2
-                    готов к выдаче в любое время
-                    страховка до
-                    полностью оригинальный кузов и лакокрасочное покрытие, все винты без следов разборки, салон без износа, состояние почти нового автомобиля
+                    оригинальная заводская краска<br>
+                    количество ключей: 2<br>
+                    <br>
+                    <b>готов к выдаче в любое время</b><br>
+                    страховка до января 2027<br>
                 </div>
             </div>
             <div id="details"></div>
@@ -332,7 +335,7 @@
         const slider = document.getElementById('slider');
         
         
-        get_wrap('condition_info');
+        // get_wrap('condition_info');
         get_wrap('agreement');
 
 
