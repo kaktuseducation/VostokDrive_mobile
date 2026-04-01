@@ -174,9 +174,11 @@
     font-family: 'Carlito';
     font-size: 6vw;
     letter-spacing: 1.5pt;
+    line-height: 0.95;
     white-space: normal;
     overflow-wrap: break-word;
     hyphens: auto;
+    margin-top: 1vw;
 }
 
 
@@ -191,7 +193,7 @@
 }
 
 .param{
-    height: 8vh;
+    height: 8.5vh;
     width: 100%;
     background-color: #E5E6E7;
     overflow: hidden;
@@ -223,7 +225,7 @@
 .label{
     color: #7B8085; 
     position: absolute;
-    top: 1vh;
+    top: 1.2vh;
     font-family: 'Carlito';
     font-size: 4.5vw;
     letter-spacing: 0.5pt;
@@ -235,7 +237,7 @@
     color: #152430;
     font-weight: 600;
     position: absolute; 
-    top: 3.5vh; 
+    top: 4.1vh; 
     white-space: nowrap;
     letter-spacing: 0.5pt;
     
