@@ -67,3 +67,41 @@ video{
     height: 4vh;
     max-width: 9vw;
 }
+
+@media (orientation: landscape) {
+    video{
+        position: fixed;
+        width: 35vw;
+        max-height: 50vh;
+        position: fixed;
+        top: 35vh;
+        right: 10vw;
+    }
+
+    #under_video{
+        font-size: 5vh;
+        letter-spacing: 1pt;
+        color: #9FA3A7;
+        position: fixed;
+        width: 40vw;
+        left: 10vw;
+        top: 35vh;
+        margin: 0;
+    }
+
+    #content_container{
+        width: 40vw;
+        position: fixed;
+        bottom: 30vh;
+        left: 10vw;
+        height: 10vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #description p{
+        font-size: 5vh;
+    }
+
+}
