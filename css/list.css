@@ -3,6 +3,10 @@
     width: 80vw;
     min-height: 30vh;
     padding-bottom: 13vh;
+    color: white;
+    font-family: 'Carlito';
+    font-size: 5vw;
+    line-height: 1.1;
 }
 
 .content_row{
