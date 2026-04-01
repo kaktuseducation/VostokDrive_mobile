@@ -18,13 +18,8 @@
                 <button id="confirm" onclick="log_in()">сохранить</button>
                 </div>
             </div>
-            <!-- <div id="agreement">
-                <button id="agree" onclick="this.classList.toggle('active')"></button>
-                <p id="agree_text" lang="ru">
-                    Даю согласие на обработку персо&shy;нальных данных и принимаю политику конфиден&shy;циальности
-                </p>
-            </div> -->
         </div>
+        <div id="shadow_top"></div>
         <div id="content"></div>
         <div id="shadow_bottom"></div>
 
@@ -124,73 +119,72 @@
     <script src="https://cdn.jsdelivr.net/npm/inputmask/dist/inputmask.min.js"></script>
 
     <script>
-
-        get_wrap('head_top');
-        // get_wrap('agree_text');
-
         let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
         const content = document.getElementById("content");
 
 
         function update_content(){
-            content.innerHTML = "";
-            for (let i = 0; i < favorites.length; i += 2) {
-                const row = document.createElement("div");
-                row.classList.add("content_row");
-                for (let j = i; j < i + 2 && j < favorites.length; j++) {
-                    const car_id = favorites[j];
-                    const car = cars.find(car => car.id === car_id);
-
-                    const item = document.createElement("div");
-                    item.classList.add("content_item");
-                    const photo = document.createElement("div");
-                    photo.classList.add("content_photo");
-                        const photo_bg = document.createElement("div");
-                        photo_bg.classList.add("content_photo_bg");
-                        photo_bg.style.backgroundImage = 'url(media/' + car.image + '.png)';
-                        photo.appendChild(photo_bg);
-                        const id = car.id;
-                        const car_price = document.createElement("div");
-                        car_price.classList.add("content_price");
-                            const price = document.createElement("p");
-                            price.classList.add("price");
-                            price.textContent = car.price.toLocaleString('ru-RU');
-                            car_price.appendChild(price);
-                            const rub = document.createElement("span");
-                            rub.classList.add("rub");
-                            rub.textContent = '₽';
-                            car_price.appendChild(rub);
-                        photo.appendChild(car_price);
-                    item.appendChild(photo);
-                    const name = document.createElement("div");
-                    name.classList.add("content_name");
-                    name.innerHTML = "<b>" + car.brand.toUpperCase() + "</b><br>" + car.name;
-                    item.appendChild(name);
-                    const other = document.createElement("div");
-                    other.classList.add("content_other");
-                    other.textContent = car.year + ' г   ' + car.distance.toLocaleString('ru-RU')+ ' км';
-                    item.appendChild(other);
-                    item.addEventListener("click", () => {
-                        window.location.href = "car.html?id=" + id;
-                    });
-                    row.appendChild(item);
-                }
-                content.appendChild(row);
+            
+            if (favorites.length == 0){
+                content.innerHTML = "избранные машины не найдены";
             }
+            else{
+                content.innerHTML = "";
+                for (let i = 0; i < favorites.length; i += 2) {
+                    const row = document.createElement("div");
+                    row.classList.add("content_row");
+                    for (let j = i; j < i + 2 && j < favorites.length; j++) {
+                        const car_id = favorites[j];
+                        const car = cars.find(car => car.id === car_id);
+
+                        const item = document.createElement("div");
+                        item.classList.add("content_item");
+                        const photo = document.createElement("div");
+                        photo.classList.add("content_photo");
+                            const photo_bg = document.createElement("div");
+                            photo_bg.classList.add("content_photo_bg");
+                            photo_bg.style.backgroundImage = 'url(media/' + car.image + '.png)';
+                            photo.appendChild(photo_bg);
+                            const id = car.id;
+                            const car_price = document.createElement("div");
+                            car_price.classList.add("content_price");
+                                const price = document.createElement("p");
+                                price.classList.add("price");
+                                price.textContent = car.price.toLocaleString('ru-RU');
+                                car_price.appendChild(price);
+                                const rub = document.createElement("span");
+                                rub.classList.add("rub");
+                                rub.textContent = '₽';
+                                car_price.appendChild(rub);
+                            photo.appendChild(car_price);
+                        item.appendChild(photo);
+                        const name = document.createElement("div");
+                        name.classList.add("content_name");
+                        name.innerHTML = "<b>" + car.brand.toUpperCase() + "</b><br>" + car.name;
+                        item.appendChild(name);
+                        const other = document.createElement("div");
+                        other.classList.add("content_other");
+                        other.textContent = car.year + ' г   ' + car.distance.toLocaleString('ru-RU')+ ' км';
+                        item.appendChild(other);
+                        item.addEventListener("click", () => {
+                            window.location.href = "car.html?id=" + id;
+                        });
+                        row.appendChild(item);
+                    }
+                    content.appendChild(row);
+                }
+            }
+            
         }
         update_content();
         
         Inputmask("+7 (999) 999 99 99").mask("#phone_number");
 
         function garage(phone){
-            const label = document.getElementById("manage_head");
+            const label = document.getElementById("head_top");
             label.innerHTML = `
-                <span class="head_top">
                     Это гараж номера<br>
                     <b>${phone}</b>
-                </span>
-                <br><br>
-                Сменить номер
             `;
         }
 
@@ -203,9 +197,12 @@
         if (phone) {
             garage(formatPhone(phone));
         }
+        else{
+            get_wrap('head_top');
+        }
 
         const input_phone = document.getElementById("phone_number");
-
+        
         function isPhoneComplete(){
             const phone = input_phone.value;
             const digits = phone.replace(/\D/g, "");
@@ -222,25 +219,16 @@
 
         function log_in(){
             if(isPhoneComplete()){
-                if(document.getElementById('agree').classList.contains('active')){
-                    const phone = input_phone.value;
-                    input_phone.value = '';
-                    document.getElementById('agree').click();
-                    const digits = phone.replace(/\D/g, "");
-                    localStorage.setItem("garage_phone", digits);
-                    garage(phone);
-                }
-                else{
-                    shake('agreement');
-                }
+                const phone = input_phone.value;
+                input_phone.value = '';
+                const digits = phone.replace(/\D/g, "");
+                localStorage.setItem("garage_phone", digits);
+                garage(phone);
             }
             else{
                 shake('phone_number');
             }
             
         }
-
-
-       
     </script>
 </html>
